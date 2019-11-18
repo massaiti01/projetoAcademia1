@@ -36,12 +36,13 @@ public class AlunoDAOImpl implements GenericDAO{
     public Boolean cadastrar(Object object) {
         Aluno aluno = (Aluno) object;
         PreparedStatement stmt = null;
-        String sql = "insert into aluno(telefone_emergencia,id_pessoa) values(?,?);";
+        String sql = "insert into aluno(telefone_emergencia,id_academia,id_pessoa) values(?,?,?);";
 
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, aluno.getTelefoneEmergencia());
-            stmt.setInt(2, new PessoaDAOImpl().cadastrarP(aluno));
+            stmt.setInt(2, aluno.getAcademia().getIdAcademia());
+            stmt.setInt(3, new PessoaDAOImpl().cadastrarP(aluno));
             stmt.execute();
             return true;
         } catch (Exception ex) {

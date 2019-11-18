@@ -55,9 +55,9 @@ public class LogarPessoa extends HttpServlet {
                         if (pessoa.getTipoPessoa().equalsIgnoreCase("aca")) {
                             request.getRequestDispatcher("DadosAcademia?idAcademia="+pessoa.getIdPessoa()).forward(request, response);
                         } else if (pessoa.getTipoPessoa().equalsIgnoreCase("alu")) {
-                            request.getRequestDispatcher("DadosAluno?").forward(request, response);
+                            request.getRequestDispatcher("DadosAluno?idAluno="+pessoa.getIdPessoa()).forward(request, response);
                         }else if (pessoa.getTipoPessoa().equalsIgnoreCase("per")) {
-                            request.getRequestDispatcher("DadosPersonal?").forward(request, response);
+                            request.getRequestDispatcher("DadosPersonal?idPersonal="+pessoa.getIdPessoa()).forward(request, response);
                         } else {
                             response.sendRedirect("pessoa/salvar.jsp");
                         }

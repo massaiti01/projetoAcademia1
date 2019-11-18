@@ -66,7 +66,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("  <div class=\"container\">\n");
       out.write("    <div class=\"card card-login mx-auto mt-5\">\n");
-      out.write("         <div class=\"logo\">\n");
+      out.write("         <div class=\"logo text-center\">\n");
       out.write("                <a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/index.jsp\"><img src=\"");

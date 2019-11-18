@@ -5,10 +5,7 @@
  */
 package br.com.projetoAcademia.controller;
 
-import br.com.projetoAcademia.dao.AlunoDAOImpl;
-import br.com.projetoAcademia.dao.GenericDAO;
-import br.com.projetoAcademia.model.Academia;
-import br.com.projetoAcademia.model.Aluno;
+import br.com.projetoAcademia.dao.PersonalDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ERICMASSAITIUEMURA
  */
-@WebServlet(name = "SalvarAluno", urlPatterns = {"/SalvarAluno"})
-public class SalvarAluno extends HttpServlet {
+@WebServlet(name = "DadosPersonal", urlPatterns = {"/DadosPersonal"})
+public class DadosPersonal extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,49 +32,17 @@ public class SalvarAluno extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String mensagem = null;
-        Aluno aluno = new Aluno();
-        Academia academia = new Academia();
-        academia.setIdAcademia(Integer.parseInt("1"));
-        aluno.setAcademia(academia);
-        aluno.setNomePessoa(request.getParameter("nomePessoa"));
-        aluno.setCpfAluno(request.getParameter("cpfAluno"));
-        aluno.setTelefonePessoa(request.getParameter("telefonePessoa"));
-        aluno.setTelefoneEmergencia(request.getParameter("telefoneEmergencia"));
-        aluno.setLoginPessoa(request.getParameter("loginPessoa"));
-        aluno.setSenhaPessoa(request.getParameter("senhaPessoa"));
         
-        aluno.setTipoPessoa("ALU");
-
-        
-        try (PrintWriter out = response.getWriter()) {
-            GenericDAO dao = new AlunoDAOImpl();
-            if (request.getParameter("idPessoa").equals("")) {
-                if (dao.cadastrar(aluno)) {
-                    mensagem = "Aluno cadastrado com sucesso!";
-                } else {
-                    mensagem = "Problemas ao cadastrar Aluno!";
-                }
-                 request.setAttribute("mensagem", mensagem);
-            request.getRequestDispatcher("aluno/salvar.jsp").forward(request, response);
-            } else {
-                aluno.setIdPessoa(Integer.parseInt(request.getParameter("idPessoa")));
-                if(dao.alterar(aluno)){
-                    mensagem="Aluno alterado com sucesso!";
-                }else{
-                    mensagem="Problemas ao alterar Aluno!";
-                }
-             request.setAttribute("mensagem", mensagem);
-            request.getRequestDispatcher("ListarAluno").forward(request, response);
-            }
-           
-        }catch(Exception ex){
-            System.out.println("Problemas ao salvar Aluno! Erro:"+ex.getMessage());
-            ex.printStackTrace();
+        int idPersonal = Integer.parseInt(request.getParameter("idPersonal"));
+        try {
+            PersonalDAOImpl dao = new PersonalDAOImpl();            
+            
+            request.setAttribute("personal", dao.carregar(idPersonal));
+            request.getRequestDispatcher("personal/perfilpersonal.jsp").forward(request, response);
+        } catch (Exception e) {
+            System.out.println("Problemas no servlet ao DADOS Personal !! Erro: " + e.getMessage());
         }
-        }
-    
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
