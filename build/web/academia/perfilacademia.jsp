@@ -4,6 +4,7 @@
     Author     : ERICMASSAITIUEMURA
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,13 @@
         <title>JSP Page</title>
     </head>
     <body>
+    <c:choose> 
+        <c:when test="${pessoa.tipoPessoa eq 'ACA'}">
         <h1>Hello World!</h1>
+        </c:when>
+<c:otherwise>
+    <jsp:forward page="../login/login.jsp"></jsp:forward>
+</c:otherwise>
+</c:choose>
     </body>
 </html>

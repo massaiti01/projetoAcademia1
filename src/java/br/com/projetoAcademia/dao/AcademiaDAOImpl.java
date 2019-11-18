@@ -9,6 +9,8 @@ import br.com.projetoAcademia.model.Academia;
 import br.com.projetoAcademia.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -66,7 +68,39 @@ public class AcademiaDAOImpl implements GenericDAO{
 
     @Override
     public Object carregar(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Academia academia = null;
+
+        String sql = "select * from academia a inner join pessoa p on p.id_pessoa = a.id_pessoa where p.id_pessoa = ?";
+                
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                academia = new Academia();
+                academia.setIdAcademia(rs.getInt("id_academia"));
+                academia.setCnpjAcademia(rs.getString("cnpj_academia"));
+                academia.setNomePessoa(rs.getString("nome_pessoa"));
+                academia.setStatusAcademia(rs.getString("status_academia"));
+                academia.setTipoPessoa(rs.getString("tipo_pessoa"));
+                academia.setTelefonePessoa(rs.getString("telefone_pessoa"));
+                academia.setLoginPessoa(rs.getString("login_pessoa"));
+                academia.setSenhaPessoa(rs.getString("senha_pessoa"));
+                academia.setIdAcademia(rs.getInt("id_pessoa"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao carregar Aluno! Erro: " + ex.getMessage());
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+            }
+        }
+        return academia;
     }
 
     @Override

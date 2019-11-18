@@ -10,6 +10,7 @@ import br.com.projetoAcademia.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -118,6 +119,40 @@ public class PessoaDAOImpl implements GenericDAO{
     @Override
     public Boolean cadastrar(Object object) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public Pessoa logarPessoa(String login, String senha) throws SQLException {
+
+        Pessoa pessoa = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "select * from pessoa where login_pessoa=? and senha_pessoa = md5(?)";
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, login);
+            stmt.setString(2, senha);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                pessoa = new Pessoa();
+                pessoa.setIdPessoa(rs.getInt("id_pessoa"));
+                pessoa.setLoginPessoa(rs.getString("login_pessoa"));
+                pessoa.setNomePessoa(rs.getString("nome_pessoa"));
+                pessoa.setTipoPessoa(rs.getString("tipo_pessoa"));
+                pessoa.setTelefonePessoa(rs.getString("telefone_pessoa"));
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao Logar ! Erro:" + ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro:" + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        return pessoa;
     }
     
 }
