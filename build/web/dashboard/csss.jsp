@@ -14,6 +14,7 @@
   <link href="${pageContext.request.contextPath}/view/css/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/view/css/vendor/sb-admin.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/view/css/alterado.css" rel="stylesheet" />
     </head>
     <body>
     </body>

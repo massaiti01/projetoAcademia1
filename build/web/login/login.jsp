@@ -26,6 +26,9 @@
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
+         <div class="logo text-center">
+                <a href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/view/assets/img/LOGO_1.png" id="logotipo" alt="Logo Data projects"/><span id="logotipoletra">Data</span> <span id="logotipoletra2">Projects</span></a>
+            </div>
       <div class="card-header">Acessar Sistema</div>
       <div class="card-body">
         <form method="POST" action="${pageContext.request.contextPath}/LogarPessoa">
