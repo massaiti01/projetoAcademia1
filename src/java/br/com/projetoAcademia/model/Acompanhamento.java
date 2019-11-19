@@ -13,8 +13,6 @@ import java.util.Date;
  */
 public class Acompanhamento {
     private Integer idAcompanhamento;
-    private Double imc;
-    private Double taxaGordura;
     private Double pernaD;
     private Double pernaE;
     private Double panturrilhaD;
@@ -32,14 +30,13 @@ public class Acompanhamento {
     private Aluno aluno;
     private Personal personal;
 
-    public Personal getPersonal() {
-        return personal;
+    public Integer getIdAcompanhamento() {
+        return idAcompanhamento;
     }
 
-    public void setPersonal(Personal personal) {
-        this.personal = personal;
+    public void setIdAcompanhamento(Integer idAcompanhamento) {
+        this.idAcompanhamento = idAcompanhamento;
     }
-    
 
     public Double getPernaD() {
         return pernaD;
@@ -144,31 +141,6 @@ public class Acompanhamento {
     public void setOmbro(Double Ombro) {
         this.Ombro = Ombro;
     }
-    
-
-    public Integer getIdAcompanhamento() {
-        return idAcompanhamento;
-    }
-
-    public void setIdAcompanhamento(Integer idAcompanhamento) {
-        this.idAcompanhamento = idAcompanhamento;
-    }
-
-    public Double getImc() {
-        return imc;
-    }
-
-    public void setImc(Double imc) {
-        this.imc = imc;
-    }
-
-    public Double getTaxaGordura() {
-        return taxaGordura;
-    }
-
-    public void setTaxaGordura(Double taxaGordura) {
-        this.taxaGordura = taxaGordura;
-    }
 
     public Date getData() {
         return data;
@@ -186,4 +158,13 @@ public class Acompanhamento {
         this.aluno = aluno;
     }
 
+    public Personal getPersonal() {
+        return personal;
+    }
+
+    public void setPersonal(Personal personal) {
+        this.personal = personal;
+    }
+
+    
 }

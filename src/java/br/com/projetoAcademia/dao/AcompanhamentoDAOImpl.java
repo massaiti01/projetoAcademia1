@@ -39,28 +39,26 @@ public class AcompanhamentoDAOImpl implements GenericDAO {
         PreparedStatement stmt = null;
         String sql = "insert into acompanhamento(id_aluno,id_personal,data_acompanhamento,imc_aluno,taxa_gordura_aluno,ombro_aluno,peitoral_aluno"
                 + "braco_d_aluno,braco_e_aluno,antebraco_d_aluno,antebraco_e_aluno,cintura_aluno,gluteo_aluno,quadril_aluno,"
-                + "perna_d_aluno,perna_e_aluno,panturrilha_d_aluno,panturrilha_e_aluno) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                + "perna_d_aluno,perna_e_aluno,panturrilha_d_aluno,panturrilha_e_aluno) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, medidas.getAluno().getIdPessoa());
             stmt.setInt(2, medidas.getPersonal().getIdPessoa());
             stmt.setDate(3, (java.sql.Date) medidas.getData());
-            stmt.setDouble(4,medidas.getImc());
-            stmt.setDouble(5,medidas.getTaxaGordura());
-            stmt.setDouble(6,medidas.getOmbro());
-            stmt.setDouble(7,medidas.getPeitoral());
-            stmt.setDouble(8,medidas.getBracoD());
-            stmt.setDouble(9,medidas.getBracoE());
-            stmt.setDouble(10,medidas.getAnteBracoD());
-            stmt.setDouble(11,medidas.getAnteBracoE());
-            stmt.setDouble(12,medidas.getCintura());
-            stmt.setDouble(13,medidas.getGluteo());
-            stmt.setDouble(14,medidas.getQuadril());
-            stmt.setDouble(15,medidas.getPernaD());
-            stmt.setDouble(16,medidas.getPernaE());
-            stmt.setDouble(17,medidas.getPanturrilhaD());
-            stmt.setDouble(18,medidas.getPanturrilhaE());
+            stmt.setDouble(4,medidas.getOmbro());
+            stmt.setDouble(5,medidas.getPeitoral());
+            stmt.setDouble(6,medidas.getBracoD());
+            stmt.setDouble(7,medidas.getBracoE());
+            stmt.setDouble(8,medidas.getAnteBracoD());
+            stmt.setDouble(9,medidas.getAnteBracoE());
+            stmt.setDouble(10,medidas.getCintura());
+            stmt.setDouble(11,medidas.getGluteo());
+            stmt.setDouble(12,medidas.getQuadril());
+            stmt.setDouble(13,medidas.getPernaD());
+            stmt.setDouble(14,medidas.getPernaE());
+            stmt.setDouble(15,medidas.getPanturrilhaD());
+            stmt.setDouble(16,medidas.getPanturrilhaE());
             stmt.execute();
             return true;
         } catch (Exception ex) {
@@ -96,8 +94,6 @@ public class AcompanhamentoDAOImpl implements GenericDAO {
                 Personal personal = new Personal();
                 personal.setIdPessoa(rs.getInt("id_personal"));
                 medida.setPersonal(personal);
-                medida.setImc(rs.getDouble("imc_aluno"));
-                medida.setTaxaGordura(rs.getDouble("taxa_gordura_aluno"));
                 medida.setOmbro(rs.getDouble("ombro_aluno"));
                 medida.setPeitoral(rs.getDouble("peitoral_aluno"));
                 medida.setBracoD(rs.getDouble("braco_d_aluno"));

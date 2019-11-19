@@ -51,8 +51,6 @@ public class SalvarMedidas extends HttpServlet {
         personal.setIdPessoa(Integer.parseInt(request.getParameter("idPersonal")));
         medida.setPersonal(personal);
         
-        medida.setImc(Double.parseDouble(request.getParameter("imcAluno")));
-        medida.setTaxaGordura(Double.parseDouble(request.getParameter("taxaGordura")));
         medida.setOmbro(Double.parseDouble(request.getParameter("ombroAluno")));
         medida.setPeitoral(Double.parseDouble(request.getParameter("peitoralAluno")));
         medida.setBracoD(Double.parseDouble(request.getParameter("bracoDAluno")));
