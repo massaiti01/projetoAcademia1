@@ -5,6 +5,7 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.AcademiaDAOImpl;
 import br.com.projetoAcademia.dao.AlunoDAOImpl;
 import br.com.projetoAcademia.dao.GenericDAO;
 import br.com.projetoAcademia.model.Academia;
@@ -39,7 +40,15 @@ public class SalvarAluno extends HttpServlet {
         String mensagem = null;
         Aluno aluno = new Aluno();
         Academia academia = new Academia();
-        academia.setIdAcademia(Integer.parseInt("1"));
+        Integer idAcademia = null;
+           try{
+        AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
+        idAcademia = dao1.pegarId(Integer.parseInt(request.getParameter("idAcademia")));
+        } catch(Exception ex){
+            System.out.println("Problemas ao pegar idAcademia! Erro:"+ex.getMessage());
+            ex.printStackTrace();
+        }
+        academia.setIdAcademia(idAcademia);
         aluno.setAcademia(academia);
         aluno.setNomePessoa(request.getParameter("nomePessoa"));
         aluno.setCpfAluno(request.getParameter("cpfAluno"));
@@ -47,7 +56,6 @@ public class SalvarAluno extends HttpServlet {
         aluno.setTelefoneEmergencia(request.getParameter("telefoneEmergencia"));
         aluno.setLoginPessoa(request.getParameter("loginPessoa"));
         aluno.setSenhaPessoa(request.getParameter("senhaPessoa"));
-        
         aluno.setTipoPessoa("ALU");
 
         

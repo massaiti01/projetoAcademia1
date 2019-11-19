@@ -5,6 +5,7 @@
  */
 package br.com.projetoAcademia.dao;
 
+import br.com.projetoAcademia.model.Academia;
 import br.com.projetoAcademia.model.Pessoa;
 import br.com.projetoAcademia.util.ConnectionFactory;
 import java.sql.Connection;

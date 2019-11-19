@@ -16,7 +16,8 @@ public class Exercicio {
     private String nomeExercicio;
     private Integer File;
     private InputStream fotoExercicio;
-
+    private Academia academia;
+    
     public Integer getIdExercicio() {
         return idExercicio;
     }

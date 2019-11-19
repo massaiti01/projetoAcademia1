@@ -12,6 +12,7 @@ package br.com.projetoAcademia.model;
 public class GrupoMuscular {
     private Integer idGrupoMuscular;
     private String nomeGrupoMuscular;
+    private Academia academia;
 
     public Integer getIdGrupoMuscular() {
         return idGrupoMuscular;

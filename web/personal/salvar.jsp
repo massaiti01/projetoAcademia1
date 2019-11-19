@@ -4,20 +4,24 @@
     Author     : ERICMASSAITIUEMURA
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html><jsp:include page="../admin/cabecalho.jsp"></jsp:include>
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Personal</title>
     </head>
     <body>
+    <c:choose> 
+        <c:when test="${pessoa.tipoPessoa eq 'ACA'}">
         <h1>Cadastrar Personal</h1>
         <form method="POST" action="${pageContext.request.contextPath}/SalvarPersonal">
             
             <p>${mensagem}</p>
             
             <input type="hidden" name="idPessoa" value="${personal.idPessoa}">
+            <input type="hidden" name="idAcademia" value="${pessoa.idPessoa}">
             
             <label for="nomePessoa">Nome:</label>
             <input type="text" name="nomePessoa" id="nomePessoa" value="${personal.nomePessoa}"><br />
@@ -39,5 +43,10 @@
             
             <input type="submit" value="enviar">
         </form>
+               </c:when>
+<c:otherwise>
+    <jsp:forward page="../login/login.jsp"></jsp:forward>
+</c:otherwise>
+</c:choose>
     </body>
 </html>

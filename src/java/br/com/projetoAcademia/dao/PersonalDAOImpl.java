@@ -41,7 +41,7 @@ public class PersonalDAOImpl implements GenericDAO{
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, personal.getCrefPersonal());
             stmt.setInt(2, new PessoaDAOImpl().cadastrarP(personal));
-            stmt.setInt(3, personal.getAcademia().getIdPessoa());
+            stmt.setInt(3, personal.getAcademia().getIdAcademia());
             stmt.execute();
             return true;
         } catch (Exception ex) {

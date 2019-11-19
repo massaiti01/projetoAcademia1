@@ -19,6 +19,7 @@
             <p>${mensagem}</p>
             
             <input type="hidden" name="idPessoa" value="${aluno.idPessoa}">
+            <input type="hidden" name="idAcademia" value="${pessoa.idPessoa}">
             
             <label for="nomePessoa">Nome:</label>
             <input type="text" name="nomePessoa" id="nomePessoa" value="${aluno.nomePessoa}"><br />

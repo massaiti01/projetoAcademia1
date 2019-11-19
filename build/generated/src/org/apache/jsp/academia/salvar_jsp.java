@@ -64,9 +64,7 @@ public final class salvar_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <input type=\"hidden\" name=\"idPessoa\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${academia.idPessoa}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\">\n");
-      out.write("            <input type=\"hidden\" name=\"idAcademia\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${academia.idAcademia}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\">\n");
+      out.write("           \n");
       out.write("            \n");
       out.write("            <label for=\"nomePessoa\">Nome:</label>\n");
       out.write("            <input type=\"text\" name=\"nomePessoa\" id=\"nomePessoa\" value=\"");

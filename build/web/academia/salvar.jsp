@@ -19,7 +19,7 @@
             <p>${mensagem}</p>
             
             <input type="hidden" name="idPessoa" value="${academia.idPessoa}">
-            <input type="hidden" name="idAcademia" value="${academia.idAcademia}">
+           
             
             <label for="nomePessoa">Nome:</label>
             <input type="text" name="nomePessoa" id="nomePessoa" value="${academia.nomePessoa}"><br />

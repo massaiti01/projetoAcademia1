@@ -38,7 +38,7 @@ public class DadosAcademia extends HttpServlet {
         try {
             AcademiaDAOImpl dao2 = new AcademiaDAOImpl();            
             
-            request.setAttribute("pessoa", dao2.carregar(idAcademia));
+            request.setAttribute("academia", dao2.carregar(idAcademia));
             request.getRequestDispatcher("academia/perfilacademia.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println("Problemas no servlet ao DADOS Academia !! Erro: " + e.getMessage());

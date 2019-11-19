@@ -12,6 +12,7 @@ package br.com.projetoAcademia.model;
 public class Aparelho {
     private Integer idAparelho;
     private String nomeAparelho;
+    private Academia academia;
 
     public Integer getIdAparelho() {
         return idAparelho;

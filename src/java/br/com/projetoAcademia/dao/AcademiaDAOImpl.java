@@ -102,6 +102,34 @@ public class AcademiaDAOImpl implements GenericDAO{
         }
         return academia;
     }
+    
+     public Integer pegarId(int idObject) {
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Integer idAcademia = null;
+
+        String sql = "select id_academia from academia a inner join pessoa p on p.id_pessoa = a.id_pessoa where p.id_pessoa = ?";
+                
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                idAcademia = rs.getInt("id_academia");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao pegar id! Erro: " + ex.getMessage());
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+            }
+        }
+        return idAcademia;
+        
+    }
 
     @Override
     public Boolean alterar(Object object) {

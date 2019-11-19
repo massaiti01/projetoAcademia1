@@ -5,6 +5,7 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.AcademiaDAOImpl;
 import br.com.projetoAcademia.dao.GenericDAO;
 import br.com.projetoAcademia.dao.PersonalDAOImpl;
 import br.com.projetoAcademia.model.Academia;
@@ -36,10 +37,19 @@ public class SalvarPersonal extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        Academia academia = new Academia();
+        Integer idAcademia = null;
         String mensagem = null;
         Personal personal = new Personal();
-        Academia academia = new Academia();
-        academia.setIdPessoa(Integer.parseInt(request.getParameter("idAcademia")));
+        try{
+        AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
+        idAcademia = dao1.pegarId(Integer.parseInt(request.getParameter("idAcademia")));
+        } catch(Exception ex){
+            System.out.println("Problemas ao pegar idAcademia! Erro:"+ex.getMessage());
+            ex.printStackTrace();
+        }
+        academia.setIdAcademia(idAcademia);
+       
         personal.setNomePessoa(request.getParameter("nomePessoa"));
         personal.setAcademia(academia);
         personal.setTelefonePessoa(request.getParameter("telefonePessoa"));

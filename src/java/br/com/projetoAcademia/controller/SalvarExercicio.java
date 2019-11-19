@@ -7,6 +7,7 @@ package br.com.projetoAcademia.controller;
 
 import br.com.projetoAcademia.dao.ExercicioDAOImpl;
 import br.com.projetoAcademia.dao.GenericDAO;
+import br.com.projetoAcademia.model.Academia;
 import br.com.projetoAcademia.model.Exercicio;
 import java.io.IOException;
 import java.io.InputStream;
@@ -71,6 +72,9 @@ public class SalvarExercicio extends HttpServlet {
                     String dados = fileItem.getFieldName();
                     if (dados.equals("nomeExercicio")) {
                         exercicio.setNomeExercicio(fileItem.getString());
+                    }else if (dados.equals("idAcademia")) {
+                        Academia academia = new Academia();
+                        academia.setIdAcademia(Integer.parseInt(fileItem.getString()));
                     }
                 }
             }
