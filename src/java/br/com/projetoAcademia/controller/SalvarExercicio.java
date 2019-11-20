@@ -5,6 +5,7 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.AcademiaDAOImpl;
 import br.com.projetoAcademia.dao.ExercicioDAOImpl;
 import br.com.projetoAcademia.dao.GenericDAO;
 import br.com.projetoAcademia.model.Academia;
@@ -74,7 +75,17 @@ public class SalvarExercicio extends HttpServlet {
                         exercicio.setNomeExercicio(fileItem.getString());
                     }else if (dados.equals("idAcademia")) {
                         Academia academia = new Academia();
-                        academia.setIdAcademia(Integer.parseInt(fileItem.getString()));
+                        
+                         Integer idAcademia = null;
+           try{
+        AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
+        idAcademia = dao1.pegarId(Integer.parseInt(fileItem.getString()));
+        } catch(Exception ex){
+            System.out.println("Problemas ao pegar idAcademia! Erro:"+ex.getMessage());
+            ex.printStackTrace();
+        }
+           academia.setIdAcademia(idAcademia);
+           exercicio.setAcademia(academia);
                     }
                 }
             }

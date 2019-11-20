@@ -5,8 +5,10 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.AcademiaDAOImpl;
 import br.com.projetoAcademia.dao.AparelhoDAOImpl;
 import br.com.projetoAcademia.dao.GenericDAO;
+import br.com.projetoAcademia.model.Academia;
 import br.com.projetoAcademia.model.Aparelho;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,7 +40,17 @@ public class SalvarAparelho extends HttpServlet {
         String mensagem = null;
         Aparelho aparelho = new Aparelho();
         aparelho.setNomeAparelho(request.getParameter("nomeAparelho"));
-        
+        Academia academia = new Academia();
+        Integer idAcademia = null;
+           try{
+        AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
+        idAcademia = dao1.pegarId(Integer.parseInt(request.getParameter("idAcademia")));
+        } catch(Exception ex){
+            System.out.println("Problemas ao pegar idAcademia! Erro:"+ex.getMessage());
+            ex.printStackTrace();
+        }
+        academia.setIdAcademia(idAcademia);
+        aparelho.setAcademia(academia);
         try (PrintWriter out = response.getWriter()) {
             GenericDAO dao = new AparelhoDAOImpl();
             if (request.getParameter("idAparelho").equals("")) {

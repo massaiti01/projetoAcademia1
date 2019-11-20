@@ -18,7 +18,7 @@
             <p>${mensagem}</p>
             
             <input type="hidden" name="idExercicio" value="${exercicio.idExercicio}">
-            
+            <input type="hidden" name="idAcademia" value="${pessoa.idPessoa}">
             <label for="nomeExercicio">Nome Exercicio:</label>
             <input type="text" name="nomeExercicio" id="nomeExercicio" value="${exercicio.nomeExercicio}"><br /><br />
             <input type="file" id="fotoExercicio" name="fotoExercicio"><br /><br />

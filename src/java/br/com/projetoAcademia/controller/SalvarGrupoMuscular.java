@@ -5,8 +5,10 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.AcademiaDAOImpl;
 import br.com.projetoAcademia.dao.GenericDAO;
 import br.com.projetoAcademia.dao.GrupomuscularDAOImpl;
+import br.com.projetoAcademia.model.Academia;
 import br.com.projetoAcademia.model.GrupoMuscular;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,7 +39,18 @@ public class SalvarGrupoMuscular extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String mensagem = null;
         GrupoMuscular grupomuscular = new GrupoMuscular();
-        grupomuscular.setNomeGrupoMuscular(request.getParameter("nomeGrupoMuscular"));
+        grupomuscular.setNomeGrupoMuscular(request.getParameter("nomeGrupoMuscular")); 
+        Academia academia = new Academia();
+        Integer idAcademia = null;
+           try{
+        AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
+        idAcademia = dao1.pegarId(Integer.parseInt(request.getParameter("idAcademia")));
+        } catch(Exception ex){
+            System.out.println("Problemas ao pegar idAcademia! Erro:"+ex.getMessage());
+            ex.printStackTrace();
+        }
+        academia.setIdAcademia(idAcademia);
+        grupomuscular.setAcademia(academia);
         
         try (PrintWriter out = response.getWriter()) {
             GenericDAO dao = new GrupomuscularDAOImpl();
