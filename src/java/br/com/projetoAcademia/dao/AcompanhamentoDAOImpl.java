@@ -37,7 +37,7 @@ public class AcompanhamentoDAOImpl implements GenericDAO {
     public Boolean cadastrar(Object object) {
         Acompanhamento medidas = (Acompanhamento) object;
         PreparedStatement stmt = null;
-        String sql = "insert into acompanhamento(id_aluno,id_personal,data_acompanhamento,imc_aluno,taxa_gordura_aluno,ombro_aluno,peitoral_aluno"
+        String sql = "insert into acompanhamento(id_aluno,id_personal,data_acompanhamento,ombro_aluno,peitoral_aluno"
                 + "braco_d_aluno,braco_e_aluno,antebraco_d_aluno,antebraco_e_aluno,cintura_aluno,gluteo_aluno,quadril_aluno,"
                 + "perna_d_aluno,perna_e_aluno,panturrilha_d_aluno,panturrilha_e_aluno) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
@@ -80,7 +80,7 @@ public class AcompanhamentoDAOImpl implements GenericDAO {
         List<Object> medidas = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from acompanhamento";
+        String sql = "select * from acompanhamento order by data_acompanhamento";
 
         try {
             stmt = conn.prepareStatement(sql);

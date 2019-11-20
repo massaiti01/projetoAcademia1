@@ -14,6 +14,14 @@ public class Aparelho {
     private String nomeAparelho;
     private Academia academia;
 
+    public Academia getAcademia() {
+        return academia;
+    }
+
+    public void setAcademia(Academia academia) {
+        this.academia = academia;
+    }
+
     public Integer getIdAparelho() {
         return idAparelho;
     }

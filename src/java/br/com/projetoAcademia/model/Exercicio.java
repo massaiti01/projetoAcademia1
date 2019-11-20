@@ -17,6 +17,14 @@ public class Exercicio {
     private Integer File;
     private InputStream fotoExercicio;
     private Academia academia;
+
+    public Academia getAcademia() {
+        return academia;
+    }
+
+    public void setAcademia(Academia academia) {
+        this.academia = academia;
+    }
     
     public Integer getIdExercicio() {
         return idExercicio;

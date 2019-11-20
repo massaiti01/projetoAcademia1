@@ -18,7 +18,7 @@
             <input type="text" name="nomePessoa" id="nomePessoa" value="${aluno.nomePessoa}" readonly="true"><br />
             
             <label for="cpfPessoa">CPF:</label>
-            <input type="text" name="cpfPessoa" id="cpfPessoa" value="${aluno.cpfPessoa}" readonly="true"><br />
+            <input type="text" name="cpfPessoa" id="cpfPessoa" value="${aluno.cpfAluno}" readonly="true"><br />
             
             <label for="telefonePessoa">Telefone:</label>
             <input type="text" name="telefonePessoa" id="telefonePessoa" value="${aluno.telefonePessoa}" readonly="true"><br />

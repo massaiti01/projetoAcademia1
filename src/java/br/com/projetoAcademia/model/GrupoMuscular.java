@@ -14,6 +14,14 @@ public class GrupoMuscular {
     private String nomeGrupoMuscular;
     private Academia academia;
 
+    public Academia getAcademia() {
+        return academia;
+    }
+
+    public void setAcademia(Academia academia) {
+        this.academia = academia;
+    }
+
     public Integer getIdGrupoMuscular() {
         return idGrupoMuscular;
     }

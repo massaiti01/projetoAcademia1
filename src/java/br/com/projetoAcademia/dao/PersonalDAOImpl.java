@@ -99,9 +99,71 @@ public class PersonalDAOImpl implements GenericDAO{
         return personais;
     }
 
+    public List<Object> listarA(int idObject) {
+        
+          List<Object> personais = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "select * from personal p inner join pessoa pe on pe.id_pessoa = p.id_pessoa where id_academia = ?";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Personal personal = new Personal();
+                personal.setIdPersonal(rs.getInt("id_personal"));
+                personal.setIdPessoa(rs.getInt("id_pessoa"));
+                personal.setNomePessoa(rs.getString("nome_pessoa"));
+                personal.setTipoPessoa(rs.getString("tipo_pessoa"));
+                personal.setTelefonePessoa(rs.getString("telefone_pessoa"));
+                personal.setLoginPessoa(rs.getString("login_pessoa"));
+                personal.setSenhaPessoa(rs.getString("senha_pessoa"));
+                personal.setCrefPersonal(rs.getString("cref_personal"));
+                Academia academia = new Academia();
+                academia.setIdPessoa(rs.getInt("id_academia"));
+                personal.setAcademia(academia);
+                personais.add(personal);
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao listar animal! Erro: " + ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar parâmetros de conexão! Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        return personais;
+    }
+    
+    
     @Override
     public Boolean excluir(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+                PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        String sql = "delete from personal WHERE id_pessoa = ?;";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            stmt.execute();
+            return true;
+        } catch (Exception ex) {
+            System.out.println("Problemas ao Excluir Personal!  Erro: " + ex.getMessage());
+            return false;
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+            }
+        }
     }
 
     @Override
@@ -127,6 +189,9 @@ public class PersonalDAOImpl implements GenericDAO{
                 personal.setLoginPessoa(rs.getString("login_pessoa"));
                 personal.setSenhaPessoa(rs.getString("senha_pessoa"));
                 personal.setCrefPersonal(rs.getString("cref_personal"));
+                Academia academia = new Academia();
+                academia.setIdAcademia(rs.getInt("id_academia"));
+                personal.setAcademia(academia);
             }
         } catch (SQLException ex) {
             System.out.println("Problemas ao carregar Personal! Erro: " + ex.getMessage());
@@ -144,12 +209,13 @@ public class PersonalDAOImpl implements GenericDAO{
     public Boolean alterar(Object object) {
         Personal personal = (Personal) object;
         PreparedStatement stmt = null;
-        String sql = "update personal set cref_personal=? where id_pessoa=?;";
+        String sql = "update personal set cref_personal=?, id_academia = ? where id_pessoa=?;";
 
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, personal.getCrefPersonal());
-            stmt.setInt(2, new PessoaDAOImpl().alterarU(personal));
+            stmt.setInt(2, personal.getAcademia().getIdAcademia());
+            stmt.setInt(3, new PessoaDAOImpl().alterarU(personal));
             stmt.execute();
             return true;
         } catch (Exception ex) {

@@ -5,6 +5,7 @@
  */
 package br.com.projetoAcademia.dao;
 
+import br.com.projetoAcademia.model.Academia;
 import br.com.projetoAcademia.model.Aparelho;
 import br.com.projetoAcademia.util.ConnectionFactory;
 import java.sql.Connection;
@@ -34,11 +35,12 @@ public class AparelhoDAOImpl implements GenericDAO{
     public Boolean cadastrar(Object object) {
         Aparelho aparelho = (Aparelho) object;
         PreparedStatement stmt = null;
-        String sql = "insert into aparelho(nome_aparelho) values(?);";
+        String sql = "insert into aparelho(nome_aparelho,id_academia) values(?,?);";
 
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, aparelho.getNomeAparelho());
+            stmt.setInt(2, aparelho.getAcademia().getIdAcademia());
             stmt.execute();
             return true;
         } catch (Exception ex) {
@@ -61,7 +63,7 @@ public class AparelhoDAOImpl implements GenericDAO{
         List<Object> aparelhos = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from aparelho";
+        String sql = "select * from aparelho where id_academia = ?";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -70,6 +72,42 @@ public class AparelhoDAOImpl implements GenericDAO{
                 Aparelho aparelho = new Aparelho();
                 aparelho.setIdAparelho(rs.getInt("id_aparelho"));
                 aparelho.setNomeAparelho(rs.getString("nome_aparelho"));
+                Academia academia = new Academia();
+                academia.setIdAcademia(rs.getInt("id_academia"));
+                aparelho.setAcademia(academia);
+                aparelhos.add(aparelho);
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao listar aparelho! Erro: " + ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar parâmetros de conexão! Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        return aparelhos;
+    }
+    
+     public List<Object> listarA(int idObject) {
+        List<Object> aparelhos = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "select * from aparelho where id_academia = ?";
+        try {
+            stmt = conn.prepareStatement(sql);
+             stmt.setInt(1, idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Aparelho aparelho = new Aparelho();
+                aparelho.setIdAparelho(rs.getInt("id_aparelho"));
+                aparelho.setNomeAparelho(rs.getString("nome_aparelho"));
+                Academia academia = new Academia();
+                academia.setIdAcademia(rs.getInt("id_academia"));
+                aparelho.setAcademia(academia);
                 aparelhos.add(aparelho);
                 
             }
@@ -89,7 +127,26 @@ public class AparelhoDAOImpl implements GenericDAO{
 
     @Override
     public Boolean excluir(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        String sql = "delete from aparelho WHERE id_aparelho = ?;";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            stmt.execute();
+            return true;
+        } catch (Exception ex) {
+            System.out.println("Problemas ao Excluir Aparelho!  Erro: " + ex.getMessage());
+            return false;
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+            }
+        }
     }
 
     @Override
@@ -126,12 +183,13 @@ public class AparelhoDAOImpl implements GenericDAO{
        
         Aparelho aparelho = (Aparelho) object;
         PreparedStatement stmt = null;
-        String sql = "update aparelho set nome_aparelho = ? where id_aparelho = ?;";
+        String sql = "update aparelho set nome_aparelho = ? where id_aparelho = ? and id_academia = ?;";
 
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, aparelho.getNomeAparelho());
             stmt.setInt(2, aparelho.getIdAparelho());
+            stmt.setInt(3, aparelho.getAcademia().getIdAcademia());
             stmt.execute();
             return true;
         } catch (Exception ex) {

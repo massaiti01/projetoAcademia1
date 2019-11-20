@@ -5,6 +5,7 @@
  */
 package br.com.projetoAcademia.dao;
 
+import br.com.projetoAcademia.model.Academia;
 import br.com.projetoAcademia.model.GrupoMuscular;
 import br.com.projetoAcademia.util.ConnectionFactory;
 import java.sql.Connection;
@@ -86,10 +87,64 @@ public class GrupomuscularDAOImpl implements GenericDAO{
         }
         return grupomusculares;
     }
+    
+    public List<Object> listarA(int idObject) {
+        List<Object> grupomusculares = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "select * from grupomuscular where id_academia = ?";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1,idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                GrupoMuscular grupomuscular = new GrupoMuscular();
+                grupomuscular.setIdGrupoMuscular(rs.getInt("id_grupo_muscular"));
+                grupomuscular.setNomeGrupoMuscular(rs.getString("nome_grupo_muscular"));
+                Academia academia = new Academia();
+                academia.setIdAcademia(rs.getInt("id_academia"));
+                grupomuscular.setAcademia(academia);
+                grupomusculares.add(grupomuscular);
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao listar Grupo Musculares! Erro: " + ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar parâmetros de conexão! Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        return grupomusculares;
+    }
+    
 
     @Override
     public Boolean excluir(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        String sql = "delete from grupomuscular WHERE id_grupo_muscular = ?;";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            stmt.execute();
+            return true;
+        } catch (Exception ex) {
+            System.out.println("Problemas ao Excluir Grupo Muscular!  Erro: " + ex.getMessage());
+            return false;
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+            }
+        }
     }
 
     @Override
@@ -109,6 +164,9 @@ public class GrupomuscularDAOImpl implements GenericDAO{
                 grupomuscular = new GrupoMuscular();
                 grupomuscular.setIdGrupoMuscular(rs.getInt("id_grupo_muscular"));
                 grupomuscular.setNomeGrupoMuscular(rs.getString("nome_grupo_muscular"));
+                Academia academia = new Academia();
+                academia.setIdAcademia(rs.getInt("id_academia"));
+                grupomuscular.setAcademia(academia);
             }
         } catch (SQLException ex) {
             System.out.println("Problemas ao carregar Grupo Muscular! Erro: " + ex.getMessage());
@@ -126,12 +184,13 @@ public class GrupomuscularDAOImpl implements GenericDAO{
     public Boolean alterar(Object object) {
         GrupoMuscular grupomuscular = (GrupoMuscular) object;
         PreparedStatement stmt = null;
-        String sql = "update grupomuscular set nome_grupo_muscular = ? where id_grupo_muscular = ?;";
+        String sql = "update grupomuscular set nome_grupo_muscular = ?, id_academia = ? where id_grupo_muscular = ?;";
 
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, grupomuscular.getNomeGrupoMuscular());
-            stmt.setInt(2, grupomuscular.getIdGrupoMuscular());
+            stmt.setInt(2, grupomuscular.getAcademia().getIdAcademia());
+            stmt.setInt(3, grupomuscular.getIdGrupoMuscular());
             stmt.execute();
             return true;
         } catch (Exception ex) {

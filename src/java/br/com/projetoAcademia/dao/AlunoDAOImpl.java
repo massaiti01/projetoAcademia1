@@ -36,13 +36,14 @@ public class AlunoDAOImpl implements GenericDAO{
     public Boolean cadastrar(Object object) {
         Aluno aluno = (Aluno) object;
         PreparedStatement stmt = null;
-        String sql = "insert into aluno(telefone_emergencia,id_academia,id_pessoa) values(?,?,?);";
+        String sql = "insert into aluno(telefone_emergencia,id_academia,cpf_aluno,id_pessoa) values(?,?,?,?);";
 
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, aluno.getTelefoneEmergencia());
             stmt.setInt(2, aluno.getAcademia().getIdAcademia());
-            stmt.setInt(3, new PessoaDAOImpl().cadastrarP(aluno));
+            stmt.setString(3, aluno.getCpfAluno());
+            stmt.setInt(4, new PessoaDAOImpl().cadastrarP(aluno));
             stmt.execute();
             return true;
         } catch (Exception ex) {
@@ -64,7 +65,7 @@ public class AlunoDAOImpl implements GenericDAO{
         List<Object> alunos = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from aluno a inner join pessoa p on p.id_pessoa = a.id_pessoa";
+        String sql = "select * from aluno a inner join pessoa p on p.id_pessoa = a.id_pessoa where id_academia = ?";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -119,6 +120,7 @@ public class AlunoDAOImpl implements GenericDAO{
             rs = stmt.executeQuery();
             while (rs.next()) {
                 aluno = new Aluno();
+                Academia academia = new Academia();
                 aluno.setIdAluno(rs.getInt("id_aluno"));
                 aluno.setIdPessoa(rs.getInt("id_pessoa"));
                 aluno.setNomePessoa(rs.getString("nome_pessoa"));
@@ -127,6 +129,8 @@ public class AlunoDAOImpl implements GenericDAO{
                 aluno.setTelefonePessoa(rs.getString("telefone_pessoa"));
                 aluno.setLoginPessoa(rs.getString("login_pessoa"));
                 aluno.setSenhaPessoa(rs.getString("senha_pessoa"));
+                academia.setIdAcademia(rs.getInt("id_academia"));
+                aluno.setAcademia(academia);
                 aluno.setTelefoneEmergencia(rs.getString("telefone_emergencia"));
             }
         } catch (SQLException ex) {
