@@ -8,7 +8,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <jsp:include page="../admin/cabecalho.jsp"></jsp:include>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Alunos</title>
@@ -34,7 +33,7 @@
                     <td>${aluno.telefonePessoa}</td>
                     <td>${aluno.telefoneEmergencia}</td>
                     <td>${aluno.tipoPessoa}</td>
-                    <td>${aluno.cpfPessoa}</td>
+                    <td>${aluno.cpfAluno}</td>
                     <td>${aluno.loginPessoa}</td>
                     <td><a href="${pageContext.request.contextPath}/CarregarAluno?idAluno=${aluno.idPessoa}">Alterar</a></td>
                     <td><a href="${pageContext.request.contextPath}/DadosTreino?idAluno=${aluno.idPessoa}">Treinos</a></td>

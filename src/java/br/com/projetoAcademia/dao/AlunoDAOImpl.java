@@ -62,6 +62,10 @@ public class AlunoDAOImpl implements GenericDAO{
 
     @Override
     public List<Object> listar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+     public List<Object> listarA(int idObject) {
         List<Object> alunos = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -69,6 +73,7 @@ public class AlunoDAOImpl implements GenericDAO{
 
         try {
             stmt = conn.prepareStatement(sql);
+            stmt.setInt(1,idObject);
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Aluno aluno = new Aluno();

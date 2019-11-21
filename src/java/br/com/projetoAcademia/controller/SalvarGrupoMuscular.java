@@ -40,16 +40,8 @@ public class SalvarGrupoMuscular extends HttpServlet {
         String mensagem = null;
         GrupoMuscular grupomuscular = new GrupoMuscular();
         grupomuscular.setNomeGrupoMuscular(request.getParameter("nomeGrupoMuscular")); 
-        Academia academia = new Academia();
-        Integer idAcademia = null;
-           try{
-        AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
-        idAcademia = dao1.pegarId(Integer.parseInt(request.getParameter("idAcademia")));
-        } catch(Exception ex){
-            System.out.println("Problemas ao pegar idAcademia! Erro:"+ex.getMessage());
-            ex.printStackTrace();
-        }
-        academia.setIdAcademia(idAcademia);
+          Academia academia = new Academia();
+        academia.setIdAcademia(Integer.parseInt(request.getParameter("idAcademia")));
         grupomuscular.setAcademia(academia);
         
         try (PrintWriter out = response.getWriter()) {

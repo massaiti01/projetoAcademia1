@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,10 +34,12 @@ public class ListarAluno extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+         HttpSession session = request.getSession(true);
+        Integer idAluno = (Integer) session.getAttribute("academia"); 
+        System.out.println(idAluno);
         try {
-            GenericDAO dao = new AlunoDAOImpl();
-            request.setAttribute("alunos", dao.listar());
+            AlunoDAOImpl dao = new AlunoDAOImpl();
+            request.setAttribute("alunos", dao.listarA(idAluno));
             request.getRequestDispatcher("aluno/listar.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println("Problemas no servlet ao listar Alunos!! Erro: " + e.getMessage());

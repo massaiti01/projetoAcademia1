@@ -5,6 +5,7 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.AcademiaDAOImpl;
 import br.com.projetoAcademia.dao.PessoaDAOImpl;
 import br.com.projetoAcademia.model.Pessoa;
 import java.io.IOException;
@@ -53,6 +54,9 @@ public class LogarPessoa extends HttpServlet {
                         session.setAttribute("saudacao", mensagem);
 
                         if (pessoa.getTipoPessoa().equalsIgnoreCase("aca")) {
+                             AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
+                            Integer idAcademia = dao1.pegarId(pessoa.getIdPessoa());
+                            session.setAttribute("academia",idAcademia);
                             request.getRequestDispatcher("DadosAcademia?idAcademia="+pessoa.getIdPessoa()).forward(request, response);
                         } else if (pessoa.getTipoPessoa().equalsIgnoreCase("alu")) {
                             request.getRequestDispatcher("DadosAluno?idAluno="+pessoa.getIdPessoa()).forward(request, response);

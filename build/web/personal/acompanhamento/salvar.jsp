@@ -17,7 +17,7 @@
                 <!-- <input type="hidden" name="idAluno" value="${aluno.idPessoa}"> -->
                 <input type="hidden" name="idAluno" value="6">
                 <input type="hidden" name="idPersonal" value="1">
-                <input type="hidden" name="idAcademia" value="${pessoa.idPessoa}">
+                <input type="hidden" name="idAcademia" value="${academia}">
                 <div>
                     <h2>Geral</h2>
                         <label for="imcAluno">IMC</label>

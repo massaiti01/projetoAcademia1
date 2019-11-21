@@ -41,17 +41,9 @@ public class SalvarPersonal extends HttpServlet {
         Integer idAcademia = null;
         String mensagem = null;
         Personal personal = new Personal();
-        try{
-        AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
-        idAcademia = dao1.pegarId(Integer.parseInt(request.getParameter("idAcademia")));
-        } catch(Exception ex){
-            System.out.println("Problemas ao pegar idAcademia! Erro:"+ex.getMessage());
-            ex.printStackTrace();
-        }
-        academia.setIdAcademia(idAcademia);
-       
-        personal.setNomePessoa(request.getParameter("nomePessoa"));
+        academia.setIdAcademia(Integer.parseInt(request.getParameter("idAcademia")));
         personal.setAcademia(academia);
+        personal.setNomePessoa(request.getParameter("nomePessoa"));
         personal.setTelefonePessoa(request.getParameter("telefonePessoa"));
         personal.setCrefPersonal(request.getParameter("crefPersonal"));
         personal.setLoginPessoa(request.getParameter("loginPessoa"));

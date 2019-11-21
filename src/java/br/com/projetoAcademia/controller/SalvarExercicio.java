@@ -75,16 +75,7 @@ public class SalvarExercicio extends HttpServlet {
                         exercicio.setNomeExercicio(fileItem.getString());
                     }else if (dados.equals("idAcademia")) {
                         Academia academia = new Academia();
-                        
-                         Integer idAcademia = null;
-           try{
-        AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
-        idAcademia = dao1.pegarId(Integer.parseInt(fileItem.getString()));
-        } catch(Exception ex){
-            System.out.println("Problemas ao pegar idAcademia! Erro:"+ex.getMessage());
-            ex.printStackTrace();
-        }
-           academia.setIdAcademia(idAcademia);
+        academia.setIdAcademia(Integer.parseInt(request.getParameter("idAcademia")));
            exercicio.setAcademia(academia);
                     }
                 }

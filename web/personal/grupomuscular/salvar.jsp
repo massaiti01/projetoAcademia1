@@ -18,7 +18,7 @@
             <p>${mensagem}</p>
             
             <input type="hidden" name="idGrupoMuscular" value="${grupomuscular.idGrupoMuscular}">
-            <input type="hidden" name="idAcademia" value="${pessoa.idPessoa}">
+            <input type="hidden" name="idAcademia" value="${academia}">
             <label for="nomeGrupoMuscular">Nome:</label>
             <input type="text" name="nomeGrupoMuscular" id="nomeGrupoMuscular" value="${grupomuscular.nomeGrupoMuscular}"><br />
             <input type="submit" value="Salvar Grupo Muscular">

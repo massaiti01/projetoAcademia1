@@ -18,7 +18,7 @@
             <p>${mensagem}</p>
             
             <input type="hidden" name="idAparelho" value="${aparelho.idAparelho}">
-            <input type="hidden" name="idAcademia" value="${pessoa.idPessoa}">
+            <input type="hidden" name="idAcademia" value="${academia}">
             <label for="nomeAparelho">Nome:</label>
             <input type="text" name="nomeAparelho" id="nomeAparelho" value="${aparelho.nomeAparelho}"><br />
             <input type="submit" value="Cadastrar Aparelho">

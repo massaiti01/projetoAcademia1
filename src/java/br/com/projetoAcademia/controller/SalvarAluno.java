@@ -40,15 +40,7 @@ public class SalvarAluno extends HttpServlet {
         String mensagem = null;
         Aluno aluno = new Aluno();
         Academia academia = new Academia();
-        Integer idAcademia = null;
-           try{
-        AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
-        idAcademia = dao1.pegarId(Integer.parseInt(request.getParameter("idAcademia")));
-        } catch(Exception ex){
-            System.out.println("Problemas ao pegar idAcademia! Erro:"+ex.getMessage());
-            ex.printStackTrace();
-        }
-        academia.setIdAcademia(idAcademia);
+        academia.setIdAcademia(Integer.parseInt(request.getParameter("idAcademia")));
         aluno.setAcademia(academia);
         aluno.setNomePessoa(request.getParameter("nomePessoa"));
         aluno.setCpfAluno(request.getParameter("cpfAluno"));
