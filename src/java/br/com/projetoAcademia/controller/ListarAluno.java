@@ -35,11 +35,10 @@ public class ListarAluno extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          HttpSession session = request.getSession(true);
-        Integer idAluno = (Integer) session.getAttribute("academia"); 
-        System.out.println(idAluno);
+        Integer idAcademia = (Integer) session.getAttribute("academia"); 
         try {
             AlunoDAOImpl dao = new AlunoDAOImpl();
-            request.setAttribute("alunos", dao.listarA(idAluno));
+            request.setAttribute("alunos", dao.listarA(idAcademia));
             request.getRequestDispatcher("aluno/listar.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println("Problemas no servlet ao listar Alunos!! Erro: " + e.getMessage());

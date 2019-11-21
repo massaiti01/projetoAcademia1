@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,9 +34,11 @@ public class ListarGrupoMuscular extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+         HttpSession session = request.getSession(true);
+        Integer idAcademia = (Integer) session.getAttribute("academia"); 
          try {
-            GenericDAO dao = new GrupomuscularDAOImpl();
-            request.setAttribute("grupomusculares", dao.listar());
+            GrupomuscularDAOImpl dao = new GrupomuscularDAOImpl();
+            request.setAttribute("grupomusculares", dao.listarA(idAcademia));
             request.getRequestDispatcher("personal/grupomuscular/listar.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println("Problemas no servlet ao listar Grupo Musculares!! Erro: " + e.getMessage());

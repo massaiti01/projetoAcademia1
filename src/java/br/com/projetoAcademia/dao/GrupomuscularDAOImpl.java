@@ -35,11 +35,12 @@ public class GrupomuscularDAOImpl implements GenericDAO{
        
         GrupoMuscular grupomuscular = (GrupoMuscular) object;
         PreparedStatement stmt = null;
-        String sql = "insert into grupomuscular(nome_grupo_muscular) values(?);";
+        String sql = "insert into grupomuscular(nome_grupo_muscular,id_academia) values(?,?);";
 
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, grupomuscular.getNomeGrupoMuscular());
+            stmt.setInt(2, grupomuscular.getAcademia().getIdAcademia());
             stmt.execute();
             return true;
         } catch (Exception ex) {

@@ -75,8 +75,8 @@ public class SalvarExercicio extends HttpServlet {
                         exercicio.setNomeExercicio(fileItem.getString());
                     }else if (dados.equals("idAcademia")) {
                         Academia academia = new Academia();
-        academia.setIdAcademia(Integer.parseInt(request.getParameter("idAcademia")));
-           exercicio.setAcademia(academia);
+                    academia.setIdAcademia(Integer.parseInt(fileItem.getString()));
+                     exercicio.setAcademia(academia);
                     }
                 }
             }

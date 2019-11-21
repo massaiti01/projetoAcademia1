@@ -8,7 +8,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <jsp:include page="../admin/cabecalho.jsp"></jsp:include>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Personais</title>
@@ -20,9 +19,8 @@
                     <th>Nome</th>
                     <th>Telefone</th>
                     <th>Tipo</th>
-                    <th>CPF</th>
                     <th>LOGIN</th>
-                    <th>Cref Personal</th>
+                    <th>Cref</th>
                     <th row="2">Opções</th>
                 </tr>
 
@@ -33,7 +31,6 @@
                     <td>${personal.nomePessoa}</td>
                     <td>${personal.telefonePessoa}</td>
                     <td>${personal.tipoPessoa}</td>
-                    <td>${personal.cpfPessoa}</td>
                     <td>${personal.loginPessoa}</td>
                     <td>${personal.crefPersonal}</td>
                     <td><a href="${pageContext.request.contextPath}/CarregarPersonal?idPersonal=${personal.idPessoa}">Alterar</a></td>
