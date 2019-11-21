@@ -6,6 +6,7 @@
 package br.com.projetoAcademia.controller;
 
 import br.com.projetoAcademia.dao.AcademiaDAOImpl;
+import br.com.projetoAcademia.dao.PersonalDAOImpl;
 import br.com.projetoAcademia.dao.PessoaDAOImpl;
 import br.com.projetoAcademia.model.Pessoa;
 import java.io.IOException;
@@ -61,6 +62,9 @@ public class LogarPessoa extends HttpServlet {
                         } else if (pessoa.getTipoPessoa().equalsIgnoreCase("alu")) {
                             request.getRequestDispatcher("DadosAluno?idAluno="+pessoa.getIdPessoa()).forward(request, response);
                         }else if (pessoa.getTipoPessoa().equalsIgnoreCase("per")) {
+                            PersonalDAOImpl dao1 = new PersonalDAOImpl();
+                            Integer idPersonal = dao1.pegarId(pessoa.getIdPessoa());
+                            session.setAttribute("personal",idPersonal);
                             request.getRequestDispatcher("DadosPersonal?idPersonal="+pessoa.getIdPessoa()).forward(request, response);
                         } else {
                             response.sendRedirect("pessoa/salvar.jsp");
