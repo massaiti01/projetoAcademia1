@@ -33,10 +33,11 @@ public class DadosTreino extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        Integer idAluno = Integer.parseInt(request.getParameter("idAluno"));
          try {
             GenericDAO dao = new GrupomuscularDAOImpl();
             request.setAttribute("grupomusculares", dao.listar());
+            request.setAttribute("idAluno",idAluno);
             request.getRequestDispatcher("personal/treino/salvar.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println("Problemas no servlet ao listar Grupo Musculares!! Erro: " + e.getMessage());

@@ -1,0 +1,91 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.projetoAcademia.dao;
+
+import br.com.projetoAcademia.model.Treino;
+import br.com.projetoAcademia.util.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.List;
+import java.sql.Date;
+
+/**
+ *
+ * @author ERICMASSAITIUEMURA
+ */
+public class TreinoDAOImpl implements GenericDAO{
+     private Connection conn;
+
+    public TreinoDAOImpl() throws Exception {
+        try {
+            this.conn = ConnectionFactory.getConnection();
+            System.out.println("Conectado com sucesso!");
+        } catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    @Override
+    public Boolean cadastrar(Object object) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+     public Integer cadastrarT(Object object) {
+         Treino treino = (Treino) object;
+        Integer idTreino = null;
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        String sql = "insert into treino(nome_treino,data_treino,id_aluno,id_personal) values(?,?,?,?) returning id_treino;";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, treino.getNomeTreino());
+            stmt.setString(2, treino.getDataTreino());
+            stmt.setInt(3, treino.getAluno().getIdAluno());
+            stmt.setInt(4, treino.getPersonal().getIdPersonal());
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                idTreino = rs.getInt("id_treino");
+            }
+        } catch (Exception ex) {
+            System.out.println("Problemas ao Cadastrar Treino ! Erro: " + ex.getMessage());
+            ex.printStackTrace();
+           
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+            
+        }
+        return idTreino;
+    }
+
+
+    @Override
+    public List<Object> listar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Boolean excluir(int idObject) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Object carregar(int idObject) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Boolean alterar(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+}

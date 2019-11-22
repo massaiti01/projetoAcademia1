@@ -14,25 +14,20 @@
     </head>
     <body>
         <h1> Cadastro de Treino</h1>
-         <form method="POST" action="${pageContext.request.contextPath}/SalvarAparelho">
+         <form method="POST" action="${pageContext.request.contextPath}/SalvarTreino">
             
             <p>${mensagem}</p>
             
             <input type="hidden" name="idTreino" value="${treino.idTreino}">
-            <input type="hidden" name="idAluno" value="${aluno.idPessoa}">
-            <input type="hidden" name="idPersonal" value="${personal.idPessoa}">
-            
+            <input type="text" name="idAluno" value="${idAluno}">
+            <input type="text" name="idPersonal" value="${personal}">
+            <br/>
+            <br/>
             <label for="nomeTreino">Nome:</label>
             <input type="text" name="nomeTreino" id="nomeTreino" value="${treino.nomeTreino}"><br />
-            <label for="diaTreino">Dia da Semana</label>
-            <select name="diaTreino" id="diaTreino">
-                <option value="seg">SEGUNDA-FEIRA</option>
-                <option value="ter">TERÇA-FEIRA</option>
-                <option value="qua">QUARTA-FEIRA</option>
-                <option value="qui">QUINTA-FEIRA</option>
-                <option value="sex">SEXTA-FEIRA</option>
-                <option value="sab">SABADO</option>
-            </select>
+            <br />
+            <label for="dataTreino">Data Treino </label>
+            <input type="date" name="dataTreino" id="dataTreino" value="${treino.dataTreino}">
             <br />
             <label for="grupoMuscular">Grupo Muscular</label>
             <br />

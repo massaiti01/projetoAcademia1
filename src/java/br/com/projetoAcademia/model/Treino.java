@@ -5,7 +5,7 @@
  */
 package br.com.projetoAcademia.model;
 
-import java.util.Date;
+
 
 
 
@@ -16,11 +16,9 @@ import java.util.Date;
 public class Treino {
     private Integer idTreino;
     private String nomeTreino;
-    private String descricaoTreino;
-    private Date dataTreino;
-    private Integer series;
-    private Integer repeticoes;
-    private Integer carga;
+    private String dataTreino;
+    private Personal personal;
+    private Aluno aluno;
 
     public Integer getIdTreino() {
         return idTreino;
@@ -38,45 +36,30 @@ public class Treino {
         this.nomeTreino = nomeTreino;
     }
 
-    public String getDescricaoTreino() {
-        return descricaoTreino;
-    }
-
-    public void setDescricaoTreino(String descricaoTreino) {
-        this.descricaoTreino = descricaoTreino;
-    }
-
-    public Date getDataTreino() {
+    public String getDataTreino() {
         return dataTreino;
     }
 
-    public void setDataTreino(Date dataTreino) {
+    public void setDataTreino(String dataTreino) {
         this.dataTreino = dataTreino;
     }
 
-    public Integer getSeries() {
-        return series;
+    public Personal getPersonal() {
+        return personal;
     }
 
-    public void setSeries(Integer series) {
-        this.series = series;
+    public void setPersonal(Personal personal) {
+        this.personal = personal;
     }
 
-    public Integer getRepeticoes() {
-        return repeticoes;
+    public Aluno getAluno() {
+        return aluno;
     }
 
-    public void setRepeticoes(Integer repeticoes) {
-        this.repeticoes = repeticoes;
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
-
-    public Integer getCarga() {
-        return carga;
-    }
-
-    public void setCarga(Integer carga) {
-        this.carga = carga;
-    }
+    
     
     
 }
