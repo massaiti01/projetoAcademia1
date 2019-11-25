@@ -52,6 +52,7 @@ public class SalvarTreino extends HttpServlet {
         Personal personal = new Personal();
         treino.setNomeTreino(request.getParameter("nomeTreino"));
         treino.setDataTreino(request.getParameter("dataTreino"));
+        System.out.println("teste"+request.getParameter("dataTreino"));
         aluno.setIdAluno(Integer.parseInt(request.getParameter("idAluno")));
         personal.setIdPersonal(Integer.parseInt(request.getParameter("idPersonal")));
         treino.setAluno(aluno);

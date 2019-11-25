@@ -7,6 +7,7 @@ package br.com.projetoAcademia.dao;
 
 import br.com.projetoAcademia.model.Treino;
 import br.com.projetoAcademia.util.ConnectionFactory;
+import br.com.projetoAcademia.util.Conversoes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,11 +41,16 @@ public class TreinoDAOImpl implements GenericDAO{
         ResultSet rs = null;
         PreparedStatement stmt = null;
         String sql = "insert into treino(nome_treino,data_treino,id_aluno,id_personal) values(?,?,?,?) returning id_treino;";
-
+            
+ 
+  
         try {
+            java.util.Date dataUtil = new java.util.Date();
+            dataUtil = Conversoes.converterData(treino.getDataTreino());
+  java.sql.Date dataSql = new java.sql.Date(dataUtil.getTime());
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, treino.getNomeTreino());
-            stmt.setString(2, treino.getDataTreino());
+            stmt.setDate(2, dataSql );
             stmt.setInt(3, treino.getAluno().getIdAluno());
             stmt.setInt(4, treino.getPersonal().getIdPersonal());
             rs = stmt.executeQuery();

@@ -31,7 +31,7 @@ public class GrupoTreinadoDAOImpl implements GenericDAO{
     public Boolean cadastrar(Object object) {
         GrupoTreinado grupotreinado = (GrupoTreinado) object;
         PreparedStatement stmt = null;
-        String sql = "insert into grupotreinado(idTreino,idGrupoMuscular) values(?,?);";
+        String sql = "insert into grupotreinado(id_treino,id_grupo_muscular) values(?,?);";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -45,7 +45,6 @@ public class GrupoTreinadoDAOImpl implements GenericDAO{
             return false;
         } finally {
             try {
-                ConnectionFactory.closeConnection(conn, stmt);
             } catch (Exception ex) {
                 System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
                 ex.printStackTrace();

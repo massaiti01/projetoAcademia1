@@ -16,11 +16,10 @@ import java.util.Date;
 public class Conversoes {
     
     public static Date converterData(String data) throws Exception{
-  
         if(data !=null || !data.trim().equals("")){
             try{
-                DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-                return fmt.parse(data);
+                Date fmt = new SimpleDateFormat("yyyy-MM-dd").parse(data);
+                return fmt;
             }catch(Exception ex){
                 throw new Exception(ex.getMessage());        
             }
