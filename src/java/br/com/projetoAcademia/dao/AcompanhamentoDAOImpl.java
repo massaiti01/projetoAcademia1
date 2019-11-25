@@ -9,6 +9,7 @@ import br.com.projetoAcademia.model.Acompanhamento;
 import br.com.projetoAcademia.model.Aluno;
 import br.com.projetoAcademia.model.Personal;
 import br.com.projetoAcademia.util.ConnectionFactory;
+import br.com.projetoAcademia.util.Conversoes;
 import java.sql.Connection;
 import java.util.Date;
 import java.sql.PreparedStatement;
@@ -37,15 +38,19 @@ public class AcompanhamentoDAOImpl implements GenericDAO {
     public Boolean cadastrar(Object object) {
         Acompanhamento medidas = (Acompanhamento) object;
         PreparedStatement stmt = null;
-        String sql = "insert into acompanhamento(id_aluno,id_personal,data_acompanhamento,ombro_aluno,peitoral_aluno"
+        String sql = "insert into acompanhamento(id_aluno,id_personal,data_acompanhamento,ombro_aluno,peitoral_aluno,"
                 + "braco_d_aluno,braco_e_aluno,antebraco_d_aluno,antebraco_e_aluno,cintura_aluno,gluteo_aluno,quadril_aluno,"
                 + "perna_d_aluno,perna_e_aluno,panturrilha_d_aluno,panturrilha_e_aluno) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
         try {
+             java.util.Date dataUtil = new java.util.Date();
+            dataUtil = medidas.getData();
+  java.sql.Date dataSql = new java.sql.Date(dataUtil.getTime());
+            
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, medidas.getAluno().getIdPessoa());
             stmt.setInt(2, medidas.getPersonal().getIdPessoa());
-            stmt.setDate(3, (java.sql.Date) medidas.getData());
+            stmt.setDate(3, dataSql);
             stmt.setDouble(4,medidas.getOmbro());
             stmt.setDouble(5,medidas.getPeitoral());
             stmt.setDouble(6,medidas.getBracoD());

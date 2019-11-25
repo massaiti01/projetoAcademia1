@@ -65,6 +65,7 @@ public class SalvarMedidas extends HttpServlet {
         medida.setPanturrilhaD(Double.parseDouble(request.getParameter("panturrilhaDAluno")));
         medida.setPanturrilhaE(Double.parseDouble(request.getParameter("panturrilhaEAluno")));
         medida.setData( new Date(System.currentTimeMillis()));
+        System.out.println("teste"+medida.getData());
        
         try (PrintWriter out = response.getWriter()) {
             GenericDAO dao = new AcompanhamentoDAOImpl();

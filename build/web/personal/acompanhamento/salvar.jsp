@@ -15,16 +15,9 @@
         <h1>Cadastrar Medidas</h1>
             <form method="POST" action="${pageContext.request.contextPath}/SalvarMedidas">
                 <!-- <input type="hidden" name="idAluno" value="${aluno.idPessoa}"> -->
-                <input type="hidden" name="idAluno" value="6">
-                <input type="hidden" name="idPersonal" value="1">
-                <input type="hidden" name="idAcademia" value="${academia}">
-                <div>
-                    <h2>Geral</h2>
-                        <label for="imcAluno">IMC</label>
-                        <input type="number" name="imcAluno" id="imcAluno"/><br />
-                        <label for="taxaGordura">Taxa de Gordura Corporal</label>
-                        <input type="number" name="taxaGordura" id="taxaGordura"/><br />
-                </div>
+                <input type="text" name="idAluno" value="${idAluno}">
+                <input type="text" name="idPersonal" value="${personal}">
+                <input type="text" name="idAcademia" value="${academia}">
                 <div>
                     <h2>Musculos Superiores</h2>
                         <label for="ombroAluno">Ombro</label>

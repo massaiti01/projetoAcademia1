@@ -37,6 +37,7 @@
                     <td>${aluno.loginPessoa}</td>
                     <td><a href="${pageContext.request.contextPath}/CarregarAluno?idAluno=${aluno.idPessoa}">Alterar</a></td>
                     <td><a href="${pageContext.request.contextPath}/DadosTreino?idAluno=${aluno.idPessoa}">Treinos</a></td>
+                    <td><a href="${pageContext.request.contextPath}/DadosMedida?idAluno=${aluno.idPessoa}">Medidas</a></td>
                 </tr>
             </c:forEach>
         </table>
