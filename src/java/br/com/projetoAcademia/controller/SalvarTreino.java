@@ -52,7 +52,6 @@ public class SalvarTreino extends HttpServlet {
         Personal personal = new Personal();
         treino.setNomeTreino(request.getParameter("nomeTreino"));
         treino.setDataTreino(request.getParameter("dataTreino"));
-        System.out.println("teste"+request.getParameter("dataTreino"));
         aluno.setIdAluno(Integer.parseInt(request.getParameter("idAluno")));
         personal.setIdPersonal(Integer.parseInt(request.getParameter("idPersonal")));
         treino.setAluno(aluno);
@@ -75,7 +74,7 @@ public class SalvarTreino extends HttpServlet {
                 }
                 }
                  request.setAttribute("mensagem", mensagem);
-            request.getRequestDispatcher("aluno/listar.jsp").forward(request, response);
+            request.getRequestDispatcher("DadosTreino?idAluno="+request.getParameter("idAluno")).forward(request, response);
         }catch(Exception ex){
             System.out.println("Problemas ao salvar Aparelho! Erro:"+ex.getMessage());
             ex.printStackTrace();

@@ -17,6 +17,10 @@ and open the template in the editor.
    src: url(../assets/fonts/Century Gothic.ttf);
 }
 
+#divNovoTreino{
+     display: none;
+}
+
 #logotipo{
       width:4vw;
       height:6vw;

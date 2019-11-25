@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>GrupoMusculares</title>
+        <title>Grupo Musculares</title>
     </head>
   <body>
          <table class="table">

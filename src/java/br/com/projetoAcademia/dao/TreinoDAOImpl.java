@@ -5,6 +5,7 @@
  */
 package br.com.projetoAcademia.dao;
 
+import br.com.projetoAcademia.model.Personal;
 import br.com.projetoAcademia.model.Treino;
 import br.com.projetoAcademia.util.ConnectionFactory;
 import br.com.projetoAcademia.util.Conversoes;
@@ -13,6 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -73,7 +76,42 @@ public class TreinoDAOImpl implements GenericDAO{
         return idTreino;
     }
 
+ public List<Object> listarI(int idObject) {
+        List<Object> treinos = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "select t.id_personal,* from treino t inner join personal p on t.id_personal = p.id_personal inner join pessoa pe on p.id_pessoa = pe.id_pessoa where t.id_aluno = ?";
 
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1,idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Treino treino = new Treino();
+                treino.setIdTreino(rs.getInt("id_treino"));
+                treino.setNomeTreino(rs.getString("nome_treino"));
+                treino.setDataTreino(rs.getString("data_treino"));
+                Personal personal = new Personal();
+                personal.setNomePessoa(rs.getString("nome_pessoa"));
+                personal.setIdPersonal(rs.getInt("id_personal"));
+                treino.setPersonal(personal);
+                treinos.add(treino);
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao listar animal! Erro: " + ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar parâmetros de conexão! Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        return treinos;
+}
+ 
     @Override
     public List<Object> listar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -80,6 +80,8 @@ public class AcompanhamentoDAOImpl implements GenericDAO {
         }
     }
 
+       
+    
     @Override
     public List<Object> listar() {
         List<Object> medidas = new ArrayList<>();
