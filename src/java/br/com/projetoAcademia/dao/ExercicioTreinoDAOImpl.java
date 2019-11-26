@@ -5,9 +5,10 @@
  */
 package br.com.projetoAcademia.dao;
 
+import br.com.projetoAcademia.model.Aparelho;
+import br.com.projetoAcademia.model.Exercicio;
+import br.com.projetoAcademia.model.ExercicioTreino;
 import br.com.projetoAcademia.model.GrupoMuscular;
-import br.com.projetoAcademia.model.GrupoTreinado;
-import br.com.projetoAcademia.model.Personal;
 import br.com.projetoAcademia.model.Treino;
 import br.com.projetoAcademia.util.ConnectionFactory;
 import java.sql.Connection;
@@ -21,10 +22,10 @@ import java.util.List;
  *
  * @author ERICMASSAITIUEMURA
  */
-public class GrupoTreinadoDAOImpl implements GenericDAO{
-         private Connection conn;   
+public class ExercicioTreinoDAOImpl implements GenericDAO{
+  private Connection conn;   
     
-   public GrupoTreinadoDAOImpl() throws Exception {
+   public ExercicioTreinoDAOImpl() throws Exception {
         try {
             this.conn = ConnectionFactory.getConnection();
             System.out.println("Conectado com sucesso!");
@@ -32,25 +33,32 @@ public class GrupoTreinadoDAOImpl implements GenericDAO{
             throw new Exception(ex.getMessage());
         }
     }
-
+   
     @Override
     public Boolean cadastrar(Object object) {
-        GrupoTreinado grupotreinado = (GrupoTreinado) object;
+        ExercicioTreino exerciciot = (ExercicioTreino) object;
         PreparedStatement stmt = null;
-        String sql = "insert into grupotreinado(id_treino,id_grupo_muscular) values(?,?);";
+        String sql = "insert into exerciciotreino(descricao_exercicio_treino,carga_treino,series_treino,repeticoes_treino,id_aparelho,id_exercicio,id_grupo_muscular,id_treino) values(?,?,?,?,?,?,?,?);";
 
         try {
             stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, grupotreinado.getTreino().getIdTreino());
-            stmt.setInt(2, grupotreinado.getGrupoMuscular().getIdGrupoMuscular());
+            stmt.setString(1, exerciciot.getDescricaoExercicioTreino());
+            stmt.setInt(2,exerciciot.getCargaTreino());
+            stmt.setInt(3,exerciciot.getSeriesTreino());
+            stmt.setInt(4,exerciciot.getRepeticoesTreino());
+            stmt.setInt(5, exerciciot.getAparelho().getIdAparelho());
+            stmt.setInt(6, exerciciot.getExercicio().getIdExercicio());
+            stmt.setInt(7, exerciciot.getGrupoMuscular().getIdGrupoMuscular());
+            stmt.setInt(8, exerciciot.getTreino().getIdTreino());
             stmt.execute();
             return true;
         } catch (Exception ex) {
-            System.out.println("Problemas ao cadastrar Grupo Treinado! Erro: " + ex.getMessage());
+            System.out.println("Problemas ao Adicionar Exercicio ao Treino! Erro: " + ex.getMessage());
             ex.printStackTrace();
             return false;
         } finally {
             try {
+                ConnectionFactory.closeConnection(conn, stmt);
             } catch (Exception ex) {
                 System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
                 ex.printStackTrace();
@@ -61,40 +69,43 @@ public class GrupoTreinadoDAOImpl implements GenericDAO{
 
     @Override
     public List<Object> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    public List<Object> listarT(int idObject) {
-        List<Object> gts = new ArrayList<>();
+        List<Object> ets = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select t.id_personal,* from grupotreinado gt inner join treino t on gt.id_treino = t.id_treino inner join personal p on p.id_personal = t.id_personal inner join pessoa pe on pe.id_pessoa = p.id_pessoa inner join grupomuscular gm on gt.id_grupo_muscular = gm.id_grupo_muscular where t.id_treino = ? ";
+        String sql = "select * from exerciciotreino e inner join treino t on e.id_treino = t.id_treino inner join aparelho a on a.id_aparelho = e.id_aparelho "
+                + "inner join exercicio ex on e.id_exercicio = ex.id_exercicio inner join grupomuscular gm on gm.id_grupo_muscular = e.id_grupo_muscular ";
 
         try {
             stmt = conn.prepareStatement(sql);
-            stmt.setInt(1,idObject);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                GrupoTreinado gt = new GrupoTreinado();
-                Treino treino = new Treino();
+                ExercicioTreino et = new ExercicioTreino();
+                Aparelho aparelho = new Aparelho();
+                Exercicio exercicio = new Exercicio();
                 GrupoMuscular gm = new GrupoMuscular();
-                gt.setIdGrupoTreinado(rs.getInt("id_grupo_treinado"));
+                Treino treino = new Treino();
+                et.setIdExercicioTreino(rs.getInt("id_exercicio_treino"));
+                et.setDescricaoExercicioTreino(rs.getString("descricao_exercicio_treino"));
+                et.setRepeticoesTreino(rs.getInt("repeticoes_treino"));
+                et.setCargaTreino(rs.getInt("carga_treino"));
+                et.setSeriesTreino(rs.getInt("series_treino"));
+                aparelho.setIdAparelho(rs.getInt("id_aparelho"));
+                aparelho.setNomeAparelho(rs.getString("nome_aparelho"));
+                et.setAparelho(aparelho);
+                exercicio.setIdExercicio(rs.getInt("id_exercicio"));
+                exercicio.setNomeExercicio(rs.getString("nome_exercicio"));
+                et.setExercicio(exercicio);
                 gm.setIdGrupoMuscular(rs.getInt("id_grupo_muscular"));
                 gm.setNomeGrupoMuscular(rs.getString("nome_grupo_muscular"));
-                gt.setGrupoMuscular(gm);
+                et.setGrupoMuscular(gm);
                 treino.setIdTreino(rs.getInt("id_treino"));
                 treino.setNomeTreino(rs.getString("nome_treino"));
-                treino.setDataTreino(rs.getString("data_treino"));
-                Personal personal = new Personal();
-                personal.setNomePessoa(rs.getString("nome_pessoa"));
-                personal.setIdPersonal(rs.getInt("id_personal"));
-                treino.setPersonal(personal);
-                gt.setTreino(treino);
-                gts.add(gt);
+                et.setTreino(treino);
+                ets.add(et);
                 
             }
-        } catch (SQLException ex) {
-            System.out.println("Problemas ao listar animal! Erro: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Problemas ao listar treinos! Erro: " + ex.getMessage());
             ex.printStackTrace();
         } finally {
             try {
@@ -104,7 +115,7 @@ public class GrupoTreinadoDAOImpl implements GenericDAO{
                 ex.printStackTrace();
             }
         }
-        return gts;
+        return ets;
     }
 
     @Override

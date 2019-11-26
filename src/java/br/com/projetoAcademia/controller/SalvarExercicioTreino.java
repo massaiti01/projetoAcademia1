@@ -5,13 +5,12 @@
  */
 package br.com.projetoAcademia.controller;
 
-import br.com.projetoAcademia.dao.AparelhoDAOImpl;
-import br.com.projetoAcademia.dao.ExercicioDAOImpl;
 import br.com.projetoAcademia.dao.ExercicioTreinoDAOImpl;
-import br.com.projetoAcademia.dao.GenericDAO;
-import br.com.projetoAcademia.dao.GrupoTreinadoDAOImpl;
-import br.com.projetoAcademia.dao.GrupomuscularDAOImpl;
-import br.com.projetoAcademia.dao.TreinoDAOImpl;
+import br.com.projetoAcademia.model.Aparelho;
+import br.com.projetoAcademia.model.Exercicio;
+import br.com.projetoAcademia.model.ExercicioTreino;
+import br.com.projetoAcademia.model.GrupoMuscular;
+import br.com.projetoAcademia.model.Treino;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,14 +18,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ERICMASSAITIUEMURA
  */
-@WebServlet(name = "DadosTreino", urlPatterns = {"/DadosTreino"})
-public class DadosTreino extends HttpServlet {
+@WebServlet(name = "SalvarExercicioTreino", urlPatterns = {"/SalvarExercicioTreino"})
+public class SalvarExercicioTreino extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,24 +37,39 @@ public class DadosTreino extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Integer idAluno = Integer.parseInt(request.getParameter("idAluno"));
         
-          HttpSession session = request.getSession(true);
-        Integer idAcademia = (Integer) session.getAttribute("academia"); 
-         try {
-            ExercicioTreinoDAOImpl daoet = new ExercicioTreinoDAOImpl();
-            GrupomuscularDAOImpl dao = new GrupomuscularDAOImpl();
-            TreinoDAOImpl daot = new TreinoDAOImpl();
-            AparelhoDAOImpl daoa = new AparelhoDAOImpl();
-            ExercicioDAOImpl daoe = new ExercicioDAOImpl();
-            
-            request.setAttribute("exerciciotreinos",daoet.listar());
-            request.setAttribute("treinos",daot.listarI(idAluno));
-            request.setAttribute("grupomusculares", dao.listar());
-            request.setAttribute("idAluno",idAluno);
-            request.getRequestDispatcher("personal/treino/salvar.jsp").forward(request, response);
-        } catch (Exception e) {
-            System.out.println("Problemas no servlet ao listar Grupo Musculares!! Erro: " + e.getMessage());
+        response.setContentType("text/html;charset=UTF-8");
+        String mensagem = null;
+        ExercicioTreino et = new ExercicioTreino();
+        Aparelho aparelho = new Aparelho();
+        GrupoMuscular grupoMuscular = new GrupoMuscular();
+        Treino treino = new Treino();
+        Exercicio exercicio = new Exercicio();
+        aparelho.setIdAparelho(Integer.parseInt(request.getParameter("aparelho")));
+        et.setAparelho(aparelho);
+        grupoMuscular.setIdGrupoMuscular(Integer.parseInt(request.getParameter("grupomuscular")));
+        et.setGrupoMuscular(grupoMuscular);
+        exercicio.setIdExercicio(Integer.parseInt(request.getParameter("exercicio")));
+        et.setExercicio(exercicio);
+        treino.setIdTreino(Integer.parseInt(request.getParameter("idTreino")));
+        et.setTreino(treino);
+        et.setDescricaoExercicioTreino(request.getParameter("descricaoExercicioTreino"));
+        et.setCargaTreino(Integer.parseInt(request.getParameter("cargaTreino")));
+        et.setRepeticoesTreino(Integer.parseInt(request.getParameter("repeticoesTreino")));
+        et.setSeriesTreino(Integer.parseInt(request.getParameter("numeroDeSeries")));
+
+          try (PrintWriter out = response.getWriter()) {
+              ExercicioTreinoDAOImpl dao = new ExercicioTreinoDAOImpl();
+                if (dao.cadastrar(et)) {
+                    mensagem = "Exercicio Adicionado ao Treino com sucesso!";
+                } else {
+                    mensagem = "Problemas ao Adicionar Exercicio ao Treino!";
+                }
+                 request.setAttribute("mensagem", mensagem);
+            request.getRequestDispatcher("DadosTreino?idAluno="+request.getParameter("idAluno")).forward(request, response);
+        }catch(Exception ex){
+            System.out.println("Problemas ao salvar Aparelho! Erro:"+ex.getMessage());
+            ex.printStackTrace();
         }
     }
 

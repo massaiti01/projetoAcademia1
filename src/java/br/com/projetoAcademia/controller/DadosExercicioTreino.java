@@ -5,6 +5,10 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.AparelhoDAOImpl;
+import br.com.projetoAcademia.dao.ExercicioDAOImpl;
+import br.com.projetoAcademia.dao.GrupoTreinadoDAOImpl;
+import br.com.projetoAcademia.dao.TreinoDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,12 +36,26 @@ public class DadosExercicioTreino extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Integer idAluno = Integer.parseInt(request.getParameter("idAluno"));
         Integer idTreino = Integer.parseInt(request.getParameter("idTreino"));
+        
+          HttpSession session = request.getSession(true);
+        Integer idAcademia = (Integer) session.getAttribute("academia"); 
          try {
-            request.setAttribute("idTreino",idTreino);
+            GrupoTreinadoDAOImpl dao = new GrupoTreinadoDAOImpl();
+            TreinoDAOImpl daot = new TreinoDAOImpl();
+            AparelhoDAOImpl daoa = new AparelhoDAOImpl();
+            ExercicioDAOImpl daoe = new ExercicioDAOImpl();
+            
+            
+            request.setAttribute("exercicios",daoe.listarA(idAcademia));
+            request.setAttribute("aparelhos",daoa.listarA(idAcademia));
+            request.setAttribute("treino",daot.carregar(idAluno));
+            request.setAttribute("grupotmusculares", dao.listarT(idTreino));
+            request.setAttribute("idAluno",idAluno);
             request.getRequestDispatcher("personal/exercicioaparelho/salvar.jsp").forward(request, response);
         } catch (Exception e) {
-            System.out.println("Problemas no servlet ao listar Grupo Musculares!! Erro: " + e.getMessage());
+            System.out.println("Problemas no servlet ao Dados Exercicio Treino!! Erro: " + e.getMessage());
         }
     }
 

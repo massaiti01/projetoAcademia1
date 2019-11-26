@@ -119,12 +119,62 @@ public class TreinoDAOImpl implements GenericDAO{
 
     @Override
     public Boolean excluir(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        String sql = "delete from treino cascate WHERE id_treino = ?;";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            stmt.execute();
+            return true;
+        } catch (Exception ex) {
+            System.out.println("Problemas ao Excluir Grupo Muscular!  Erro: " + ex.getMessage());
+            return false;
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+            }
+        }
     }
 
     @Override
     public Object carregar(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+        Treino treino = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "select t.id_personal,* from treino t inner join personal p on t.id_personal = p.id_personal inner join pessoa pe on p.id_pessoa = pe.id_pessoa where t.id_aluno = ?";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1,idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                treino = new Treino();
+                treino.setIdTreino(rs.getInt("id_treino"));
+                treino.setNomeTreino(rs.getString("nome_treino"));
+                treino.setDataTreino(rs.getString("data_treino"));
+                Personal personal = new Personal();
+                personal.setNomePessoa(rs.getString("nome_pessoa"));
+                personal.setIdPersonal(rs.getInt("id_personal"));
+                treino.setPersonal(personal);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao listar animal! Erro: " + ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar parâmetros de conexão! Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+          return treino;
+        }
     }
 
     @Override

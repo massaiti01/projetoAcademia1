@@ -255,7 +255,6 @@ public class PersonalDAOImpl implements GenericDAO{
             System.out.println("Problemas ao pegar id! Erro: " + ex.getMessage());
         } finally {
             try {
-                ConnectionFactory.closeConnection(conn, stmt, rs);
             } catch (Exception ex) {
                 System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
             }
@@ -263,6 +262,32 @@ public class PersonalDAOImpl implements GenericDAO{
         return idPersonal;
         
     }
-    
+    public Integer pegarIdA(int idObject) {
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Integer idAcademia = null;
+
+        String sql = "select id_academia from personal p inner join pessoa pe on pe.id_pessoa = p.id_pessoa where p.id_personal = ?";
+                
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                idAcademia = rs.getInt("id_academia");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao pegar id! Erro: " + ex.getMessage());
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+            }
+        }
+        return idAcademia;
+        
+    }
     
 }

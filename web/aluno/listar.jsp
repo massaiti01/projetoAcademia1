@@ -28,16 +28,16 @@
            
                 <c:forEach var="aluno" items="${alunos}">
                 <tr>
-                    <td>${aluno.idPessoa}</td>
+                    <td>${aluno.idAluno}</td>
                     <td>${aluno.nomePessoa}</td>
                     <td>${aluno.telefonePessoa}</td>
                     <td>${aluno.telefoneEmergencia}</td>
                     <td>${aluno.tipoPessoa}</td>
                     <td>${aluno.cpfAluno}</td>
                     <td>${aluno.loginPessoa}</td>
-                    <td><a href="${pageContext.request.contextPath}/CarregarAluno?idAluno=${aluno.idPessoa}">Alterar</a></td>
-                    <td><a href="${pageContext.request.contextPath}/DadosTreino?idAluno=${aluno.idPessoa}">Treinos</a></td>
-                    <td><a href="${pageContext.request.contextPath}/DadosMedida?idAluno=${aluno.idPessoa}">Medidas</a></td>
+                    <td><a href="${pageContext.request.contextPath}/CarregarAluno?idAluno=${aluno.idAluno}">Alterar</a></td>
+                    <td><a href="${pageContext.request.contextPath}/DadosTreino?idAluno=${aluno.idAluno}">Treinos</a></td>
+                    <td><a href="${pageContext.request.contextPath}/DadosMedida?idAluno=${aluno.idAluno}">Medidas</a></td>
                 </tr>
             </c:forEach>
         </table>
