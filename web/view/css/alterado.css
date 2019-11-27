@@ -30,6 +30,22 @@ and open the template in the editor.
       width:4vw;
       height:6vw;
   }
+#logotipom{
+      width:3vw;
+      height:4vw;
+  }
+#logotipoletram{
+      margin-left: 10px;
+      font-family: Azonix;
+      color: black;
+      font-size:.7vw;
+  }
+  #logotipoletra2m{
+      font-family: Century Gothic;
+      color: black;
+      font-style: italic;
+      font-size:.7vw;
+  }
 .navadmin{
       height:10vw;
       width:100%;

@@ -30,7 +30,7 @@ function MostrareEsconder(nome) {
                     <th>Nome Treino</th>
                     <th>Data Treino</th>
                     <th>Personal</th>
-                    <th row="3">Opções</th>
+                <c:if test="${pessoa.tipoPessoa  eq 'PER'}"> <th row="3">Opções</th> </c:if>
                 </tr>
             </table>
             <c:forEach var="treino" items="${treinos}">
@@ -40,8 +40,10 @@ function MostrareEsconder(nome) {
                     <td>${treino.nomeTreino}</td>
                     <td>${treino.dataTreino}</td>
                     <td>${treino.personal.nomePessoa}</td>
+                   <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
                     <td><a href="${pageContext.request.contextPath}/ExcluirTreino?idTreino=${treino.idTreino}&&idAluno=${idAluno}">Apagar Treino</a></td>
                     <td><a href="${pageContext.request.contextPath}/DadosExercicioTreino?idTreino=${treino.idTreino}&&idAluno=${idAluno}">Adicionar Exercicio</a></td>
+                   </c:if>
                     <td><button class="btn" onclick="MostrareEsconder('divsumir${treino.idTreino}')">Ver Exercicios Do treino</button>
                 </tr>
                 </table>
@@ -69,14 +71,17 @@ function MostrareEsconder(nome) {
                                 <td>${exerciciot.seriesTreino},
                                     ${exerciciot.cargaTreino},
                                     ${exerciciot.repeticoesTreino}</td>
+                                <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
                                 <td><a href="${pageContext.request.contextPath}/ExcluirExercicioTreino?idAluno=${idAluno}&&idExercicioTreino=${exerciciot.idExercicioTreino}">Excluir Exercicio Treino </a></td>
-                            </tr>
+                                </c:if>
+                                </tr>
                         </c:if>
                     </c:forEach>
                 </table>
                </div>
                </div>
             </c:forEach>
+             <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
         <div id="divCadastrarTreino">
             <h1> Cadastrar novo Treino</h1>
             <form method="POST" action="${pageContext.request.contextPath}/SalvarTreino">
@@ -103,7 +108,7 @@ function MostrareEsconder(nome) {
                 <input type="submit" value="Cadastrar Novo Treino">
             </form>
         </div>
-
+             </c:if>
     </body>
     <jsp:include page="../../dashboard/javascripts.jsp"></jsp:include>
 </html>

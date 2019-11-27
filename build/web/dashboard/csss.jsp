@@ -15,6 +15,7 @@
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/view/css/vendor/sb-admin.css" rel="stylesheet">
   <link href="${pageContext.request.contextPath}/view/css/alterado.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous"
     </head>
     <body>
     </body>

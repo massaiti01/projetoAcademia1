@@ -55,6 +55,7 @@
                             </tr>
                     </c:forEach>
                 </table>
+    <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
         <h1>Cadastrar Medidas</h1>
             <form method="POST" action="${pageContext.request.contextPath}/SalvarMedidas">
                 <!-- <input type="hidden" name="idAluno" value="${aluno.idPessoa}"> -->
@@ -100,5 +101,6 @@
                     <input type="submit" value="Enviar">
                 </div>
             </form>
+    </c:if>
     </body>
 </html>

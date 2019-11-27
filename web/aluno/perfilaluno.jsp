@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<jsp:include page="../dashboard/csss.jsp"></jsp:include>
+<jsp:include page="../dashboard/menualuno.jsp"></jsp:include>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,23 +15,24 @@
     <body>
           <input type="hidden" name="idPessoa" value="${aluno.idPessoa}">
             
-            <label for="nomePessoa">Nome:</label>
-            <input type="text" name="nomePessoa" id="nomePessoa" value="${aluno.nomePessoa}" readonly="true"><br />
+            <label>Nome:</label>
+            <p> ${aluno.nomePessoa}</p><br />
             
-            <label for="cpfPessoa">CPF:</label>
-            <input type="text" name="cpfPessoa" id="cpfPessoa" value="${aluno.cpfAluno}" readonly="true"><br />
+            <label>CPF:</label>
+            <p> ${aluno.cpfAluno}"</p> <br />
             
-            <label for="telefonePessoa">Telefone:</label>
-            <input type="text" name="telefonePessoa" id="telefonePessoa" value="${aluno.telefonePessoa}" readonly="true"><br />
+            <label>Telefone:</label>
+            <p> ${aluno.telefonePessoa}"</p><br />
             
-            <label for="telefoneEmergencia">Telefone Emergencia:</label>
-            <input type="text" name="telefoneEmergencia" id="telefoneEmergencia" value="${aluno.telefoneEmergencia}" readonly="true"><br />
+            <label>Telefone Emergencia:</label>
+            <p> ${aluno.telefoneEmergencia}</p><br />
             
             <label for="loginPessoa">Login:</label>
-            <input type="text" name="loginPessoa" id="loginPessoa" value="${aluno.loginPessoa}" readonly="true"><br />
+            <p> ${aluno.loginPessoa}</p><br />
             
-            <label for="senhaPessoa">Senha</label>
-            <input type="password" name="senhaPessoa" id="senhaPessoa" value="${aluno.senhaPessoa}" readonly="true"><br />
+             <td><a href="${pageContext.request.contextPath}/CarregarAluno?idAluno=${aluno.idPessoa}">Alterar</a></td>
+             <td><a href="${pageContext.request.contextPath}/DadosTreino?idAluno=${aluno.idAluno}">Treinos</a></td>
+             <td><a href="${pageContext.request.contextPath}/DadosMedida?idAluno=${aluno.idAluno}">Medidas</a></td>
     </body>
 </html>
 <jsp:include page="../dashboard/javascripts.jsp"></jsp:include>
