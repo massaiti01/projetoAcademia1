@@ -14,25 +14,27 @@
     </head>
     <jsp:include page="../../dashboard/csss.jsp"></jsp:include>
         <script>
-
-            function MostrarDiv(nt, it) {
-                document.getElementById('divCadastrarTreino').style.display = 'none';
-                document.getElementById('divNovoTreino').style.display = 'block';
-                document.getElementById("nomeTreino2").value = nt;
-                document.getElementById("idTreino2").value = it;
-
-            }
+function MostrareEsconder(nome) {
+     var x = document.getElementById(nome);
+  if (x.style.display === "none") {
+        x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
         </script>
         <body>
-            <c:forEach var="treino" items="${treinos}">
             <table class="table">
                 <tr>
                     <th>ID</th>
                     <th>Nome Treino</th>
                     <th>Data Treino</th>
                     <th>Personal</th>
-                    <th row="2">Opções</th>
+                    <th row="3">Opções</th>
                 </tr>
+            </table>
+            <c:forEach var="treino" items="${treinos}">
+                <table class="table">
                 <tr>
                     <td>${treino.idTreino}</td>
                     <td>${treino.nomeTreino}</td>
@@ -40,9 +42,12 @@
                     <td>${treino.personal.nomePessoa}</td>
                     <td><a href="${pageContext.request.contextPath}/ExcluirTreino?idTreino=${treino.idTreino}&&idAluno=${idAluno}">Apagar Treino</a></td>
                     <td><a href="${pageContext.request.contextPath}/DadosExercicioTreino?idTreino=${treino.idTreino}&&idAluno=${idAluno}">Adicionar Exercicio</a></td>
-                                               </table>
-               <div class="col-md-12">
-                <table class="table divsumir">
+                    <td><button class="btn" onclick="MostrareEsconder('divsumir${treino.idTreino}')">Ver Exercicios Do treino</button>
+                </tr>
+                </table>
+                    <div id="divsumir${treino.idTreino}" style="display:none;">
+               <div class="col-md-12" >
+                <table class="table ">
                     <tr>
                         <th>ID</th>
                         <th>Nome Treino</th>
@@ -64,15 +69,14 @@
                                 <td>${exerciciot.seriesTreino},
                                     ${exerciciot.cargaTreino},
                                     ${exerciciot.repeticoesTreino}</td>
+                                <td><a href="${pageContext.request.contextPath}/ExcluirExercicioTreino?idAluno=${idAluno}&&idExercicioTreino=${exerciciot.idExercicioTreino}">Excluir Exercicio Treino </a></td>
                             </tr>
                         </c:if>
                     </c:forEach>
                 </table>
                </div>
-               
-
+               </div>
             </c:forEach>
-
         <div id="divCadastrarTreino">
             <h1> Cadastrar novo Treino</h1>
             <form method="POST" action="${pageContext.request.contextPath}/SalvarTreino">

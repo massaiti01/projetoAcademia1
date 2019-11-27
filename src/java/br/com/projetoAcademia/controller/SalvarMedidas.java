@@ -65,7 +65,6 @@ public class SalvarMedidas extends HttpServlet {
         medida.setPanturrilhaD(Double.parseDouble(request.getParameter("panturrilhaDAluno")));
         medida.setPanturrilhaE(Double.parseDouble(request.getParameter("panturrilhaEAluno")));
         medida.setData( new Date(System.currentTimeMillis()));
-        System.out.println("teste"+medida.getData());
        
         try (PrintWriter out = response.getWriter()) {
             GenericDAO dao = new AcompanhamentoDAOImpl();
@@ -75,7 +74,7 @@ public class SalvarMedidas extends HttpServlet {
                     mensagem = "Problemas ao cadastrar Medidas!";
                 }
                  request.setAttribute("mensagem", mensagem);
-            request.getRequestDispatcher("personal/acompanhamento/salvar.jsp").forward(request, response);
+            request.getRequestDispatcher("DadosMedida?idAluno="+request.getParameter("idAluno")).forward(request, response);
         }catch(Exception ex){
             System.out.println("Problemas ao salvar Medidas! Erro:"+ex.getMessage());
             ex.printStackTrace();

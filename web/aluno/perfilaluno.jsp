@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<jsp:include page="../dashboard/csss.jsp"></jsp:include>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -33,3 +34,4 @@
             <input type="password" name="senhaPessoa" id="senhaPessoa" value="${aluno.senhaPessoa}" readonly="true"><br />
     </body>
 </html>
+<jsp:include page="../dashboard/javascripts.jsp"></jsp:include>

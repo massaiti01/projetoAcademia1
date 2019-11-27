@@ -5,9 +5,7 @@
  */
 package br.com.projetoAcademia.controller;
 
-import br.com.projetoAcademia.dao.AcompanhamentoDAOImpl;
-import br.com.projetoAcademia.dao.GenericDAO;
-import br.com.projetoAcademia.dao.GrupomuscularDAOImpl;
+import br.com.projetoAcademia.dao.ExercicioTreinoDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ERICMASSAITIUEMURA
  */
-@WebServlet(name = "DadosMedida", urlPatterns = {"/DadosMedida"})
-public class DadosMedida extends HttpServlet {
+@WebServlet(name = "ExcluirExercicioTreino", urlPatterns = {"/ExcluirExercicioTreino"})
+public class ExcluirExercicioTreino extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,16 +32,26 @@ public class DadosMedida extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
+        Integer idExercicioTreino = Integer.parseInt(request.getParameter("idExercicioTreino"));
         Integer idAluno = Integer.parseInt(request.getParameter("idAluno"));
-         try {
-             AcompanhamentoDAOImpl dao = new AcompanhamentoDAOImpl();
-            request.setAttribute("medidas", dao.listarA(idAluno));
-            request.setAttribute("idAluno",idAluno);
-            request.getRequestDispatcher("personal/acompanhamento/salvar.jsp").forward(request, response);
-        } catch (Exception e) {
-            System.out.println("Problemas no servlet ao Carregar Acompanhamento!! Erro: " + e.getMessage());
+        String mensagem = null;
+        try{
+            ExercicioTreinoDAOImpl dao = new ExercicioTreinoDAOImpl();
+            if(dao.excluir(idExercicioTreino)){
+            mensagem = "Exercicio Removido do Treino com Sucesso";}
+            else{
+            mensagem = "Problemas ao Remover Exercicio";
+            }
+             request.setAttribute("mensagem", mensagem);
+                request.getRequestDispatcher("DadosTreino?idAluno="+idAluno).forward(request, response);
+                
+        }catch(Exception e){
+         System.out.println("Problemas no servlet ao listar Treinos!! Erro: " + e.getMessage());
         }
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

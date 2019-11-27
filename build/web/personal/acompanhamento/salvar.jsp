@@ -4,20 +4,63 @@
     Author     : ERICMASSAITIUEMURA
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<jsp:include page="../../dashboard/csss.jsp"></jsp:include>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Medidas</title>
     </head>
     <body>
+          <table class="table ">
+                    <tr>
+                        <th>ID</th>
+                        <th>Medida Ombro</th>
+                        <th>Medida Peitoral</th>
+                        <th>Medida Braco D</th>
+                        <th>Medida Braco E</th>
+                        <th>Medida antebraco D</th>
+                        <th>Medida antebraco E</th>
+                        <th>Medida Cintura</th>
+                        <th>Medida Gluteo</th>
+                        <th>Medida Quadril</th>
+                        <th>Medida Perna D</th>
+                        <th>Medida Perna E</th>
+                        <th>Medida Panturrilha D</th>
+                        <th>Medida Panturrilha E</th>
+                        <th>Data da Medição</th>
+                        <th>Nome Personal</th>
+                    </tr>
+                    <c:forEach var="medida" items="${medidas}">
+                            <tr>
+                                <td>${medida.idAcompanhamento}</td>
+                                <td>${medida.ombro}</td>
+                                <td>${medida.peitoral}</td>
+                                <td>${medida.bracoD}</td>
+                                <td>${medida.bracoE}</td>
+                                <td>${medida.anteBracoD}</td>
+                                <td>${medida.anteBracoE}</td>
+                                <td>${medida.cintura}</td>
+                                <td>${medida.gluteo}</td>
+                                <td>${medida.quadril}</td>
+                                <td>${medida.pernaD}</td>
+                                <td>${medida.pernaE}</td>
+                                <td>${medida.panturrilhaD}</td>
+                                <td>${medida.panturrilhaE}</td>
+                                <td>${medida.data}</td>
+                                <td>${medida.personal.nomePessoa}</td>
+                                
+                            </tr>
+                    </c:forEach>
+                </table>
         <h1>Cadastrar Medidas</h1>
             <form method="POST" action="${pageContext.request.contextPath}/SalvarMedidas">
                 <!-- <input type="hidden" name="idAluno" value="${aluno.idPessoa}"> -->
-                <input type="text" name="idAluno" value="${idAluno}">
-                <input type="text" name="idPersonal" value="${personal}">
-                <input type="text" name="idAcademia" value="${academia}">
+                <input type="hidden" name="idAluno" value="${idAluno}">
+                <input type="hidden" name="idPersonal" value="${personal}">
+                <input type="hidden" name="idAcademia" value="${academia}">
                 <div>
                     <h2>Musculos Superiores</h2>
                         <label for="ombroAluno">Ombro</label>

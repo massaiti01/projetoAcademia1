@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<jsp:include page="../dashboard/csss.jsp"></jsp:include>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -35,7 +36,7 @@
                     <td>${aluno.tipoPessoa}</td>
                     <td>${aluno.cpfAluno}</td>
                     <td>${aluno.loginPessoa}</td>
-                    <td><a href="${pageContext.request.contextPath}/CarregarAluno?idAluno=${aluno.idAluno}">Alterar</a></td>
+                    <td><a href="${pageContext.request.contextPath}/CarregarAluno?idAluno=${aluno.idPessoa}">Alterar</a></td>
                     <td><a href="${pageContext.request.contextPath}/DadosTreino?idAluno=${aluno.idAluno}">Treinos</a></td>
                     <td><a href="${pageContext.request.contextPath}/DadosMedida?idAluno=${aluno.idAluno}">Medidas</a></td>
                 </tr>
@@ -43,3 +44,4 @@
         </table>
     </body>
 </html>
+<jsp:include page="../dashboard/javascripts.jsp"></jsp:include>

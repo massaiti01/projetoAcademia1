@@ -131,6 +131,56 @@ public class AcompanhamentoDAOImpl implements GenericDAO {
         return medidas;
     }
 
+      public List<Object> listarA(int idObject) {
+        List<Object> medidas = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "select * from acompanhamento a inner join personal p on p.id_personal = a.id_personal inner join pessoa pe on pe.id_pessoa = p.id_pessoa where id_aluno = ? order by data_acompanhamento";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Acompanhamento medida = new Acompanhamento();
+                medida.setIdAcompanhamento(rs.getInt("id_acompanhamento"));
+                Aluno aluno = new Aluno();
+                aluno.setIdAluno(rs.getInt("id_aluno"));
+                medida.setAluno(aluno);
+                Personal personal = new Personal();
+                personal.setIdPersonal(rs.getInt("id_personal"));
+                personal.setNomePessoa(rs.getString("nome_pessoa"));
+                medida.setPersonal(personal);
+                medida.setOmbro(rs.getDouble("ombro_aluno"));
+                medida.setPeitoral(rs.getDouble("peitoral_aluno"));
+                medida.setBracoD(rs.getDouble("braco_d_aluno"));
+                medida.setBracoE(rs.getDouble("braco_E_aluno"));
+                medida.setAnteBracoD(rs.getDouble("antebraco_d_aluno"));
+                medida.setAnteBracoE(rs.getDouble("antebraco_e_aluno"));
+                medida.setCintura(rs.getDouble("cintura_aluno"));
+                medida.setGluteo(rs.getDouble("gluteo_aluno"));
+                medida.setQuadril(rs.getDouble("quadril_aluno"));
+                medida.setPernaD(rs.getDouble("perna_d_aluno"));
+                medida.setPernaE(rs.getDouble("perna_e_aluno"));
+                medida.setPanturrilhaD(rs.getDouble("panturrilha_d_aluno"));
+                medida.setPanturrilhaE(rs.getDouble("panturrilha_e_aluno"));
+                medida.setData(rs.getDate("data_acompanhamento"));
+                medidas.add(medida);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao listar medidas! Erro: " + ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar parâmetros de conexão! Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        return medidas;
+    }
+        
     @Override
     public Boolean excluir(int idObject) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

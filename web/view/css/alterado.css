@@ -17,6 +17,11 @@ and open the template in the editor.
    src: url(../assets/fonts/Century Gothic.ttf);
 }
 
+
+#divsumir{
+    display:none;
+}
+
 #divNovoTreino{
      display: none;
 }
