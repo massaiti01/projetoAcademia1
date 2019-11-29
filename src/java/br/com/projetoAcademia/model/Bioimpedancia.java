@@ -16,17 +16,70 @@ public class Bioimpedancia {
     private Date data;
     private Aluno aluno;
     private Personal personal;
-    private Double gordura7Dobras;
-    private Double pesodeGordura7Dobras;
-    private Double massaMagra7Dobras;
-    private Double pesoResidual7Dobras;
-    private Double pesoOsseo7Dobras;
-    private Double pesoMuscular7Dobras;
-    private Double pesodeGordura3Dobras;
-    private Double massaMagra3Dobras;
-    private Double pesoResidual3Dobras;
-    private Double pesoOsseo3Dobras;
-    private Double pesoMuscular3Dobras;
+    private Double gorduraDobras;
+    private Double pesodeGorduraDobras;
+    private Double massaMagraDobras;
+    private Double pesoResidualDobras;
+    private Double pesoOsseoDobras;
+    private Double pesoMuscularDobras;
+    private String tipo;
+    private String sexo;
+    private Integer idade;
+    private Double altura;
+    private Double peso;
+    private Double triciptal;
+    private Double peitoral;
+    private Double subescapular;
+    private Double auxiliarMedio;
+    private Double suprailiaca;
+    private Double abdominal;
+    private Double coxa;
+    private Double biestiloide;
+    private Double bicondiliano;
+    private Double indicePonderal;
+    private Double indiceConicidade;
+    private Double imc;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public Double getIndicePonderal() {
+        return indicePonderal;
+    }
+
+    public void setIndicePonderal(Double indicePonderal) {
+        this.indicePonderal = indicePonderal;
+    }
+
+    public Double getIndiceConicidade() {
+        return indiceConicidade;
+    }
+
+    public void setIndiceConicidade(Double indiceConicidade) {
+        this.indiceConicidade = indiceConicidade;
+    }
+
+    public Double getImc() {
+        return imc;
+    }
+
+    public void setImc(Double imc) {
+        this.imc = imc;
+    }
+    
 
     public Integer getIdBioimpedancia() {
         return idBioimpedancia;
@@ -60,94 +113,151 @@ public class Bioimpedancia {
         this.personal = personal;
     }
 
-    public Double getGordura7Dobras() {
-        return gordura7Dobras;
+    public Double getGorduraDobras() {
+        return gorduraDobras;
     }
 
-    public void setGordura7Dobras(Double gordura7Dobras) {
-        this.gordura7Dobras = gordura7Dobras;
+    public void setGorduraDobras(Double gorduraDobras) {
+        this.gorduraDobras = gorduraDobras;
     }
 
-    public Double getPesodeGordura7Dobras() {
-        return pesodeGordura7Dobras;
+    public Double getPesodeGorduraDobras() {
+        return pesodeGorduraDobras;
     }
 
-    public void setPesodeGordura7Dobras(Double pesodeGordura7Dobras) {
-        this.pesodeGordura7Dobras = pesodeGordura7Dobras;
+    public void setPesodeGorduraDobras(Double pesodeGorduraDobras) {
+        this.pesodeGorduraDobras = pesodeGorduraDobras;
     }
 
-    public Double getMassaMagra7Dobras() {
-        return massaMagra7Dobras;
+    public Double getMassaMagraDobras() {
+        return massaMagraDobras;
     }
 
-    public void setMassaMagra7Dobras(Double massaMagra7Dobras) {
-        this.massaMagra7Dobras = massaMagra7Dobras;
+    public void setMassaMagraDobras(Double massaMagraDobras) {
+        this.massaMagraDobras = massaMagraDobras;
     }
 
-    public Double getPesoResidual7Dobras() {
-        return pesoResidual7Dobras;
+    public Double getPesoResidualDobras() {
+        return pesoResidualDobras;
     }
 
-    public void setPesoResidual7Dobras(Double pesoResidual7Dobras) {
-        this.pesoResidual7Dobras = pesoResidual7Dobras;
+    public void setPesoResidualDobras(Double pesoResidualDobras) {
+        this.pesoResidualDobras = pesoResidualDobras;
     }
 
-    public Double getPesoOsseo7Dobras() {
-        return pesoOsseo7Dobras;
+    public Double getPesoOsseoDobras() {
+        return pesoOsseoDobras;
     }
 
-    public void setPesoOsseo7Dobras(Double pesoOsseo7Dobras) {
-        this.pesoOsseo7Dobras = pesoOsseo7Dobras;
+    public void setPesoOsseoDobras(Double pesoOsseoDobras) {
+        this.pesoOsseoDobras = pesoOsseoDobras;
     }
 
-    public Double getPesoMuscular7Dobras() {
-        return pesoMuscular7Dobras;
+    public Double getPesoMuscularDobras() {
+        return pesoMuscularDobras;
     }
 
-    public void setPesoMuscular7Dobras(Double pesoMuscular7Dobras) {
-        this.pesoMuscular7Dobras = pesoMuscular7Dobras;
+    public void setPesoMuscularDobras(Double pesoMuscularDobras) {
+        this.pesoMuscularDobras = pesoMuscularDobras;
     }
 
-    public Double getPesodeGordura3Dobras() {
-        return pesodeGordura3Dobras;
+    public Integer getIdade() {
+        return idade;
     }
 
-    public void setPesodeGordura3Dobras(Double pesodeGordura3Dobras) {
-        this.pesodeGordura3Dobras = pesodeGordura3Dobras;
+    public void setIdade(Integer idade) {
+        this.idade = idade;
     }
 
-    public Double getMassaMagra3Dobras() {
-        return massaMagra3Dobras;
+    public Double getAltura() {
+        return altura;
     }
 
-    public void setMassaMagra3Dobras(Double massaMagra3Dobras) {
-        this.massaMagra3Dobras = massaMagra3Dobras;
+    public void setAltura(Double altura) {
+        this.altura = altura;
     }
 
-    public Double getPesoResidual3Dobras() {
-        return pesoResidual3Dobras;
+    public Double getPeso() {
+        return peso;
     }
 
-    public void setPesoResidual3Dobras(Double pesoResidual3Dobras) {
-        this.pesoResidual3Dobras = pesoResidual3Dobras;
+    public void setPeso(Double peso) {
+        this.peso = peso;
     }
 
-    public Double getPesoOsseo3Dobras() {
-        return pesoOsseo3Dobras;
+    public Double getTriciptal() {
+        return triciptal;
     }
 
-    public void setPesoOsseo3Dobras(Double pesoOsseo3Dobras) {
-        this.pesoOsseo3Dobras = pesoOsseo3Dobras;
+    public void setTriciptal(Double triciptal) {
+        this.triciptal = triciptal;
     }
 
-    public Double getPesoMuscular3Dobras() {
-        return pesoMuscular3Dobras;
+    public Double getPeitoral() {
+        return peitoral;
     }
 
-    public void setPesoMuscular3Dobras(Double pesoMuscular3Dobras) {
-        this.pesoMuscular3Dobras = pesoMuscular3Dobras;
+    public void setPeitoral(Double peitoral) {
+        this.peitoral = peitoral;
     }
-    
+
+    public Double getSubescapular() {
+        return subescapular;
+    }
+
+    public void setSubescapular(Double subescapular) {
+        this.subescapular = subescapular;
+    }
+
+    public Double getAuxiliarMedio() {
+        return auxiliarMedio;
+    }
+
+    public void setAuxiliarMedio(Double auxiliarMedio) {
+        this.auxiliarMedio = auxiliarMedio;
+    }
+
+    public Double getSuprailiaca() {
+        return suprailiaca;
+    }
+
+    public void setSuprailiaca(Double suprailiaca) {
+        this.suprailiaca = suprailiaca;
+    }
+
+    public Double getAbdominal() {
+        return abdominal;
+    }
+
+    public void setAbdominal(Double abdominal) {
+        this.abdominal = abdominal;
+    }
+
+    public Double getCoxa() {
+        return coxa;
+    }
+
+    public void setCoxa(Double coxa) {
+        this.coxa = coxa;
+    }
+
+    public Double getBiestiloide() {
+        return biestiloide;
+    }
+
+    public void setBiestiloide(Double biestiloide) {
+        this.biestiloide = biestiloide;
+    }
+
+    public Double getBicondiliano() {
+        return bicondiliano;
+    }
+
+    public void setBicondiliano(Double bicondiliano) {
+        this.bicondiliano = bicondiliano;
+    }
+
+
     
     
 }
