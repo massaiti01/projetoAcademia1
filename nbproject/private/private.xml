@@ -3,44 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/listar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/SalvarTreino.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/dashboard/javascripts.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/view/cabecalho.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/aluno/listar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/index.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/ExcluirExercicioTreino.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/view/css/alterado.css</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/grupomuscular/listar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/model/Aparelho.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/login/login.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/DadosMedida.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/DadosAluno.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/DadosTreino.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/SalvarMedidas.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/dao/ExercicioTreinoDAOImpl.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/SalvarExercicioTreino.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/acompanhamento/salvar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/LogarPessoa.java</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/model/Acompanhamento.java</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/dao/AcademiaDAOImpl.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/exercicioaparelho/listar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/grupomuscular/salvar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/dao/BioimpedanciaDAOImpl.java</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/dao/AcompanhamentoDAOImpl.java</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/treino/salvar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/exercicioaparelho/salvar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/dashboard/menualuno.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/aparelho/salvar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/ExcluirTreino.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/aluno/salvar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/DadosExercicioTreino.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/model/ExercicioTreino.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/dao/ExercicioDAOImpl.java</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/salvar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/dashboard/csss.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/model/Personal.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/aluno/listar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/dao/AparelhoDAOImpl.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/model/Bioimpedancia.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/bioimpedancia/salvar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/login/login.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/DadosMedida.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/DadosBioimpedancia.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/academia/perfilacademia.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/SalvarMedidas.java</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/aluno/perfilaluno.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/SalvarGrupoMuscular.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/SalvarBioimpedancia.java</file>
         </group>
     </open-files>
 </project-private>
