@@ -8,6 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:include page="../dashboard/csss.jsp"></jsp:include>
+<jsp:include page="../dashboard/menualuno.jsp"></jsp:include>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,7 +16,7 @@
     </head>
     <body>
         <table class="table">
-                <tr>
+                <tr class="thead-dark">
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Telefone</th>
@@ -23,10 +24,12 @@
                     <th>Tipo</th>
                     <th>CPF</th>
                     <th>LOGIN</th>
-                    <th row="2">Opções</th>
+                    <th></th>
+                    <th></th>
+                    <th>Opções</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-
-           
                 <c:forEach var="aluno" items="${alunos}">
                 <tr>
                     <td>${aluno.idAluno}</td>

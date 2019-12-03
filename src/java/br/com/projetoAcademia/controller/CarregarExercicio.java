@@ -6,7 +6,6 @@
 package br.com.projetoAcademia.controller;
 
 import br.com.projetoAcademia.dao.ExercicioDAOImpl;
-import br.com.projetoAcademia.dao.GenericDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,14 +13,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ERICMASSAITIUEMURA
  */
-@WebServlet(name = "ListarExercicio", urlPatterns = {"/ListarExercicio"})
-public class ListarExercicio extends HttpServlet {
+@WebServlet(name = "CarregarExercicio", urlPatterns = {"/CarregarExercicio"})
+public class CarregarExercicio extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,16 +32,16 @@ public class ListarExercicio extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          HttpSession session = request.getSession(true);
-        Integer idAcademia = (Integer) session.getAttribute("academia"); 
-         try {
+        int idExercicio = Integer.parseInt(request.getParameter("idExercicio"));
+        try {
             ExercicioDAOImpl dao = new ExercicioDAOImpl();
-            request.setAttribute("exercicios", dao.listarA(idAcademia));
+            request.setAttribute("exercicio", dao.carregar(idExercicio));
             request.getRequestDispatcher("personal/exercicio/salvar.jsp").forward(request, response);
         } catch (Exception e) {
-            System.out.println("Problemas no servlet ao listar Exercicios!! Erro: " + e.getMessage());
+            System.out.println("Problemas no servlet ao Carregar Exercicio!! Erro: " + e.getMessage());
         }
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

@@ -4,44 +4,87 @@
     Author     : ERICMASSAITIUEMURA
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:include page="../dashboard/csss.jsp"></jsp:include>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Aluno</title>
-    </head>
-    <body>
-        <div class="col-md-6">
-       <h1>Cadastrar Aluno</h1>
-        <form method="POST" action="${pageContext.request.contextPath}/SalvarAluno">
-            
-            <p>${mensagem}</p>
-            
-            <input type="hidden" name="idPessoa" value="${aluno.idPessoa}">
-            <input type="hidden" name="idAcademia" value="${academia}">
-            
-            <label for="nomePessoa">Nome:</label>
-            <input type="text" name="nomePessoa" id="nomePessoa" value="${aluno.nomePessoa}"><br />
-            
-            <label for="cpfAluno">CPF:</label>
-            <input type="text" name="cpfAluno" id="cpfAluno" value="${aluno.cpfAluno}"><br />
-            
-            <label for="telefonePessoa">Telefone:</label>
-            <input type="text" name="telefonePessoa" id="telefonePessoa" value="${aluno.telefonePessoa}"><br />
-            
-            <label for="telefoneEmergencia">Telefone Emergencia:</label>
-            <input type="text" name="telefoneEmergencia" id="telefoneEmergencia" value="${aluno.telefoneEmergencia}"><br />
-            
-            <label for="loginPessoa">Login:</label>
-            <input type="text" name="loginPessoa" id="loginPessoa" value="${aluno.loginPessoa}"><br />
-            
-            <label for="senhaPessoa">Senha</label>
-            <input type="password" name="senhaPessoa" id="senhaPessoa" value="${aluno.senhaPessoa}"><br />
-            
-            <input type="submit" value="enviar">
-        </form>
+<jsp:include page="../dashboard/menualuno.jsp"></jsp:include>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>Aluno</title>
+        </head>
+        <body>
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <h1 class="text-center">Salvar Aluno</h1>
+                    <form method="POST" class="form-group" action="${pageContext.request.contextPath}/SalvarAluno">
+
+                    <c:if test="${!empty mensagem}">
+                        <div class="alert alert-success" role="alert">
+                            <p>${mensagem}</p>
+                        </div>
+                    </c:if>
+
+                    <input type="hidden" name="idPessoa" value="${aluno.idPessoa}">
+                    <input type="hidden" name="idAcademia" value="${academia}">
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                                <label for="nomePessoa">Nome:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" name="nomePessoa" class="form-control col-md-12" id="nomePessoa" value="${aluno.nomePessoa}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                                <label for="cpfAluno">CPF:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" name="cpfAluno" class="form-control col-md-12" id="cpfAluno" value="${aluno.cpfAluno}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-2">   
+                                <label for="telefonePessoa">Telefone:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" name="telefonePessoa" class="form-control col-md-12" id="telefonePessoa" value="${aluno.telefonePessoa}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-2">  
+                                <label for="telefoneEmergencia">Telefone Emergencia:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" name="telefoneEmergencia" class="form-control col-md-12" id="telefoneEmergencia" value="${aluno.telefoneEmergencia}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-2">  
+                                <label for="loginPessoa">Login:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" name="loginPessoa" class="form-control col-md-12" id="loginPessoa" value="${aluno.loginPessoa}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                                <label for="senhaPessoa">Senha</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="password" name="senhaPessoa" class="form-control col-md-12" id="senhaPessoa" value="${aluno.senhaPessoa}">
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <input type="submit" class="btn btn-success py-3 col-md-12" value="enviar">
+                </form>
+            </div>
         </div>
     </body>
 </html>

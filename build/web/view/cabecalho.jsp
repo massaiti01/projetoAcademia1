@@ -33,6 +33,7 @@
                     <li><a href="services.html">SERVIÇOS</a></li>
                     <li><a href="portfolio.html">SOBRE</a></li>
                     <li><a href="about.html">CONTATO</a></li>
+                    <li><a href="${pageContext.request.contextPath}/login/login.jsp">ACESSAR SISTEMA</a></li>
                 </ul>
             </div>
             <div class="mobile-menu"><i class="fa fa-bars"></i></div>

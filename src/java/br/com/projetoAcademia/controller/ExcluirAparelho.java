@@ -5,8 +5,7 @@
  */
 package br.com.projetoAcademia.controller;
 
-import br.com.projetoAcademia.dao.ExercicioDAOImpl;
-import br.com.projetoAcademia.dao.GenericDAO;
+import br.com.projetoAcademia.dao.AparelhoDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,14 +13,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ERICMASSAITIUEMURA
  */
-@WebServlet(name = "ListarExercicio", urlPatterns = {"/ListarExercicio"})
-public class ListarExercicio extends HttpServlet {
+@WebServlet(name = "ExcluirAparelho", urlPatterns = {"/ExcluirAparelho"})
+public class ExcluirAparelho extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,14 +32,22 @@ public class ListarExercicio extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          HttpSession session = request.getSession(true);
-        Integer idAcademia = (Integer) session.getAttribute("academia"); 
-         try {
-            ExercicioDAOImpl dao = new ExercicioDAOImpl();
-            request.setAttribute("exercicios", dao.listarA(idAcademia));
-            request.getRequestDispatcher("personal/exercicio/salvar.jsp").forward(request, response);
-        } catch (Exception e) {
-            System.out.println("Problemas no servlet ao listar Exercicios!! Erro: " + e.getMessage());
+        
+        
+        Integer idAparelho = Integer.parseInt(request.getParameter("idAparelho"));
+        String mensagem = null;
+        try{
+            AparelhoDAOImpl dao = new AparelhoDAOImpl();
+            if(dao.excluir(idAparelho)){
+            mensagem = "Aparelho Removido com Sucesso";}
+            else{
+            mensagem = "Problemas ao Remover Aparelho";
+            }
+             request.setAttribute("mensagem", mensagem);
+                request.getRequestDispatcher("ListarAparelho").forward(request, response);
+                
+        }catch(Exception e){
+         System.out.println("Problemas no servlet ao listar Treinos!! Erro: " + e.getMessage());
         }
     }
 

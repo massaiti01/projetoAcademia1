@@ -26,13 +26,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio</a>
+        <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Inicio</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link active" href="#">Suas Informações</a>
+        <a class="nav-link active" href="${pageContext.request.contextPath}/ListarAluno">Alunos</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Treino</a>
+        <a class="nav-link" href="${pageContext.request.contextPath}/ListarExercicio">Exercicios</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="${pageContext.request.contextPath}/ListarAparelho">Aparelhos</a>
       </li>
     </ul>
    
