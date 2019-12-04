@@ -16,6 +16,7 @@
         <title>Personal</title>
     </head>
     <body>
+        
     <c:choose> 
         <c:when test="${pessoa.tipoPessoa eq 'ACA'}">
         <h1>Cadastrar Personal</h1>

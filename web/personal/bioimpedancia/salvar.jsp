@@ -15,6 +15,8 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <c:choose> 
+        <c:when test="${!empty pessoa}">
        <table class="table ">
                     <tr>
                         <th>ID</th>
@@ -105,5 +107,10 @@
                 </div>
             </form>
     </c:if>
+        </c:when>
+<c:otherwise>
+    <jsp:forward page="../../login/login.jsp"></jsp:forward>
+</c:otherwise>
+</c:choose>
     </body>
 </html>

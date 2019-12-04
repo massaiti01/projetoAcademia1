@@ -15,6 +15,8 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <c:choose> 
+        <c:when test="${!empty pessoa}">
         <h1> Cadastrar novo Exercicio no treino</h1>
          <form method="POST" action="${pageContext.request.contextPath}/SalvarExercicioTreino">
             
@@ -71,5 +73,10 @@
             
                 <input type="submit" value="Cadastrar Exercicio no Treino">
         </form>
+            </c:when>
+<c:otherwise>
+    <jsp:forward page="../../login/login.jsp"></jsp:forward>
+</c:otherwise>
+</c:choose>
     </body>
 </html>

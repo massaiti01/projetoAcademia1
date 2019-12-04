@@ -14,26 +14,10 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>Cadastrar Medidas</title>
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <script type="text/javascript">
-                google.charts.load('current', {packages: ['corechart']})
-                google.charts.setOnLoadCallback(drawChart)
-                function drawChart(data1[], valor[]) {
-                    const container = document.querySelector('#chart')
-                    const data = new google.visualization.arrayToDataTable([
-                        ['Nome', 'Braço D'],
-                        [data1, parseInt(valor)],
-                    ])
-                    const options = {
-                        title: 'Tabela de Acompanhamento',
-                        height: 400,
-                        width: 720
-                    }
-                    const chart = new google.visualization.LineChart(container)
-                    chart.draw(data, options)
-                }
-            </script>
         </head>
         <body>
+               <c:choose> 
+        <c:when test="${!empty pessoa}">
             <div id="chart">
             </div>
             <table class="table ">
@@ -211,5 +195,10 @@
                 </form>
             </div>
         </c:if>
+             </c:when>
+<c:otherwise>
+    <jsp:forward page="../../login/login.jsp"></jsp:forward>
+</c:otherwise>
+</c:choose>
     </body>
 </html>

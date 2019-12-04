@@ -9,9 +9,10 @@ package br.com.projetoAcademia.model;
  *
  * @author ERICMASSAITIUEMURA
  */
-public class Academia extends Pessoa {
+public class Academia extends Pessoa{
     private Integer idAcademia;
     private String cnpjAcademia;
+    private String statusAcademia;
 
     public Integer getIdAcademia() {
         return idAcademia;
@@ -36,7 +37,6 @@ public class Academia extends Pessoa {
     public void setStatusAcademia(String statusAcademia) {
         this.statusAcademia = statusAcademia;
     }
-    private String statusAcademia;
 
     
 }

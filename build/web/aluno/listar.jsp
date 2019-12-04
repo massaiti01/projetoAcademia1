@@ -15,6 +15,8 @@
         <title>Lista de Alunos</title>
     </head>
     <body>
+        <c:choose> 
+        <c:when test="${!empty pessoa}">
         <table class="table">
                 <tr class="thead-dark">
                     <th>ID</th>
@@ -46,6 +48,12 @@
                 </tr>
             </c:forEach>
         </table>
+        </c:when>
+<c:otherwise>
+    <jsp:forward page="../login/login.jsp"></jsp:forward>
+</c:otherwise>
+</c:choose>
+        
     </body>
 </html>
 <jsp:include page="../dashboard/javascripts.jsp"></jsp:include>

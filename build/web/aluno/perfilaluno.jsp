@@ -14,6 +14,8 @@
             <title>JSP Page</title>
         </head>
         <body>
+        <c:choose>
+        <c:when test="${!empty pessoa}">
             
             <div class="col-md-12 ">
             <div class="alert alert-success" role="alert">
@@ -75,6 +77,13 @@
     <td><a href="${pageContext.request.contextPath}/DadosMedida?idAluno=${aluno.idAluno}">Medidas</a></td>
     
     </div>
+     </c:forEach>
+        </table>
+        </c:when>
+<c:otherwise>
+    <jsp:forward page="../login/login.jsp"></jsp:forward>
+</c:otherwise>
+</c:choose>
 </body>
 </html>
 <jsp:include page="../dashboard/javascripts.jsp"></jsp:include>

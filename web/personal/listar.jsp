@@ -37,5 +37,10 @@
                 </tr>
             </c:forEach>
         </table>
+        </c:when>
+<c:otherwise>
+    <jsp:forward page="../../login/login.jsp"></jsp:forward>
+</c:otherwise>
+</c:choose>
     </body>
 </html>

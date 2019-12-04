@@ -25,6 +25,8 @@
             }
         </script>
         <body>
+            <c:choose> 
+        <c:when test="${!empty pessoa}">
             <table class="table">
                 <tr class="thead-dark">
                     <th>ID</th>
@@ -134,6 +136,11 @@
                 </form>
             </div>
         </c:if>
+                </c:when>
+<c:otherwise>
+    <jsp:forward page="../../login/login.jsp"></jsp:forward>
+</c:otherwise>
+</c:choose>
     </body>
     <jsp:include page="../../dashboard/javascripts.jsp"></jsp:include>
 </html>

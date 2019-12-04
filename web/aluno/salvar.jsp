@@ -15,6 +15,9 @@
             <title>Aluno</title>
         </head>
         <body>
+            <c:choose>
+        <c:when test="${!empty pessoa}">
+            
             <div class="col-md-12">
                 <div class="col-md-12">
                     <h1 class="text-center">Salvar Aluno</h1>
@@ -86,6 +89,11 @@
                 </form>
             </div>
         </div>
+        </c:when>
+<c:otherwise>
+    <jsp:forward page="../login/login.jsp"></jsp:forward>
+</c:otherwise>
+</c:choose>
     </body>
 </html>
 <jsp:include page="../dashboard/javascripts.jsp"></jsp:include>
