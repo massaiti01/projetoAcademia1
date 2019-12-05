@@ -6,6 +6,7 @@
 package br.com.projetoAcademia.controller;
 
 import br.com.projetoAcademia.dao.AcademiaDAOImpl;
+import br.com.projetoAcademia.dao.AlunoDAOImpl;
 import br.com.projetoAcademia.dao.PersonalDAOImpl;
 import br.com.projetoAcademia.dao.PessoaDAOImpl;
 import br.com.projetoAcademia.model.Pessoa;
@@ -60,6 +61,9 @@ public class LogarPessoa extends HttpServlet {
                             session.setAttribute("academia",idAcademia);
                             request.getRequestDispatcher("DadosAcademia?idAcademia="+pessoa.getIdPessoa()).forward(request, response);
                         } else if (pessoa.getTipoPessoa().equalsIgnoreCase("alu")) {
+                            AlunoDAOImpl dao1 = new AlunoDAOImpl();
+                             Integer idAluno = dao1.pegarId(pessoa.getIdPessoa());
+                             session.setAttribute("aluno",idAluno);
                             request.getRequestDispatcher("DadosAluno?idAluno="+pessoa.getIdPessoa()).forward(request, response);
                         }else if (pessoa.getTipoPessoa().equalsIgnoreCase("per")) {
                             PersonalDAOImpl dao1 = new PersonalDAOImpl();
@@ -89,7 +93,7 @@ public class LogarPessoa extends HttpServlet {
         } else if (request.getParameter("acao").equals("sair")) {
             HttpSession session = request.getSession(true);
             session.invalidate();
-            response.sendRedirect("administrador/index.jsp");
+            response.sendRedirect("login/login.jsp");
         }
     }
 

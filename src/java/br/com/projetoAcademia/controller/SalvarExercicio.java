@@ -93,7 +93,7 @@ public class SalvarExercicio extends HttpServlet {
             }
 
             request.setAttribute("mensagem", mensagem);
-            request.getRequestDispatcher("personal/exercicio/salvar.jsp").forward(request, response);
+            request.getRequestDispatcher("ListarExercicio").forward(request, response);
         } catch (Exception ex) {
             System.out.println("Problemas no Servlet ao Cadastrar Exercicio! Erro: " + ex.getMessage());
             ex.printStackTrace();

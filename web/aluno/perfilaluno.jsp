@@ -4,6 +4,7 @@
     Author     : ERICMASSAITIUEMURA
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:include page="../dashboard/menualuno.jsp"></jsp:include>
@@ -77,8 +78,7 @@
     <td><a href="${pageContext.request.contextPath}/DadosMedida?idAluno=${aluno.idAluno}">Medidas</a></td>
     
     </div>
-     </c:forEach>
-        </table>
+
         </c:when>
 <c:otherwise>
     <jsp:forward page="../login/login.jsp"></jsp:forward>

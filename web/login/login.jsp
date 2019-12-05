@@ -4,6 +4,7 @@
     Author     : ERICMASSAITIUEMURA
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -23,6 +24,7 @@
 </head>
 
 <body class="bg-dark">
+<c:choose> <c:when test="${empty pessoa}">
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
@@ -62,6 +64,7 @@
       </div>
     </div>
   </div>
+         
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -69,7 +72,9 @@
 
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
+ </c:when><c:otherwise>
+     <jsp:forward page="../indexS.jsp"></jsp:forward>
+ </c:otherwise> </c:choose>
 </body>
 <jsp:include page="../dashboard/javascripts.jsp"></jsp:include>
 </html>

@@ -178,4 +178,32 @@ public class AlunoDAOImpl implements GenericDAO{
         }
     }
     
+    public Integer pegarId(int idObject) {
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Integer idAluno = null;
+
+        String sql = "select id_aluno from aluno a inner join pessoa p on p.id_pessoa = a.id_pessoa where p.id_pessoa = ?";
+                
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                idAluno = rs.getInt("id_aluno");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao pegar id! Erro: " + ex.getMessage());
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+            }
+        }
+        return idAluno;
+        
+    }
+    
 }

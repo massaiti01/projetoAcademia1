@@ -18,6 +18,9 @@
         
        <c:choose> 
            <c:when test="${pessoa.tipoPessoa eq 'PER'}">
+                <div class="alert alert-success" role="alert">
+  Bem Vindo ${pessoa.nomePessoa}
+</div>
         <h1>Personal</h1>
         
         <br />
