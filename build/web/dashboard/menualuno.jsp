@@ -15,7 +15,7 @@
         </head>
         <body>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light col-sm-12">
                 <div class="logo">
                     <a href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/view/assets/img/LOGO_1.png" id="logotipom" alt="Logo Data projects"/><span id="logotipoletram">Data</span> <span id="logotipoletra2m">Projects</span></a>
             </div>
@@ -28,35 +28,35 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Inicio</a>
                     </li>
-                         <c:if test="${!empty pessoa}">
-                    <c:choose>
-                        <c:when test="${pessoa.tipoPessoa != 'ALU'}">
-                            <li class="nav-item active">
-                                <a class="nav-link active" href="${pageContext.request.contextPath}/ListarAluno">Alunos</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/ListarExercicio">Exercicios</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/ListarAparelho">Aparelhos</a>
-                            </li>
-                            
-                              <li class="nav-item active">
-                                <a href="${pageContext.request.contextPath}/LogarPessoa?acao=sair" class="nav-link">LOGOUT</a>
-                            </li>
+                    <c:if test="${!empty pessoa}">
+                        <c:choose>
+                            <c:when test="${pessoa.tipoPessoa != 'ALU'}">
+                                <li class="nav-item active">
+                                    <a class="nav-link active" href="${pageContext.request.contextPath}/ListarAluno">Alunos</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/ListarExercicio">Exercicios</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/ListarAparelho">Aparelhos</a>
+                                </li>
 
-                        </c:when>
-                           
-                        <c:otherwise>
-                           
-                              <li class="nav-item active">
-                                <a href="${pageContext.request.contextPath}/LogarPessoa?acao=sair" class="nav-link">LOGOUT</a>
-                            </li>
-                          
-                        </c:otherwise>
-                    </c:choose>
-                              </c:if>
-                        
+                                <li class="nav-item active">
+                                    <a href="${pageContext.request.contextPath}/LogarPessoa?acao=sair" class="nav-link">LOGOUT</a>
+                                </li>
+
+                            </c:when>
+
+                            <c:otherwise>
+
+                                <li class="nav-item active">
+                                    <a href="${pageContext.request.contextPath}/LogarPessoa?acao=sair" class="nav-link">LOGOUT</a>
+                                </li>
+
+                            </c:otherwise>
+                        </c:choose>
+                    </c:if>
+
                 </ul>
 
             </div>

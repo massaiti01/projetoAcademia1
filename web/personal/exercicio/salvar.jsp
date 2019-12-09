@@ -8,25 +8,23 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:include page="../../dashboard/csss.jsp"></jsp:include>
-<jsp:include page="../../dashboard/menualuno.jsp"></jsp:include>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
       <body>
+<jsp:include page="../../dashboard/menualuno.jsp"></jsp:include>
           <c:choose> 
         <c:when test="${!empty pessoa}">
-           <table class="table">
+           <table class="table table-striped">
                 <tr class="thead-dark">
                     <th>ID</th>
                     <th>Nome</th>
                     <th>FOTO</th>
-                    <th row="2">Opções</th>
                     <th></th>
+                    <th row="2">Opções</th>
                 </tr>
-
-           
                 <c:forEach var="exercicio" items="${exercicios}">
                 <tr>
                     <td>${exercicio.idExercicio}</td>
@@ -37,7 +35,8 @@
                 </tr>
             </c:forEach>
         </table>
-          <div class="col-md-12">
+                <a class="btn btn-success py-3" href="teste">NOVO EXERCICIO</a>
+          <div class="col-md-12" id="CadastrarNovo" style="display:none;">
         <h1 class="text-center"> Salvar Exercicico</h1>
          <form method="POST" action="${pageContext.request.contextPath}/SalvarExercicio" id="salvarexercicio" enctype="multipart/form-data">
             

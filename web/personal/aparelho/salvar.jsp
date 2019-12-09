@@ -15,9 +15,10 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div class="col-sm-12">
         <c:choose> 
         <c:when test="${!empty pessoa}">
-         <table class="table">
+         <table class="table table-striped">
                 <tr class="thead-dark">
                     <th>ID</th>
                     <th>Nome</th>
@@ -66,5 +67,6 @@
     <jsp:forward page="../../login/login.jsp"></jsp:forward>
 </c:otherwise>
 </c:choose>
+        </div>
     </body>
 </html>
