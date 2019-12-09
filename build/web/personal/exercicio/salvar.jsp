@@ -30,8 +30,8 @@
                     <td>${exercicio.idExercicio}</td>
                     <td>${exercicio.nomeExercicio}</td>
                     <td><img src="MostrarFoto?idExercicio=${exercicio.idExercicio}" style="width:100px;height:100px;" alt="${exercicio.nomeExercicio}"> </td>
-                    <td><a href="${pageContext.request.contextPath}/CarregarExercicio?idExercicio=${exercicio.idExercicio}">Alterar</a></td>
-                    <td><a href="${pageContext.request.contextPath}/ExcluirExercicio?idExercicio=${exercicio.idExercicio}">Excluir</a></td>
+                    <td><a class="btn btn-primary col-md-12"  href="${pageContext.request.contextPath}/CarregarExercicio?idExercicio=${exercicio.idExercicio}">Alterar</a></td>
+                    <td><a class="btn btn-danger col-md-12"  href="${pageContext.request.contextPath}/ExcluirExercicio?idExercicio=${exercicio.idExercicio}">Excluir</a></td>
                 </tr>
             </c:forEach>
         </table>

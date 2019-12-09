@@ -31,8 +31,8 @@
                 <tr>
                     <td>${aparelho.idAparelho}</td>
                     <td>${aparelho.nomeAparelho}</td>
-                    <td><a href="${pageContext.request.contextPath}/CarregarAparelho?idAparelho=${aparelho.idAparelho}">Alterar</a></td>
-                    <td><a href="${pageContext.request.contextPath}/ExcluirAparelho?idAparelho=${aparelho.idAparelho}">Excluir</a></td>
+                    <td><a class="btn btn-primary col-md-12" href="${pageContext.request.contextPath}/CarregarAparelho?idAparelho=${aparelho.idAparelho}">Alterar</a></td>
+                    <td><a class="btn btn-danger col-md-12" href="${pageContext.request.contextPath}/ExcluirAparelho?idAparelho=${aparelho.idAparelho}">Excluir</a></td>
                 </tr>
             </c:forEach>
         </table>

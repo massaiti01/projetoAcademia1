@@ -124,9 +124,9 @@ public class SalvarBioimpedancia extends HttpServlet {
           try (PrintWriter out = response.getWriter()) {
               BioimpedanciaDAOImpl dao = new BioimpedanciaDAOImpl();  
               if (dao.cadastrar(bio)) {
-                    mensagem = "Treino cadastrado com sucesso!";
+                    mensagem = "Bioimpedância cadastrada com sucesso!";
                 } else {
-                    mensagem = "Problemas ao cadastrar Aparelho!";
+                    mensagem = "Problemas ao cadastrar Bioimpedância!";
                 }
                 
                  request.setAttribute("mensagem", mensagem);

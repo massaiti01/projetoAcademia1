@@ -17,9 +17,9 @@
     <body>
         <c:choose> 
         <c:when test="${!empty pessoa}">
-       <table class="table ">
+            <div class="table-responsive">
+       <table class="table">
                     <tr>
-                        <th>ID</th>
                         <th>Tipo</th>
                         <th>% Gordura</th>
                         <th>Peso Gordura</th>
@@ -36,7 +36,6 @@
                     
                     <c:forEach var="bioimpedancia" items="${bioimpedancias}">
                             <tr>
-                                <td>${bioimpedancia.idBioimpedancia}</td>
                                 <td>${bioimpedancia.tipo}</td>
                                 <td>${bioimpedancia.gorduraDobras}</td>
                                 <td>${bioimpedancia.pesodeGorduraDobras}</td>
@@ -48,10 +47,11 @@
                                 <td>${bioimpedancia.indicePonderal}</td>
                                 <td>${bioimpedancia.indiceConicidade}</td>
                                 <td>${bioimpedancia.personal.nomePessoa}</td>
-                                <td><a href="${pageContext.request.contextPath}/ExcluirBioimpedancia?idBioimpedancia=${bioimpedancia.idBioimpedancia}&&idAluno=${bioimpedancia.aluno.idAluno}">Excluir</a></td>
+                                <td><a class="btn btn-danger" href="${pageContext.request.contextPath}/ExcluirBioimpedancia?idBioimpedancia=${bioimpedancia.idBioimpedancia}&&idAluno=${bioimpedancia.aluno.idAluno}">Excluir</a></td>
                             </tr>
                     </c:forEach>
                 </table>
+            </div>
           <c:if test="${!empty mensagem}">
                     <div class="alert alert-success" role="alert">
                         <p>${mensagem}</p>
@@ -103,7 +103,7 @@
                 </div>
             
                 <div>
-                    <input type="submit" value="Enviar">
+                    <input class="btn btn-success" type="submit" value="Enviar">
                 </div>
             </form>
     </c:if>
