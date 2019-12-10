@@ -5,6 +5,7 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.AcompanhamentoDAOImpl;
 import br.com.projetoAcademia.dao.AlunoDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,9 +35,11 @@ public class DadosAluno extends HttpServlet {
             throws ServletException, IOException {
         
         int idAluno = Integer.parseInt(request.getParameter("idAluno"));
+        int idAA = Integer.parseInt(request.getParameter("idAA"));
         try {
-            AlunoDAOImpl dao = new AlunoDAOImpl();            
-            
+            AlunoDAOImpl dao = new AlunoDAOImpl();  
+            AcompanhamentoDAOImpl dao1 = new AcompanhamentoDAOImpl();
+            request.setAttribute("acompanhamentos",dao1.listarA(idAA));
             request.setAttribute("aluno", dao.carregar(idAluno));
             request.getRequestDispatcher("aluno/perfilaluno.jsp").forward(request, response);
         } catch (Exception e) {

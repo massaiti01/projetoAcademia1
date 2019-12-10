@@ -32,12 +32,20 @@
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
-	var valores = [10.4,40.6,60.6,56.6,60.1,60];
+	var valores = [];
+        var datas = [];
+        var i = 0;
+            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                valores[i] =  ${acompanhamento.cintura};
+                datas[i] = "${acompanhamento.data}";
+                i = i+1;
+            </c:forEach>
+        
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['22/06', '22/07', '22/08', '22/09', '22/10', '22/11'],
+        labels: [datas[0],datas[1],datas[2],datas[3],datas[4],datas[5]],
         datasets: [{
             label: 'Cintura',
             data: [valores[0],valores[1],valores[2],valores[3],valores[4],valores[5]],
@@ -75,12 +83,20 @@ var myChart = new Chart(ctx, {
                     </div>
                 </div>
                 <script>
-	var valores = [80,85,86,90,87,92];
+	var valores = [];
+        var datas = [];
+        var i = 0;
+            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                valores[i] =  ${acompanhamento.peitoral};
+                datas[i] = "${acompanhamento.data}";
+                i = i+1;
+            </c:forEach>
+        
 var ctx = document.getElementById('myChart2').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['22/06', '22/07', '22/08', '22/09', '22/10', '22/11'],
+        labels: [datas[0],datas[1],datas[2],datas[3],datas[4],datas[5]],
         datasets: [{
             label: 'Petoral',
             data: [valores[0],valores[1],valores[2],valores[3],valores[4],valores[5]],
@@ -112,12 +128,19 @@ var myChart = new Chart(ctx, {
                     </div>
                 </div>
                 <script>
-	var valores = [80,85,86,90,87,92];
+	var valores = [];
+        var datas = [];
+        var i = 0;
+            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                valores[i] =  ${acompanhamento.gluteo};
+                datas[i] = "${acompanhamento.data}";
+                i = i+1;
+            </c:forEach>
 var ctx = document.getElementById('myChart3').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['22/06', '22/07', '22/08', '22/09', '22/10', '22/11'],
+        labels: [datas[0],datas[1],datas[2],datas[3],datas[4],datas[5]],
         datasets: [{
             label: 'Gluteos',
             data: [valores[0],valores[1],valores[2],valores[3],valores[4],valores[5]],
@@ -149,12 +172,20 @@ var myChart = new Chart(ctx, {
                     </div>
                 </div>
                 <script>
-	var valores = [80,85,86,90,87,92];
+	var valores = [];
+        var datas = [];
+        var i = 0;
+            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                valores[i] =  ${acompanhamento.ombro};
+                datas[i] = "${acompanhamento.data}";
+                i = i+1;
+            </c:forEach>
+        var datas = [datas[0],datas[1],datas[2],datas[3],datas[4],datas[5]];
 var ctx = document.getElementById('myChart4').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['22/06', '22/07', '22/08', '22/09', '22/10', '22/11'],
+        labels: [datas[0],datas[1],datas[2],datas[3],datas[4],datas[5]],
         datasets: [{
             label: 'Ombro',
             data: [valores[0],valores[1],valores[2],valores[3],valores[4],valores[5]],

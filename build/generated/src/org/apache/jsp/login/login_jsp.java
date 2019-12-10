@@ -79,7 +79,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("</head>\n");
       out.write("\n");
-      out.write("<body class=\"bg-dark\">\n");
+      out.write("<body class=\"fundopreto\">\n");
       if (_jspx_meth_c_choose_0(_jspx_page_context))
         return;
       out.write("\n");
@@ -151,7 +151,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/index.jsp\"><img src=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/view/assets/img/LOGO_1.png\" id=\"logotipo\" alt=\"Logo Data projects\"/><span id=\"logotipoletra\">Data</span> <span id=\"logotipoletra2\">Projects</span></a>\n");
+        out.write("/view/assets/img/LOGO_1.png\" id=\"logotipo\" alt=\"Logo Data projects\"/><span id=\"logotipoletra1\">Data</span> <span id=\"logotipoletra21\">Projects</span></a>\n");
         out.write("            </div>\n");
         out.write("      <div class=\"card-header\">Acessar Sistema</div>\n");
         out.write("      <div class=\"card-body\">\n");

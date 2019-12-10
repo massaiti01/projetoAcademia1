@@ -4,24 +4,26 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/academia/salvar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/exercicio/listar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/indexS.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/exercicioaparelho/listar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/util/grafico.html</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/aluno/listar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/model/Acompanhamento.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/dao/AcompanhamentoDAOImpl.java</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/treino/salvar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/index.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/aluno/listar.jsp</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/exercicio/salvar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/exercicioaparelho/salvar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/view/css/alterado.css</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/dao/PersonalDAOImpl.java</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/dashboard/menualuno.jsp</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/aparelho/salvar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/aparelho/listar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/login/login.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/aluno/salvar.jsp</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/bioimpedancia/salvar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/login/login.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/DadosAluno.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/SalvarAcademia.java</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/academia/perfilacademia.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/ListarAparelho.java</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/aluno/perfilaluno.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/SalvarAparelho.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/LogarPessoa.java</file>
             <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/acompanhamento/salvar.jsp</file>
-            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/SalvarBioimpedancia.java</file>
         </group>
     </open-files>
 </project-private>
