@@ -20,7 +20,7 @@
         <c:when test="${!empty pessoa}">
             <div id="chart">
             </div>
-            <table class="table ">
+            <table class="table table-striped">
                 <tr class="thead-dark">
                     <th>Medida Ombro</th>
                     <th>Medida Peitoral</th>

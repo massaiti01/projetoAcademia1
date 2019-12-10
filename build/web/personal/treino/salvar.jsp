@@ -123,7 +123,7 @@
                                                 <label class="col-sm-10 col-form-label" for="nomeTreino">Nome:</label>
                                             </div>
                                             <div class="col-md-10">
-                                                <input type="text" name="nomeTreino"  class="form-control col-md-12" id="nomeTreino" value="${treino.nomeTreino}"><br />
+                                                <input type="text" name="nomeTreino"  class="form-control col-md-12" id="nomeTreino" value="${treino.nomeTreino}" required><br />
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -131,7 +131,7 @@
                                                 <label class="col-sm-10 col-form-label" for="dataTreino">Data Treino </label>
                                             </div>
                                             <div class="col-md-10">
-                                                <input type="date" name="dataTreino" class="form-control col-md-12" id="dataTreino" value="${treino.dataTreino}">
+                                                <input type="date" name="dataTreino" class="form-control col-md-12" id="dataTreino" value="${treino.dataTreino}" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -153,7 +153,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </c:if>
         </c:when>
         <c:otherwise>

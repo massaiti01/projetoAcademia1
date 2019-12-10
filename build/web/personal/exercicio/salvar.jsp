@@ -11,10 +11,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Exercicio</title>
     </head>
       <body>
 <jsp:include page="../../dashboard/menualuno.jsp"></jsp:include>
+  <c:if test="${!empty mensagem}">
+            <div class="alert alert-success" role="alert">
+                <p>${mensagem}</p>
+            </div>
+        </c:if>
           <c:choose> 
         <c:when test="${!empty pessoa}">
            <table class="table table-striped">
@@ -35,9 +40,23 @@
                 </tr>
             </c:forEach>
         </table>
-                <a class="btn btn-success py-3" href="teste">NOVO EXERCICIO</a>
-          <div class="col-md-12" id="CadastrarNovo" style="display:none;">
+               
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalExemplo">
+                        Novo Exercicio
+                    </button>
+          <div class="col-md-12" >
+                <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div id="divCadastrarTreino" class="col-md-12">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
         <h1 class="text-center"> Salvar Exercicico</h1>
+        </div>
+                                </div>
+                                <div class="modal-body">
          <form method="POST" action="${pageContext.request.contextPath}/SalvarExercicio" id="salvarexercicio" enctype="multipart/form-data">
             
               <c:if test="${!empty mensagem}">
@@ -66,7 +85,10 @@
             <input type="submit" class="btn btn-success col-md-12 py-3" value="Salvar Exercicio">
                 </div>
         </form>
-      </div>
+      </div></div>
+                            </div>
+                        </div>
+                    </div>
                 </c:when>
 <c:otherwise>
     <jsp:forward page="../../login/login.jsp"></jsp:forward>

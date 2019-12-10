@@ -23,11 +23,7 @@
                     <h1 class="text-center">Salvar Aluno</h1>
                     <form method="POST" class="form-group" action="${pageContext.request.contextPath}/SalvarAluno">
 
-                    <c:if test="${!empty mensagem}">
-                        <div class="alert alert-success" role="alert">
-                            <p>${mensagem}</p>
-                        </div>
-                    </c:if>
+                   
 
                     <input type="hidden" name="idPessoa" value="${aluno.idPessoa}">
                     <input type="hidden" name="idAcademia" value="${academia}">

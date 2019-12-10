@@ -8,16 +8,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:include page="../dashboard/csss.jsp"></jsp:include>
-
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>Lista de Alunos</title>
         </head>
         <body>
-        <jsp:include page="../dashboard/menualuno.jsp"></jsp:include>
             <c:choose> 
                 <c:when test="${!empty pessoa}">
+        <jsp:include page="../dashboard/menualuno.jsp"></jsp:include>
             <div class="col-sm-12 table-responsive">
                     <table class="table table-striped">
                         <thead >    

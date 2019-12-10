@@ -23,13 +23,13 @@
 <jsp:include page="../dashboard/csss.jsp"></jsp:include>
 </head>
 
-<body class="bg-dark">
+<body class="fundopreto">
 <c:choose> <c:when test="${empty pessoa}">
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
          <div class="logo text-center">
-                <a href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/view/assets/img/LOGO_1.png" id="logotipo" alt="Logo Data projects"/><span id="logotipoletra">Data</span> <span id="logotipoletra2">Projects</span></a>
+                <a href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/view/assets/img/LOGO_1.png" id="logotipo" alt="Logo Data projects"/><span id="logotipoletra1">Data</span> <span id="logotipoletra21">Projects</span></a>
             </div>
       <div class="card-header">Acessar Sistema</div>
       <div class="card-body">

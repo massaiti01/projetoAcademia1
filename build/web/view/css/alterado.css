@@ -65,6 +65,22 @@ and open the template in the editor.
       font-style: italic;
       font-size:1vw;
   }
+  #logotipoletra1{
+      margin-left: 10px;
+      font-family: Azonix;
+      color: black;
+      
+      font-size:1vw;
+  }
+  .fundopreto{
+      background-color: black;
+  }
+#logotipoletra21{
+      font-family: Century Gothic;
+      color: black;
+      font-style: italic;
+      font-size:1vw;
+  }
 #botaocolorido{
   display: inline-block;
   min-width: 225px;

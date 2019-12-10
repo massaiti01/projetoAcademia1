@@ -54,7 +54,7 @@ public class SalvarAcademia extends HttpServlet {
                     mensagem = "Problemas ao cadastrar Academia!";
                 }
                  request.setAttribute("mensagem", mensagem);
-            request.getRequestDispatcher("academia/salvar.jsp").forward(request, response);
+            request.getRequestDispatcher("login/login.jsp").forward(request, response);
             } else {
                 academia.setIdPessoa(Integer.parseInt(request.getParameter("idPessoa")));
                 if(dao.alterar(academia)){

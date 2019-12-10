@@ -66,7 +66,7 @@
                         </div>
                     </div>
 
-                    <input type="submit" class="btn btn-success py-3 col-md-12"  value="enviar">
+                    <input type="submit" class="btn btn-success py-3 col-md-12"  value="Cadastrar">
                 </div>
             </form>
         </div>
