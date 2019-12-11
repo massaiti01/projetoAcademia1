@@ -1,0 +1,146 @@
+create table pessoa(
+id_pessoa serial not null,
+nome_pessoa varchar(50) not null,
+tipo_pessoa char(3) not null,
+telefone_pessoa varchar(11) not null,
+login_pessoa varchar(30) not null Unique,
+senha_pessoa varchar(50) not null,
+constraint pk_pessoa primary key (id_pessoa) 
+);
+create table academia(
+id_academia serial not null,
+id_pessoa int not null,
+cnpj_academia varchar(20) not null,
+status_academia char(1) not null,
+constraint pk_academia primary key(id_academia),
+constraint fk_pessoa_academia foreign key (id_pessoa) references pessoa(id_pessoa)
+);
+create table personal(
+id_personal serial not null,
+cref_personal varchar(20) not null,
+id_pessoa int not null,
+id_academia int not null,
+constraint pk_personal primary key (id_personal),
+constraint fk_pessoa_personal foreign key (id_pessoa) references pessoa(id_pessoa),
+constraint fk_academia_personal foreign key (id_academia) references academia(id_academia)
+);
+create table aluno(
+id_aluno serial not null,
+telefone_emergencia varchar(20) not null,
+id_pessoa int not null,
+id_academia int not null,
+cpf_aluno varchar(20) not null,
+constraint pk_aluno primary key (id_aluno),
+constraint fk_pessoa_aluno foreign key (id_pessoa) references pessoa(id_pessoa),
+constraint fk_academia_aluno foreign key (id_academia) references academia(id_academia)
+);
+
+create table acompanhamento(
+	id_acompanhamento serial not null,
+	id_aluno int not null,
+	id_personal int not null not null,
+	ombro_aluno numeric not null,
+	peitoral_aluno numeric not null,
+	braco_d_aluno numeric not null,
+	braco_e_aluno numeric not null,
+	antebraco_d_aluno numeric not null,
+	antebraco_e_aluno numeric not null,
+	cintura_aluno numeric not null,
+	gluteo_aluno numeric not null,
+	quadril_aluno numeric not null,
+	perna_d_aluno numeric not null,
+	perna_e_aluno numeric not null,
+	panturrilha_d_aluno numeric not null,
+	panturrilha_e_aluno numeric not null,
+	data_acompanhamento date not null,
+	constraint pk_acompanhamento primary key(id_acompanhamento),
+	constraint fk_aluno_acompanhamento_aluno foreign key (id_aluno) references aluno(id_aluno),
+	constraint fk_personal_acompanhamento_personal foreign key (id_personal) references personal(id_personal)
+);
+create table bioimpedancia(
+	id_bioimpedancia serial not null,
+	id_aluno int not null,
+	id_personal int not null,
+	tipo varchar(10) not null,
+	p_gordura numeric not null,
+	indice_conicidade numeric not null,
+	indice_ponderal numeric not null,
+	imc numeric not null,
+	peso_gordura numeric not null,
+	massa_magra numeric not null,
+	peso_osseo numeric not null,
+	peso_residual numeric not null,
+	peso_muscular numeric not null,
+	data_bio date not null,
+	constraint pk_bioimpedancia primary key(id_bioimpedancia), 
+	constraint fk_aluno_bioimpedancia_aluno foreign key (id_aluno) references aluno(id_aluno),
+	constraint fk_personal_bioimpedancia_personal foreign key (id_personal) references personal(id_personal)
+);
+
+
+
+create table aparelho(
+id_aparelho serial not null,
+nome_aparelho varchar(50) not null,
+id_academia int not null,
+constraint pk_aparelho primary key (id_aparelho),
+constraint fk_academia_aparelho foreign key (id_academia) references academia(id_academia)
+);
+
+create table exercicio(
+id_exercicio serial not null,
+nome_exercicio varchar(50) not null,
+id_academia int not null,
+foto_exercicio bytea not null,
+constraint pk_exercicio primary key (id_exercicio),
+constraint fk_academia_exercicio foreign key (id_academia) references academia(id_academia)
+);
+
+create table grupomuscular(
+id_grupo_muscular serial not null,
+id_academia int not null,
+nome_grupo_muscular varchar(50) not null,
+constraint pk_grupo_muscular primary key (id_grupo_muscular),
+constraint fk_academia_grupomuscular foreign key (id_academia) references academia(id_academia)
+);
+
+create table treino(
+id_treino serial not null,
+nome_treino varchar(50) not null,
+id_personal int not null,
+id_aluno int not null,
+data_treino date not null,
+constraint pk_treino primary key (id_treino) ,
+constraint fk_treino_aluno foreign key (id_aluno) references aluno(id_aluno),
+constraint fk_treino_personal foreign key (id_personal) references personal(id_personal)
+);
+
+create table grupotreinado(
+id_grupo_treinado serial not null,
+id_treino int not null,
+id_grupo_muscular int not null,
+constraint pk_grupotreinado primary key (id_grupo_treinado),
+constraint fk_grupotreinado_treino foreign key (id_treino) references treino(id_treino) ON DELETE CASCADE,
+constraint fk_grupotreinado_grupomuscular foreign key (id_grupo_muscular) references grupomuscular(id_grupo_muscular)
+
+);
+
+create table exerciciotreino(
+id_exercicio_treino serial not null,
+id_aparelho int not null,
+id_grupo_muscular int not null,
+id_treino int not null,
+id_exercicio int not null,
+descricao_exercicio_treino varchar(200) not null,
+carga_treino int not null,
+repeticoes_treino int not null,
+series_treino int not null,
+constraint pk_exerciciotreino primary key(id_exercicio_treino) on delete cascade,
+constraint fk_exerciciotreino_aparelho foreign key(id_aparelho) references aparelho(id_aparelho),
+constraint fk_exerciciotreino_grupo_muscular foreign key(id_grupo_muscular) references grupomuscular(id_grupo_muscular),
+constraint fk_exerciciotreino_treino foreign key(id_treino) references treino(id_treino),
+constraint fk_exerciciotreino_exercicio foreign key(id_exercicio) references exercicio(id_exercicio)
+)
+
+
+
