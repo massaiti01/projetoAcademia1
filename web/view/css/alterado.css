@@ -37,7 +37,11 @@ and open the template in the editor.
 }
 
 #logotipo{
-      width:20%;
+      width:4vw;
+      height:6vw;
+  }
+#logotipo3{
+      width:25%;
       height:30%;
   }
 #logotipom{
@@ -74,6 +78,19 @@ and open the template in the editor.
       color: white;
       font-style: italic;
       font-size:1vw;
+  }
+#logotipoletra3{
+      margin-left: 10px;
+      font-family: Azonix;
+      color: white;
+      
+      font-size:100%;
+  }
+#logotipoletra23{
+      font-family: Century Gothic;
+      color: white;
+      font-style: italic;
+      font-size:100%;
   }
   #logotipoletra1{
       margin-left: 10px;
