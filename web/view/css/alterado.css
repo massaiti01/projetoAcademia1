@@ -48,13 +48,13 @@ and open the template in the editor.
       margin-left: 10px;
       font-family: Azonix;
       color: black;
-      font-size:.7vw;
+      font-size:100%;
   }
   #logotipoletra2m{
       font-family: Century Gothic;
       color: black;
       font-style: italic;
-      font-size:.7vw;
+      font-size:100%;
   }
 .navadmin{
       height:10vw;

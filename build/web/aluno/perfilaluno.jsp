@@ -58,11 +58,11 @@
                         <div class="col-md-12" >
                             <table class="table ">
                                 <tr class="thead-dark">
-                                    <th>Descricao</th>
-                                    <th>Grupo Muscular</th>
-                                    <th>Exercicio</th>
-                                    <th>Aparelho</th>
-                                    <th row="3">repeticoes,series,carga,</th>
+                                    <th class="col-md-3">Descricao</th>
+                                    <th class="col-md-2">Grupo Muscular</th>
+                                    <th class="col-md-2">Exercicio</th>
+                                    <th class="col-md-2">Aparelho</th>
+                                    <th class="col-md-3" row="3">repeticoes,series,carga,</th>
                                 </tr>
                                 <c:forEach var="exerciciot" items="${exerciciotreinos}">
                                     <c:if test="${exerciciot.treino.idTreino == treino.idTreino}">
@@ -86,7 +86,7 @@
      
             
             <div class="col-md-12 ">
-                <h3>Graficos de Evolução</h3>
+                <h3 class="text-center">Graficos de Evolução</h3>
             <div class="row">
                 <div class="card mb-4 col-md-3">
                     <div class="card-header">Medida</div>
