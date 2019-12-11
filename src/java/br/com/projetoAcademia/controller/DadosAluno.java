@@ -7,6 +7,8 @@ package br.com.projetoAcademia.controller;
 
 import br.com.projetoAcademia.dao.AcompanhamentoDAOImpl;
 import br.com.projetoAcademia.dao.AlunoDAOImpl;
+import br.com.projetoAcademia.dao.ExercicioTreinoDAOImpl;
+import br.com.projetoAcademia.dao.TreinoDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,13 +37,19 @@ public class DadosAluno extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+            
         int idAluno = Integer.parseInt(request.getParameter("idAluno"));
         int idAA = Integer.parseInt(request.getParameter("idAA"));
         try {
             AlunoDAOImpl dao = new AlunoDAOImpl();  
             AcompanhamentoDAOImpl dao1 = new AcompanhamentoDAOImpl();
+            ExercicioTreinoDAOImpl daoet = new ExercicioTreinoDAOImpl();
+            TreinoDAOImpl daot = new TreinoDAOImpl();
             request.setAttribute("acompanhamentos",dao1.listarA(idAA));
             request.setAttribute("aluno", dao.carregar(idAluno));
+            request.setAttribute("exerciciotreinos",daoet.listar());
+            request.setAttribute("treinos",daot.listarI(idAA));
+            
             request.getRequestDispatcher("aluno/perfilaluno.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println("Problemas no servlet ao DADOS Aluno !! Erro: " + e.getMessage());

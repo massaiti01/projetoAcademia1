@@ -15,8 +15,76 @@
             <title>JSP Page</title>
         </head>
         <body>
-        <c:choose>
+            <script>
+            function MostrareEsconder(nome) {
+                var x = document.getElementById(nome);
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
+        <body>
+        <c:if test="${!empty mensagem}">
+            <div class="alert alert-success" role="alert">
+                <p>${mensagem}</p>
+            </div>
+        </c:if>
+         <c:choose>
         <c:when test="${!empty pessoa}">
+                <div class="table-responsive-sm">
+                <table class="table">
+                    <tr class="thead-dark">
+                        <th class="espacotabela">Nome Treino</th>
+                        <th class="espacotabela">Data Treino</th>
+                        <th class="espacotabela">Personal</th>
+                        <th class="espacotabela">Opções</th>
+                        </tr>
+                    </table>
+                        </div>
+                <c:forEach var="treino" items="${treinos}">
+                    <div class="table-responsive-sm">
+                    <table class="table">
+                        <tr>
+                            <td class="espacotabela">${treino.nomeTreino}</td>
+                            <td class="espacotabela">${treino.dataTreino}</td>
+                            <td class="espacotabela">${treino.personal.nomePessoa}</td>
+                            <td class="espacotabela"><button class="btn btn-primary" onclick="MostrareEsconder('divsumir${treino.idTreino}')">Ver Exercicios Do treino</button></td>
+                        </tr>
+                    </table>
+                    </div>
+                    <div id="divsumir${treino.idTreino}" style="display:none;">
+                        <div class="col-md-12" >
+                            <table class="table ">
+                                <tr class="thead-dark">
+                                    <th>Nome Treino</th>
+                                    <th>Descricao</th>
+                                    <th>Grupo Muscular</th>
+                                    <th>Exercicio</th>
+                                    <th>Aparelho</th>
+                                    <th row="3">repeticoes,series,carga,</th>
+                                </tr>
+                                <c:forEach var="exerciciot" items="${exerciciotreinos}">
+                                    <c:if test="${exerciciot.treino.idTreino == treino.idTreino}">
+                                        <tr>
+                                            <td>${exerciciot.treino.nomeTreino}</td>
+                                            <td>${exerciciot.descricaoExercicioTreino}</td>
+                                            <td>${exerciciot.grupoMuscular.nomeGrupoMuscular}</td>
+                                            <td>${exerciciot.exercicio.nomeExercicio}</td>
+                                            <td>${exerciciot.aparelho.nomeAparelho}</td>
+                                            <td>${exerciciot.seriesTreino} de
+                                                ${exerciciot.repeticoesTreino} com
+                                                ${exerciciot.cargaTreino}KG
+                                            </td>
+                                        </tr>
+                                    </c:if>
+                                </c:forEach>
+                            </table>
+                        </div>
+                    </div>
+                </c:forEach> 
+     
             
             <div class="col-md-12 ">
             <div class="alert alert-success" role="alert">
@@ -210,7 +278,7 @@ var myChart = new Chart(ctx, {
 });
 </script>
             </div>
-            <input type="hidden" name="idPessoa" value="${aluno.idPessoa}">
+        <!--    <input type="hidden" name="idPessoa" value="${aluno.idPessoa}">
 
         <label>Nome:</label>
         <p> ${aluno.nomePessoa}</p><br />
@@ -230,8 +298,8 @@ var myChart = new Chart(ctx, {
     <td><a href="${pageContext.request.contextPath}/CarregarAluno?idAluno=${aluno.idPessoa}">Alterar</a></td>
     <td><a href="${pageContext.request.contextPath}/DadosTreino?idAluno=${aluno.idAluno}">Treinos</a></td>
     <td><a href="${pageContext.request.contextPath}/DadosMedida?idAluno=${aluno.idAluno}">Medidas</a></td>
-    
-    </div>
+    -->
+    </div> 
 
         </c:when>
 <c:otherwise>

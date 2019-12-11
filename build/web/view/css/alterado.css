@@ -17,6 +17,16 @@ and open the template in the editor.
    src: url(../assets/fonts/Century Gothic.ttf);
 }
 
+.espacotabela{
+    margin: 0px;
+    padding: 0 px;
+    width:20%;
+}
+.espacosubtabela{
+    margin: 0px;
+    padding: 0 px;
+    width:12%;
+}
 
 #divsumir{
     display:none;
