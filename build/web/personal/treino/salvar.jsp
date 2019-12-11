@@ -61,21 +61,16 @@
                         <div class="col-md-12" >
                             <table class="table ">
                                 <tr class="thead-dark">
-                                    <th>ID</th>
-                                    <th>Nome Treino</th>
                                     <th>Descricao</th>
                                     <th>Grupo Muscular</th>
                                     <th>Exercicio</th>
                                     <th>Aparelho</th>
-                                    <th></th>
-                                    <th row="3">repeticoes,series,carga,</th>
-                                    <th></th>
+                                    <th row="3">repeticoes,series,carga</th>
+                                    <th>Opções</th>
                                 </tr>
                                 <c:forEach var="exerciciot" items="${exerciciotreinos}">
                                     <c:if test="${exerciciot.treino.idTreino == treino.idTreino}">
                                         <tr>
-                                            <td>${exerciciot.idExercicioTreino}</td>
-                                            <td>${exerciciot.treino.nomeTreino}</td>
                                             <td>${exerciciot.descricaoExercicioTreino}</td>
                                             <td>${exerciciot.grupoMuscular.nomeGrupoMuscular}</td>
                                             <td>${exerciciot.exercicio.nomeExercicio}</td>
@@ -85,7 +80,7 @@
                                                 ${exerciciot.cargaTreino}KG
                                             </td>
                                             <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
-                                                <td><a href="${pageContext.request.contextPath}/ExcluirExercicioTreino?idAluno=${idAluno}&&idExercicioTreino=${exerciciot.idExercicioTreino}">Excluir Exercicio Treino </a></td>
+                                                <td><a class="btn btn-danger" href="${pageContext.request.contextPath}/ExcluirExercicioTreino?idAluno=${idAluno}&&idExercicioTreino=${exerciciot.idExercicioTreino}">Excluir Exercicio Treino </a></td>
                                             </c:if>
                                         </tr>
                                     </c:if>
