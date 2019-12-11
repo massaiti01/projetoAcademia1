@@ -43,9 +43,9 @@
                         </tr>
                     </table>
                 <c:forEach var="treino" items="${treinos}">
-                        
                     <div class="table-responsive-sm">
                     <table class="table">
+                        
                         <tr>
                             <td class="espacotabela">${treino.nomeTreino}</td>
                             <td class="espacotabela">${treino.dataTreino}</td>
