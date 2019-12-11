@@ -35,10 +35,9 @@
                 <div class="table-responsive-sm">
                 <table class="table">
                     <tr class="thead-dark">
-                        <th>ID</th>
-                        <th>Nome Treino</th>
-                        <th>Data Treino</th>
-                        <th>Personal</th>
+                        <th class="espacotabela">Nome Treino</th>
+                        <th class="espacotabela">Data Treino</th>
+                        <th class="espacotabela">Personal</th>
                         <c:if test="${pessoa.tipoPessoa  eq 'PER'}"> <th row="3">Opções</th> </c:if>
                         </tr>
                     </table>
@@ -46,11 +45,10 @@
                 <c:forEach var="treino" items="${treinos}">
                     <div class="table-responsive-sm">
                     <table class="table">
-                        <tr class="text-right">
-                            <td>${treino.idTreino}</td>
-                            <td>${treino.nomeTreino}</td>
-                            <td>${treino.dataTreino}</td>
-                            <td>${treino.personal.nomePessoa}</td>
+                        <tr>
+                            <td class="espacotabela">${treino.nomeTreino}</td>
+                            <td class="espacotabela">${treino.dataTreino}</td>
+                            <td class="espacotabela">${treino.personal.nomePessoa}</td>
                             <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
                                 <td><a class="btn btn-danger" href="${pageContext.request.contextPath}/ExcluirTreino?idTreino=${treino.idTreino}&&idAluno=${idAluno}">Apagar Treino</a>
                                 <a class="btn btn-success" href="${pageContext.request.contextPath}/DadosExercicioTreino?idTreino=${treino.idTreino}&&idAluno=${idAluno}">Adicionar Exercicio</a>
