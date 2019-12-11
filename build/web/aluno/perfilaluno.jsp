@@ -14,8 +14,7 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>JSP Page</title>
         </head>
-        <body>
-            <script>
+         <script>
             function MostrareEsconder(nome) {
                 var x = document.getElementById(nome);
                 if (x.style.display === "none") {
@@ -33,7 +32,8 @@
         </c:if>
          <c:choose>
         <c:when test="${!empty pessoa}">
-                <div class="table-responsive-sm">
+                <div class="table-responsive-sm col-md-12">
+                    <h3 class="text-center">Lista de Treinos</h3>
                 <table class="table">
                     <tr class="thead-dark">
                         <th class="espacotabela">Nome Treino</th>
@@ -42,8 +42,8 @@
                         <th class="espacotabela">Opções</th>
                         </tr>
                     </table>
-                        </div>
                 <c:forEach var="treino" items="${treinos}">
+                        
                     <div class="table-responsive-sm">
                     <table class="table">
                         <tr>
@@ -58,7 +58,6 @@
                         <div class="col-md-12" >
                             <table class="table ">
                                 <tr class="thead-dark">
-                                    <th>Nome Treino</th>
                                     <th>Descricao</th>
                                     <th>Grupo Muscular</th>
                                     <th>Exercicio</th>
@@ -68,7 +67,6 @@
                                 <c:forEach var="exerciciot" items="${exerciciotreinos}">
                                     <c:if test="${exerciciot.treino.idTreino == treino.idTreino}">
                                         <tr>
-                                            <td>${exerciciot.treino.nomeTreino}</td>
                                             <td>${exerciciot.descricaoExercicioTreino}</td>
                                             <td>${exerciciot.grupoMuscular.nomeGrupoMuscular}</td>
                                             <td>${exerciciot.exercicio.nomeExercicio}</td>
@@ -84,12 +82,11 @@
                         </div>
                     </div>
                 </c:forEach> 
+                    </div>
      
             
             <div class="col-md-12 ">
-            <div class="alert alert-success" role="alert">
-  Bem Vindo ${aluno.nomePessoa}
-</div>
+                <h3>Graficos de Evolução</h3>
             <div class="row">
                 <div class="card mb-4 col-md-3">
                     <div class="card-header">Medida</div>

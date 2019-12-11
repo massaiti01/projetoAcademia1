@@ -49,10 +49,6 @@
                         <h1 id="titulofonte">Data Projects</h1>
                         <span class="dot-dash">.</span>
                         <p>Softwares de controle de Academia</p>
-                        <div class="slider-buttons">
-                            <a href="#" class="button">Get Started Now</a>
-                            <a href="#" class="button button-w">Learn More</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -63,10 +59,6 @@
                         <h1  id="titulofonte">Feedback Gym</h1>
                         <span class="dot-dash">.</span>
                         <p>Feedback Gym visa auxiliar Personal a controlar e monitorar o treino de seus alunos.</p>
-                        <div class="slider-buttons">
-                            <a href="#" class="button">Get Started Now</a>
-                            <a href="#" class="button button-w">Learn More</a>
-                        </div>
                     </div>
                 </div>
             </div>

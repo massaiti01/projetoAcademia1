@@ -37,8 +37,8 @@ and open the template in the editor.
 }
 
 #logotipo{
-      width:4vw;
-      height:6vw;
+      width:20%;
+      height:30%;
   }
 #logotipom{
       width:3vw;
@@ -80,7 +80,7 @@ and open the template in the editor.
       font-family: Azonix;
       color: black;
       
-      font-size:1vw;
+      font-size:100%;
   }
   .fundopreto{
       background-color: black;
@@ -89,7 +89,7 @@ and open the template in the editor.
       font-family: Century Gothic;
       color: black;
       font-style: italic;
-      font-size:1vw;
+      font-size:100%;
   }
 #botaocolorido{
   display: inline-block;
