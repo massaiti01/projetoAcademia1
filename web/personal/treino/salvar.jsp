@@ -128,10 +128,10 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 col-sm-2">
                                                 <label class="col-sm-2 col-form-label" for="grupoMuscular">Grupo Muscular</label>
                                             </div>
-                                            <div class="col-md-8">
+                                            <div class="col-md-8 col-sm-10">
                                                 <c:forEach var="grupomuscular" items="${grupomusculares}">
                                                     <input type="checkbox" name="grupomuscular" class="form-check-input" id="${grupomuscular.nomeGrupoMuscular}" value="${grupomuscular.idGrupoMuscular}">
                                                     <label class="form-check-label" for="${grupomuscular.nomeGrupoMuscular}">${grupomuscular.nomeGrupoMuscular}</label><br/>

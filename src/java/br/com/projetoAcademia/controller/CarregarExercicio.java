@@ -36,7 +36,7 @@ public class CarregarExercicio extends HttpServlet {
         try {
             ExercicioDAOImpl dao = new ExercicioDAOImpl();
             request.setAttribute("exercicio", dao.carregar(idExercicio));
-            request.getRequestDispatcher("personal/exercicio/salvar.jsp").forward(request, response);
+            request.getRequestDispatcher("personal/exercicio/alterar.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println("Problemas no servlet ao Carregar Exercicio!! Erro: " + e.getMessage());
         }

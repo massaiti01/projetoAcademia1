@@ -53,8 +53,16 @@ public class SalvarAparelho extends HttpServlet {
                 }
                  request.setAttribute("mensagem", mensagem);
             request.getRequestDispatcher("ListarAparelho").forward(request, response);
+            }else{ 
+                aparelho.setIdAparelho(Integer.parseInt(request.getParameter("idAparelho")));
+                if (dao.alterar(aparelho)) {
+                    mensagem = "Aparelho alterado com sucesso!";
+                } else {
+                    mensagem = "Problemas ao alterar Aparelho!";
+                }
+            request.setAttribute("mensagem", mensagem);
+            request.getRequestDispatcher("ListarAparelho").forward(request, response);
             } 
-           
         }catch(Exception ex){
             System.out.println("Problemas ao salvar Aparelho! Erro:"+ex.getMessage());
             ex.printStackTrace();

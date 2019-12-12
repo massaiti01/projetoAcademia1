@@ -36,9 +36,10 @@ public class Redirect extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        try{
          HttpSession session = request.getSession(true);
         Pessoa pessoa = (Pessoa) session.getAttribute("pessoa"); 
-        try{
         if(pessoa.getTipoPessoa().equals("ALU")){
              AlunoDAOImpl dao1 = new AlunoDAOImpl();
                              Integer idAluno = dao1.pegarId(pessoa.getIdPessoa());

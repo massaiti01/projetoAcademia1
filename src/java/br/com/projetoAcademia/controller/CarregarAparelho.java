@@ -36,7 +36,7 @@ public class CarregarAparelho extends HttpServlet {
         try {
             AparelhoDAOImpl dao = new AparelhoDAOImpl();
             request.setAttribute("aparelho", dao.carregar(idAparelho));
-            request.getRequestDispatcher("personal/aparelho/salvar.jsp").forward(request, response);
+            request.getRequestDispatcher("personal/aparelho/alterar.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println("Problemas no servlet ao Carregar Aparelho!! Erro: " + e.getMessage());
         }

@@ -44,11 +44,11 @@ public class SalvarExercicio extends HttpServlet {
      * @throws org.apache.commons.fileupload.FileUploadException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException ,FileUploadException {
-       
-          Exercicio exercicio = new Exercicio();
-        
-        boolean isMultipart = ServletFileUpload.isMultipartContent(request);        
+            throws ServletException, IOException, FileUploadException {
+     Integer idExercicio=0;
+        Exercicio exercicio = new Exercicio();
+
+        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
         if (isMultipart) {
 
@@ -68,15 +68,18 @@ public class SalvarExercicio extends HttpServlet {
                 if (!fileItem.isFormField()) {
                     is = fileItem.getInputStream();
                     exercicio.setFotoExercicio(is);
-                    exercicio.setFile((int)fileItem.getSize());
+                    exercicio.setFile((int) fileItem.getSize());
                 } else {
                     String dados = fileItem.getFieldName();
                     if (dados.equals("nomeExercicio")) {
                         exercicio.setNomeExercicio(fileItem.getString());
-                    }else if (dados.equals("idAcademia")) {
+                    } else if (dados.equals("idAcademia")) {
                         Academia academia = new Academia();
-                    academia.setIdAcademia(Integer.parseInt(fileItem.getString()));
-                     exercicio.setAcademia(academia);
+                        academia.setIdAcademia(Integer.parseInt(fileItem.getString()));
+                        exercicio.setAcademia(academia);
+                    } else if (dados.equals("idExercicio")) {
+                        idExercicio = Integer.parseInt(fileItem.getString());
+                        exercicio.setIdExercicio(Integer.parseInt(fileItem.getString()));
                     }
                 }
             }
@@ -86,12 +89,21 @@ public class SalvarExercicio extends HttpServlet {
 
         try {
             GenericDAO dao = new ExercicioDAOImpl();
-            if (dao.cadastrar(exercicio)) {
-                mensagem = "Exercicio cadastrado com sucesso!";
-            } else {
-                mensagem = "Problema ao cadastrar Exercicio!";
-            }
+            if (idExercicio!=0) {
+                if (dao.alterar(exercicio)) {
+                    mensagem = "Exercicio alterado com sucesso!";
+                } else {
+                    mensagem = "Problema ao alterar Exercicio!";
+                }
 
+            } else {
+                if (dao.cadastrar(exercicio)) {
+                    mensagem = "Exercicio cadastrado com sucesso!";
+                } else {
+                    mensagem = "Problema ao cadastrar Exercicio!";
+                }
+
+            }
             request.setAttribute("mensagem", mensagem);
             request.getRequestDispatcher("ListarExercicio").forward(request, response);
         } catch (Exception ex) {
@@ -109,12 +121,12 @@ public class SalvarExercicio extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        }catch(FileUploadException ex) {
+        } catch (FileUploadException ex) {
             Logger.getLogger(SalvarExercicio.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
@@ -128,7 +140,7 @@ public class SalvarExercicio extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   @Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
