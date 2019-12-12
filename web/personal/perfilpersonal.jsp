@@ -40,12 +40,13 @@
                     Bem Vindo ${pessoa.nomePessoa}
                 </div>
 
-                <nav class="navbar navbar-light bg-light justify-content-between">
+                <nav class="navbar navbar-light bg-light col-md-12">
                     <div class="form-group row">
-                    <a class="navbar-brand col-md-12">Alunos</a>
+                        <a class="navbar-brand col-md-12">Alunos</a>
                         <div class="col-md-8">
                             <input class="form-control mr-sm-2 col-md-12" id="filtro-nome" placeholder="Pesquisar" aria-label="Search">
-                        </div><div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
                             <a class="btn btn-success" href="aluno/salvar.jsp">Cadastrar Aluno</a>
                         </div>
                     </div>

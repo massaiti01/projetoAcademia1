@@ -14,7 +14,22 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>JSP Page</title>
         </head>
-         <script>
+        <script>
+            function mostrarTreino() {
+                 var m = document.getElementById("treino");
+                 var e = document.getElementById("grafico");
+                 
+                 m.style.display = "block";
+                 e.style.display = "none";
+            }
+            
+             function mostrarGrafico() {
+                 var m = document.getElementById("grafico");
+                 var e = document.getElementById("treino");
+                 
+                 m.style.display = "block";
+                 e.style.display = "none";
+            }
             function MostrareEsconder(nome) {
                 var x = document.getElementById(nome);
                 if (x.style.display === "none") {
@@ -24,285 +39,542 @@
                 }
             }
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <body>
         <c:if test="${!empty mensagem}">
             <div class="alert alert-success" role="alert">
                 <p>${mensagem}</p>
             </div>
         </c:if>
-         <c:choose>
-        <c:when test="${!empty pessoa}">
-                <div class="table-responsive-sm col-md-12">
+        <c:choose>
+            <c:when test="${!empty pessoa}">
+
+                <div class="form-group row col-md-12">
+                    <div class="col-md-6"><button class="btn btn-success col-md-12 py-3" onclick="mostrarTreino()">Ver Treino</button></div>
+                    <div class="col-md-6"><button class="btn btn-dark col-md-12 py-3" onclick="mostrarGrafico()">Ver Graficos</button></div>
+                </div>
+
+                <div class="table-responsive-sm col-md-12" id="treino" style="display:none">
                     <h3 class="text-center">Lista de Treinos</h3>
-                <table class="table">
-                    <tr class="thead-dark">
-                        <th class="espacotabela">Nome Treino</th>
-                        <th class="espacotabela">Data Treino</th>
-                        <th class="espacotabela">Personal</th>
-                        <th class="espacotabela">Opções</th>
-                        </tr>
-                    </table>
-                <c:forEach var="treino" items="${treinos}">
-                    <div class="table-responsive-sm">
                     <table class="table">
-                        
-                        <tr>
-                            <td class="espacotabela">${treino.nomeTreino}</td>
-                            <td class="espacotabela">${treino.dataTreino}</td>
-                            <td class="espacotabela">${treino.personal.nomePessoa}</td>
-                            <td class="espacotabela"><button class="btn btn-primary" onclick="MostrareEsconder('divsumir${treino.idTreino}')">Ver Exercicios Do treino</button></td>
+                        <tr class="thead-dark">
+                            <th class="espacotabela">Nome Treino</th>
+                            <th class="espacotabela">Data Treino</th>
+                            <th class="espacotabela">Personal</th>
+                            <th class="espacotabela">Opções</th>
                         </tr>
                     </table>
-                    </div>
-                    <div id="divsumir${treino.idTreino}" style="display:none;">
-                        <div class="col-md-12" >
-                            <table class="table ">
-                                <tr class="thead-dark">
-                                    <th class="col-md-3">Descricao</th>
-                                    <th class="col-md-2">Grupo Muscular</th>
-                                    <th class="col-md-2">Exercicio</th>
-                                    <th class="col-md-2">Aparelho</th>
-                                    <th class="col-md-3" row="3">repeticoes,series,carga,</th>
+                    <c:forEach var="treino" items="${treinos}">
+                        <div class="table-responsive-sm">
+                            <table class="table">
+
+                                <tr>
+                                    <td class="espacotabela">${treino.nomeTreino}</td>
+                                    <td class="espacotabela">${treino.dataTreino}</td>
+                                    <td class="espacotabela">${treino.personal.nomePessoa}</td>
+                                    <td class="espacotabela"><button class="btn btn-primary" onclick="MostrareEsconder('divsumir${treino.idTreino}')">Ver Exercicios Do treino</button></td>
                                 </tr>
-                                <c:forEach var="exerciciot" items="${exerciciotreinos}">
-                                    <c:if test="${exerciciot.treino.idTreino == treino.idTreino}">
-                                        <tr>
-                                            <td>${exerciciot.descricaoExercicioTreino}</td>
-                                            <td>${exerciciot.grupoMuscular.nomeGrupoMuscular}</td>
-                                            <td>${exerciciot.exercicio.nomeExercicio}</td>
-                                            <td>${exerciciot.aparelho.nomeAparelho}</td>
-                                            <td>${exerciciot.seriesTreino} de
-                                                ${exerciciot.repeticoesTreino} com
-                                                ${exerciciot.cargaTreino}KG
-                                            </td>
-                                        </tr>
-                                    </c:if>
-                                </c:forEach>
                             </table>
                         </div>
-                    </div>
-                </c:forEach> 
-                    </div>
-     
-            
-            <div class="col-md-12 ">
-                <h3 class="text-center">Graficos de Evolução</h3>
-            <div class="row">
-                <div class="card mb-4 col-md-3">
-                    <div class="card-header">Medida</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Cintura</h5>
-<canvas id="myChart" width="400" height="400"></canvas>
-                    </div>
+                        <div id="divsumir${treino.idTreino}" style="display:none;">
+                            <div class="col-md-12" >
+                                <table class="table ">
+                                    <tr class="thead-dark">
+                                        <th class="col-md-3">Descricao</th>
+                                        <th class="col-md-2">Grupo Muscular</th>
+                                        <th class="col-md-2">Exercicio</th>
+                                        <th class="col-md-2">Aparelho</th>
+                                        <th class="col-md-3" row="3">repeticoes,series,carga,</th>
+                                    </tr>
+                                    <c:forEach var="exerciciot" items="${exerciciotreinos}">
+                                        <c:if test="${exerciciot.treino.idTreino == treino.idTreino}">
+                                            <tr>
+                                                <td>${exerciciot.descricaoExercicioTreino}</td>
+                                                <td>${exerciciot.grupoMuscular.nomeGrupoMuscular}</td>
+                                                <td>${exerciciot.exercicio.nomeExercicio}</td>
+                                                <td>${exerciciot.aparelho.nomeAparelho}</td>
+                                                <td>${exerciciot.seriesTreino} de
+                                                    ${exerciciot.repeticoesTreino} com
+                                                    ${exerciciot.cargaTreino}KG
+                                                </td>
+                                            </tr>
+                                        </c:if>
+                                    </c:forEach>
+                                </table>
+                            </div>
+                        </div>
+                    </c:forEach> 
                 </div>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+
+                <div class="col-md-12" id="grafico" style="display:none;">
+                    <h3 class="text-center">Graficos de Evolução</h3>
+                    <div class="row">
+                        
+                        <div class="card mb-4 col-md-3">
+                            <div class="card-header">Ombro</div>
+                            <div class="card-body">
+                                <canvas id="ombro" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                       
+                        <div class="card mb-4 col-md-3">
+                            <div class="card-header">Peitoral</div>
+                            <div class="card-body">
+                                <canvas id="peitoral" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                        <div class="card mb-4 col-md-3">
+                            <div class="card-header">Braços</div>
+                            <div class="card-body">
+                                <canvas id="bracos" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                        <div class="card mb-4 col-md-3">
+                            <div class="card-header">Antebraços</div>
+                            <div class="card-body">
+                                <canvas id="antebraco" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                       <div class="card mb-4 col-md-3">
+                            <div class="card-header">Cintura</div>
+                            <div class="card-body">
+                                <canvas id="cintura" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                       <div class="card mb-4 col-md-3">
+                            <div class="card-header">Quadril</div>
+                            <div class="card-body">
+                                <canvas id="quadril" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                        <div class="card mb-4 col-md-3">
+                            <div class="card-header">Gluteo</div>
+                            <div class="card-body">
+                                <canvas id="gluteos" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                        <div class="card mb-4 col-md-3">
+                            <div class="card-header">Pernas</div>
+                            <div class="card-body">
+                                <canvas id="perna" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                        <div class="card mb-4 col-md-3">
+                            <div class="card-header">Panturrilhas</div>
+                            <div class="card-body">
+                                <canvas id="panturrilha" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                          
+                        </div> 
+          
+                        <script>
+                                                        var valores = [];
+                                                        var datas = [];
+                                                        var i = 0;
+                            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                                                        valores[i] = ${acompanhamento.cintura};
+                                                        datas[i] = "${acompanhamento.data}";
+                                                        i = i + 1;
+                            </c:forEach>
+
+                                                        var ctx = document.getElementById('cintura').getContext('2d');
+                                                        var myChart = new Chart(ctx, {
+                                                            type: 'line',
+                                                            data: {
+                                                                labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
+                                                                datasets: [{
+                                                                        label: 'Cintura',
+                                                                        data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
+                                                                        backgroundColor: [
+                                                                            'rgba(0 , 0, 0, 0.2)'
+                                                                        ],
+                                                                        borderColor: [
+                                                                            'rgba(0, 0, 0, 1)'
+                                                                           
+                                                                        ],
+                                                                        borderWidth: 1
+                                                                    }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                            ticks: {
+                                                                                beginAtZero: true
+                                                                            }
+                                                                        }]
+                                                                }
+                                                            }
+                                                        });
+                        </script>
+                        <script>
+                                                        var valores = [];
+                                                        var datas = [];
+                                                        var i = 0;
+                            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                                                        valores[i] = ${acompanhamento.quadril};
+                                                        datas[i] = "${acompanhamento.data}";
+                                                        i = i + 1;
+                            </c:forEach>
+
+                                                        var ctx = document.getElementById('quadril').getContext('2d');
+                                                        var myChart = new Chart(ctx, {
+                                                            type: 'line',
+                                                            data: {
+                                                                labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
+                                                                datasets: [{
+                                                                        label: 'Quadril',
+                                                                        data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
+                                                                        backgroundColor: [
+                                                                            'rgba(0 , 0, 0, 0.2)'
+                                                                        ],
+                                                                        borderColor: [
+                                                                            'rgba(0, 0, 0, 1)'
+                                                                           
+                                                                        ],
+                                                                        borderWidth: 1
+                                                                    }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                            ticks: {
+                                                                                beginAtZero: true
+                                                                            }
+                                                                        }]
+                                                                }
+                                                            }
+                                                        });
+                        </script>
+
 <script>
-	var valores = [];
-        var datas = [];
-        var i = 0;
-            <c:forEach var="acompanhamento" items="${acompanhamentos}">
-                valores[i] =  ${acompanhamento.cintura};
-                datas[i] = "${acompanhamento.data}";
-                i = i+1;
-            </c:forEach>
-        
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: [datas[0],datas[1],datas[2],datas[3],datas[4],datas[5]],
-        datasets: [{
-            label: 'Cintura',
-            data: [valores[0],valores[1],valores[2],valores[3],valores[4],valores[5]],
-            backgroundColor: [
-                'rgba(0 , 0, 0, 0.2)',
-                         ],
-            borderColor: [
-                'rgba(0, 0, 0, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-</script>
+                            var valores = [];
+                            var datas = [];
+                            var i = 0;
+                            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                            valores[i] = ${acompanhamento.ombro};
+                            datas[i] = "${acompanhamento.data}";
+                            i = i + 1;
+                            </c:forEach>
+                            var datas = [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]];
+                            var ctx = document.getElementById('ombro').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
+                                    datasets: [{
+                                            label: 'Ombro',
+                                            data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
+                                            backgroundColor: [
+                                                'rgba(0 , 0, 0, 0.2)',
+                                            ],
+                                            borderColor: [
+                                                'rgba(0, 0, 0, 1)'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                    }
+                                }
+                            });
+                        </script>
+                         <script>
+                                                        var valores = [];
+                                                        var valores2 = [];
+                                                        var datas = [];
+                                                        var i = 0;
+                            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                                                        valores[i] = ${acompanhamento.bracoD};
+                                                        valores2[i] = ${acompanhamento.bracoE};
+                                                        datas[i] = "${acompanhamento.data}";
+                                                        i = i + 1;
+                            </c:forEach>
 
-                <div class="card mb-4 col-md-3">
-                    <div class="card-header">Medida</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Peitoral</h5>
-                       <canvas id="myChart2" width="400" height="400"></canvas>
+                                                        var ctx = document.getElementById('bracos').getContext('2d');
+                                                        var myChart = new Chart(ctx, {
+                                                            type: 'line',
+                                                            data: {
+                                                                labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
+                                                                datasets: [{
+                                                                        label: 'Braço Direito',
+                                                                        data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
+                                                                        backgroundColor: [
+                                                                            'rgba(0 , 0, 255, 0.2)'
+                                                                        ],
+                                                                        borderColor: [
+                                                                            'rgba(0 , 0, 255, 1)'
+                                                                          
+                                                                        ],
+                                                                        borderWidth: 1
+                                                                    },{
+                                                                        label: 'Braço Esquerdo',
+                                                                        data: [valores2[0], valores2[1], valores2[2], valores2[3], valores2[4], valores2[5]],
+                                                                        backgroundColor: [
+                                                                            'rgba(255 , 0, 0, 0.2)',
+                                                                        ],
+                                                                        borderColor: [
+                                                                            'rgba(255, 0, 0, 1)'
+                                                                          
+                                                                        ],
+                                                                        borderWidth: 1
+                                                                    }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                            ticks: {
+                                                                                beginAtZero: true
+                                                                            }
+                                                                        }]
+                                                                }
+                                                            }
+                                                        });
+                        </script>
+                         <script>
+                                                        var valores = [];
+                                                        var valores2 = [];
+                                                        var datas = [];
+                                                        var i = 0;
+                            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                                                        valores[i] = ${acompanhamento.pernaD};
+                                                        valores2[i] = ${acompanhamento.pernaE};
+                                                        datas[i] = "${acompanhamento.data}";
+                                                        i = i + 1;
+                            </c:forEach>
+
+                                                        var ctx = document.getElementById('perna').getContext('2d');
+                                                        var myChart = new Chart(ctx, {
+                                                            type: 'line',
+                                                            data: {
+                                                                labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
+                                                                datasets: [{
+                                                                        label: 'Perna Direita',
+                                                                        data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
+                                                                        backgroundColor: [
+                                                                           'rgba(0 , 0, 255, 0.2)'
+                                                                        ],
+                                                                        borderColor: [
+                                                                            'rgba(0, 0, 255, 1)'
+                                                                          
+                                                                        ],
+                                                                        borderWidth: 1
+                                                                    },{
+                                                                        label: 'Perna Esquerda',
+                                                                        data: [valores2[0], valores2[1], valores2[2], valores2[3], valores2[4], valores2[5]],
+                                                                        backgroundColor: [
+                                                                            'rgba(255 , 0, 0, 0.2)',
+                                                                        ],
+                                                                        borderColor: [
+                                                                            'rgba(255, 0, 0, 1)'
+                                                                          
+                                                                        ],
+                                                                        borderWidth: 1
+                                                                    }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                            ticks: {
+                                                                                beginAtZero: true
+                                                                            }
+                                                                        }]
+                                                                }
+                                                            }
+                                                        });
+                        </script>
+                         <script>
+                                                        var valores = [];
+                                                        var valores2 = [];
+                                                        var datas = [];
+                                                        var i = 0;
+                            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                                                        valores[i] = ${acompanhamento.panturrilhaD};
+                                                        valores2[i] = ${acompanhamento.panturrilhaE};
+                                                        datas[i] = "${acompanhamento.data}";
+                                                        i = i + 1;
+                            </c:forEach>
+
+                                                        var ctx = document.getElementById('panturrilha').getContext('2d');
+                                                        var myChart = new Chart(ctx, {
+                                                            type: 'line',
+                                                            data: {
+                                                                labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
+                                                                datasets: [{
+                                                                        label: 'Panturrilha Direita',
+                                                                        data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
+                                                                        backgroundColor: [
+                                                                            'rgba(0 , 0, 255, 0.2)'
+                                                                        ],
+                                                                        borderColor: [
+                                                                            'rgba(0, 0, 255, 1)'
+                                                                          
+                                                                        ],
+                                                                        borderWidth: 1
+                                                                    },{
+                                                                        label: 'Panturrilha Esquerda',
+                                                                        data: [valores2[0], valores2[1], valores2[2], valores2[3], valores2[4], valores2[5]],
+                                                                        backgroundColor: [
+                                                                            'rgba(255 , 0, 0, 0.2)'
+                                                                        ],
+                                                                        borderColor: [
+                                                                            'rgba(255, 0, 0, 1)'
+                                                                          
+                                                                        ],
+                                                                        borderWidth: 1
+                                                                    }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                            ticks: {
+                                                                                beginAtZero: true
+                                                                            }
+                                                                        }]
+                                                                }
+                                                            }
+                                                        });
+                        </script>
+                         <script>
+                                                        var valores = [];
+                                                        var valores2 = [];
+                                                        var datas = [];
+                                                        var i = 0;
+                            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                                                        valores[i] = ${acompanhamento.anteBracoD};
+                                                        valores2[i] = ${acompanhamento.anteBracoE};
+                                                        datas[i] = "${acompanhamento.data}";
+                                                        i = i + 1;
+                            </c:forEach>
+
+                                                        var ctx = document.getElementById('antebraco').getContext('2d');
+                                                        var myChart = new Chart(ctx, {
+                                                            type: 'line',
+                                                            data: {
+                                                                labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
+                                                                datasets: [{
+                                                                        label: 'Antebraço Direito',
+                                                                        data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
+                                                                        backgroundColor: [
+                                                                            'rgba(0 , 0, 255, 0.2)'
+                                                                        ],
+                                                                        borderColor: [
+                                                                            'rgba(0, 0, 255, 1)'
+                                                                          
+                                                                        ],
+                                                                        borderWidth: 1
+                                                                    },{
+                                                                        label: 'Antebraço Esquerdo',
+                                                                        data: [valores2[0], valores2[1], valores2[2], valores2[3], valores2[4], valores2[5]],
+                                                                        backgroundColor: [
+                                                                            'rgba(255 , 0, 0, 0.2)',
+                                                                        ],
+                                                                        borderColor: [
+                                                                            'rgba(255, 0, 0, 1)'
+                                                                          
+                                                                        ],
+                                                                        borderWidth: 1
+                                                                    }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                            ticks: {
+                                                                                beginAtZero: true
+                                                                            }
+                                                                        }]
+                                                                }
+                                                            }
+                                                        });
+                        </script>
+                         <script>
+                            var valores = [];
+                            var datas = [];
+                            var i = 0;
+                            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                            valores[i] = ${acompanhamento.gluteo};
+                            datas[i] = "${acompanhamento.data}";
+                            i = i + 1;
+                            </c:forEach>
+                            var ctx = document.getElementById('gluteos').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
+                                    datasets: [{
+                                            label: 'Gluteos',
+                                            data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
+                                            backgroundColor: [
+                                                'rgba(0 , 0, 0, 0.2)',
+                                            ],
+                                            borderColor: [
+                                                'rgba(0, 0, 0, 1)'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                    }
+                                }
+                            });
+                        </script>
+                         <script>
+                            var valores = [];
+                            var datas = [];
+                            var i = 0;
+                            <c:forEach var="acompanhamento" items="${acompanhamentos}">
+                            valores[i] = ${acompanhamento.peitoral};
+                            datas[i] = "${acompanhamento.data}";
+                            i = i + 1;
+                            </c:forEach>
+
+                            var ctx = document.getElementById('peitoral').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
+                                    datasets: [{
+                                            label: 'Petoral',
+                                            data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
+                                            backgroundColor: [
+                                                'rgba(0 , 0, 0, 0.2)',
+                                            ],
+                                            borderColor: [
+                                                'rgba(0, 0, 0, 1)'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                    }
+                                }
+                            });
+                        </script>
                     </div>
-                </div>
-                <script>
-	var valores = [];
-        var datas = [];
-        var i = 0;
-            <c:forEach var="acompanhamento" items="${acompanhamentos}">
-                valores[i] =  ${acompanhamento.peitoral};
-                datas[i] = "${acompanhamento.data}";
-                i = i+1;
-            </c:forEach>
-        
-var ctx = document.getElementById('myChart2').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: [datas[0],datas[1],datas[2],datas[3],datas[4],datas[5]],
-        datasets: [{
-            label: 'Petoral',
-            data: [valores[0],valores[1],valores[2],valores[3],valores[4],valores[5]],
-            backgroundColor: [
-                'rgba(0 , 0, 0, 0.2)',
-                         ],
-            borderColor: [
-                'rgba(0, 0, 0, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-</script>
-                <div class="card mb-4 col-md-3">
-                    <div class="card-header">Medida</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Gluteos</h5>
-                       <canvas id="myChart3" width="400" height="400"></canvas>
-                    </div>
-                </div>
-                <script>
-	var valores = [];
-        var datas = [];
-        var i = 0;
-            <c:forEach var="acompanhamento" items="${acompanhamentos}">
-                valores[i] =  ${acompanhamento.gluteo};
-                datas[i] = "${acompanhamento.data}";
-                i = i+1;
-            </c:forEach>
-var ctx = document.getElementById('myChart3').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: [datas[0],datas[1],datas[2],datas[3],datas[4],datas[5]],
-        datasets: [{
-            label: 'Gluteos',
-            data: [valores[0],valores[1],valores[2],valores[3],valores[4],valores[5]],
-            backgroundColor: [
-                'rgba(0 , 0, 0, 0.2)',
-                         ],
-            borderColor: [
-                'rgba(0, 0, 0, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-</script>
-                <div class="card mb-4 col-md-3">
-                    <div class="card-header">Medida</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Ombro</h5>
-                   <canvas id="myChart4" width="400" height="400"></canvas>
-                    </div>
-                </div>
-                <script>
-	var valores = [];
-        var datas = [];
-        var i = 0;
-            <c:forEach var="acompanhamento" items="${acompanhamentos}">
-                valores[i] =  ${acompanhamento.ombro};
-                datas[i] = "${acompanhamento.data}";
-                i = i+1;
-            </c:forEach>
-        var datas = [datas[0],datas[1],datas[2],datas[3],datas[4],datas[5]];
-var ctx = document.getElementById('myChart4').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: [datas[0],datas[1],datas[2],datas[3],datas[4],datas[5]],
-        datasets: [{
-            label: 'Ombro',
-            data: [valores[0],valores[1],valores[2],valores[3],valores[4],valores[5]],
-            backgroundColor: [
-                'rgba(0 , 0, 0, 0.2)',
-                         ],
-            borderColor: [
-                'rgba(0, 0, 0, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-</script>
-            </div>
-        <!--    <input type="hidden" name="idPessoa" value="${aluno.idPessoa}">
-
-        <label>Nome:</label>
-        <p> ${aluno.nomePessoa}</p><br />
-
-        <label>Login:</label>
-        <p> ${aluno.loginPessoa}</p><br />
-
-        <label>CPF:</label>
-        <p> ${aluno.cpfAluno}</p> <br />
-
-        <label>Telefone:</label>
-        <p> ${aluno.telefonePessoa}</p><br />
-
-        <label>Telefone Emergencia:</label>
-        <p> ${aluno.telefoneEmergencia}</p><br />
-
-    <td><a href="${pageContext.request.contextPath}/CarregarAluno?idAluno=${aluno.idPessoa}">Alterar</a></td>
-    <td><a href="${pageContext.request.contextPath}/DadosTreino?idAluno=${aluno.idAluno}">Treinos</a></td>
-    <td><a href="${pageContext.request.contextPath}/DadosMedida?idAluno=${aluno.idAluno}">Medidas</a></td>
-    -->
-    </div> 
-
-        </c:when>
-<c:otherwise>
-    <jsp:forward page="../login/login.jsp"></jsp:forward>
-</c:otherwise>
-</c:choose>
-</body>
+            </c:when>
+            <c:otherwise>
+                <jsp:forward page="../login/login.jsp"></jsp:forward>
+            </c:otherwise>
+        </c:choose>
+    </body>
 </html>
 <jsp:include page="../dashboard/javascripts.jsp"></jsp:include>

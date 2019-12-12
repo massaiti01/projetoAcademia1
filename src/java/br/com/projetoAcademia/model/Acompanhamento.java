@@ -13,19 +13,19 @@ import java.util.Date;
  */
 public class Acompanhamento {
     private Integer idAcompanhamento;
-    private Double pernaD;
-    private Double pernaE;
-    private Double panturrilhaD;
-    private Double panturrilhaE;
-    private Double cintura;
-    private Double quadril;
-    private Double gluteo;
+    private Double Ombro;
     private Double peitoral;
     private Double bracoD;
     private Double bracoE;
     private Double anteBracoD;
     private Double anteBracoE;
-    private Double Ombro;
+    private Double cintura;
+    private Double quadril;
+    private Double gluteo;
+    private Double pernaD;
+    private Double pernaE;
+    private Double panturrilhaD;
+    private Double panturrilhaE;
     private Date data = new Date();
     private Aluno aluno;
     private Personal personal;
