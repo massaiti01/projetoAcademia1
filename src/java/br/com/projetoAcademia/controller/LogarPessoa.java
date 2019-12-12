@@ -68,12 +68,12 @@ public class LogarPessoa extends HttpServlet {
                         }else if (pessoa.getTipoPessoa().equalsIgnoreCase("per")) {
                             PersonalDAOImpl dao1 = new PersonalDAOImpl();
                             Integer idPersonal = dao1.pegarId(pessoa.getIdPessoa());
-                            Integer idAcademia = dao1.pegarIdA(idPersonal);
+                            Integer idAcademia = dao1.pegarIdA(pessoa.getIdPessoa());
                             session.setAttribute("personal",idPersonal);
                             session.setAttribute("academia",idAcademia);
-                            request.getRequestDispatcher("DadosPersonal?idPersonal="+pessoa.getIdPessoa()).forward(request, response);
+                            request.getRequestDispatcher("DadosPersonal?idPersonal="+pessoa.getIdPessoa()+"&&idAcademia="+idAcademia).forward(request, response);
                         } else {
-                            response.sendRedirect("pessoa/salvar.jsp");
+                            response.sendRedirect("login/login.jsp");
                         }
                     } else {
                         mensagem = "Usuário e/ou Senha inválidos!";

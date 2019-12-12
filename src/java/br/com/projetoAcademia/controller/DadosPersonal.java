@@ -5,6 +5,7 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.AlunoDAOImpl;
 import br.com.projetoAcademia.dao.PersonalDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,12 +34,13 @@ public class DadosPersonal extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        int idPersonal = Integer.parseInt(request.getParameter("idPersonal"));
+        Integer idPersonal = Integer.parseInt(request.getParameter("idPersonal"));
+        Integer idAcademia = Integer.parseInt(request.getParameter("idAcademia"));
         try {
-            PersonalDAOImpl dao = new PersonalDAOImpl();            
-            
-            request.setAttribute("personal", dao.carregar(idPersonal));
+            PersonalDAOImpl dao1 = new PersonalDAOImpl();
+            AlunoDAOImpl dao = new AlunoDAOImpl();
+            request.setAttribute("alunos", dao.listarA(idAcademia));
+            request.setAttribute("personal", dao1.carregar(idPersonal));
             request.getRequestDispatcher("personal/perfilpersonal.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println("Problemas no servlet ao DADOS Personal !! Erro: " + e.getMessage());

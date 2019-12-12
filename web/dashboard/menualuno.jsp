@@ -42,7 +42,7 @@
                                 </li>
 
                                 <li class="nav-item active">
-                                    <a href="${pageContext.request.contextPath}/LogarPessoa?acao=sair" class="nav-link">LOGOUT</a>
+                                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/LogarPessoa?acao=sair" class="nav-link">SAIR</a>
                                 </li>
 
                             </c:when>
