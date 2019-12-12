@@ -5,10 +5,10 @@
  */
 package br.com.projetoAcademia.controller;
 
-import br.com.projetoAcademia.dao.AcompanhamentoDAOImpl;
+import br.com.projetoAcademia.dao.AcademiaDAOImpl;
 import br.com.projetoAcademia.dao.AlunoDAOImpl;
-import br.com.projetoAcademia.dao.ExercicioTreinoDAOImpl;
-import br.com.projetoAcademia.dao.TreinoDAOImpl;
+import br.com.projetoAcademia.dao.PersonalDAOImpl;
+import br.com.projetoAcademia.model.Pessoa;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -22,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author ERICMASSAITIUEMURA
  */
-@WebServlet(name = "DadosAluno", urlPatterns = {"/DadosAluno"})
-public class DadosAluno extends HttpServlet {
+@WebServlet(name = "Redirect", urlPatterns = {"/Redirect"})
+public class Redirect extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,22 +36,34 @@ public class DadosAluno extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idAluno = Integer.parseInt(request.getParameter("idAluno"));
-        int idAA = Integer.parseInt(request.getParameter("idAA"));
-        try {
-            AlunoDAOImpl dao = new AlunoDAOImpl();  
-            AcompanhamentoDAOImpl dao1 = new AcompanhamentoDAOImpl();
-            ExercicioTreinoDAOImpl daoet = new ExercicioTreinoDAOImpl();
-            TreinoDAOImpl daot = new TreinoDAOImpl();
-            request.setAttribute("acompanhamentos",dao1.listarA(idAA));
-            request.setAttribute("aluno", dao.carregar(idAluno));
-            request.setAttribute("exerciciotreinos",daoet.listar());
-            request.setAttribute("treinos",daot.listarI(idAA));
-            
-            request.getRequestDispatcher("aluno/perfilaluno.jsp").forward(request, response);
-        } catch (Exception e) {
-            System.out.println("Problemas no servlet ao DADOS Aluno !! Erro: " + e.getMessage());
+         HttpSession session = request.getSession(true);
+        Pessoa pessoa = (Pessoa) session.getAttribute("pessoa"); 
+        try{
+        if(pessoa.getTipoPessoa().equals("ALU")){
+             AlunoDAOImpl dao1 = new AlunoDAOImpl();
+                             Integer idAluno = dao1.pegarId(pessoa.getIdPessoa());
+                             session.setAttribute("aluno",idAluno);
+             request.getRequestDispatcher("DadosAluno?idAluno="+pessoa.getIdPessoa()+"&&idAA="+idAluno).forward(request, response);
+        }else if(pessoa.getTipoPessoa().equals("ACA")){
+               AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
+                            Integer idAcademia = dao1.pegarId(pessoa.getIdPessoa());
+                            session.setAttribute("academia",idAcademia);
+                            request.getRequestDispatcher("DadosAcademia?idAcademia="+pessoa.getIdPessoa()).forward(request, response);
+        }else if(pessoa.getTipoPessoa().equals("PER")){
+        
+                            PersonalDAOImpl dao1 = new PersonalDAOImpl();
+                            Integer idPersonal = dao1.pegarId(pessoa.getIdPessoa());
+                            Integer idAcademia = dao1.pegarIdA(pessoa.getIdPessoa());
+                            session.setAttribute("personal",idPersonal);
+                            session.setAttribute("academia",idAcademia);
+                            request.getRequestDispatcher("DadosPersonal?idPersonal="+pessoa.getIdPessoa()+"&&idAcademia="+idAcademia).forward(request, response);
+        }else{
+        request.getRequestDispatcher("login/login.jsp").forward(request, response);
         }
+    }catch (Exception ex) {
+        System.out.println("Problemas ao Redirecionar! Erro: " + ex.getMessage());
+                    ex.printStackTrace();
+    }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -34,9 +34,6 @@
             <label for="nomePessoa">Nome:</label>
             <input type="text" name="nomePessoa" id="nomePessoa" value="${personal.nomePessoa}"><br />
             
-            <label for="cpfPessoa">CPF:</label>
-            <input type="text" name="cpfPessoa" id="cpfPessoa" value="${personal.cpfPessoa}"><br />
-            
             <label for="telefonePessoa">Telefone:</label>
             <input type="text" name="telefonePessoa" id="telefonePessoa" value="${personal.telefonePessoa}"><br />
             

@@ -7,14 +7,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<jsp:include page="../dashboard/csss.jsp"></jsp:include>
+<jsp:include page="../dashboard/menualuno.jsp"></jsp:include>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Personais</title>
     </head>
     <body>
-         <table class="table">
-                <tr>
+        <c:choose> 
+        <c:when test="${pessoa.tipoPessoa eq 'ACA'}">
+         <table class="table table-striped">
+                <tr class="thead-dark">
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Telefone</th>

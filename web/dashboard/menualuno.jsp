@@ -17,7 +17,7 @@
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light col-sm-12">
                 <div class="logo">
-                    <a href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/view/assets/img/LOGO_1.png" id="logotipom" alt="Logo Data projects"/><span id="logotipoletram">Data</span> <span id="logotipoletra2m">Projects</span></a>
+                    <a href="${pageContext.request.contextPath}/Redirect"><img src="${pageContext.request.contextPath}/view/assets/img/LOGO_1.png" id="logotipom" alt="Logo Data projects"/><span id="logotipoletram">Data</span> <span id="logotipoletra2m">Projects</span></a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Inicio</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/Redirect">Inicio</a>
                     </li>
                     <c:if test="${!empty pessoa}">
                         <c:choose>
