@@ -12,16 +12,44 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>Lista de Alunos</title>
+             <script type="text/javascript">
+
+                window.onload = function () {
+
+                    //para nomes
+                    var filtro = document.getElementById('filtro-nome');
+                    var tabela = document.getElementById('lista');
+                    filtro.onkeyup = function () {
+                        var nomeFiltro = filtro.value;
+                        for (var i = 1; i < tabela.rows.length; i++) {
+                            var conteudoCelula = tabela.rows[i].cells[0].innerText;
+                            var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
+                            tabela.rows[i].style.display = corresponde ? '' : 'none';
+                        }
+                    };
+                }
+
+            </script>
         </head>
         <body>
             <c:choose> 
                 <c:when test="${!empty pessoa}">
         <jsp:include page="../dashboard/menualuno.jsp"></jsp:include>
-            <div class="col-sm-12 table-responsive">
-                    <table class="table table-striped">
-                        <thead >    
+         <nav class="navbar navbar-light bg-light col-md-12">
+                    <div class="form-group row">
+                        <a class="navbar-brand col-md-12">Alunos</a>
+                        <div class="col-md-8">
+                            <input class="form-control mr-sm-2 col-md-12" id="filtro-nome" placeholder="Pesquisar" aria-label="Search">
+                        </div>
+                        <div class="col-md-4">
+                            <a class="btn btn-success" href="aluno/salvar.jsp">Cadastrar Aluno</a>
+                        </div>
+                    </div>
+                </nav>
+            <div class="col-sm-12 table-responsive" >
+                    <table class="table table-striped" id="lista">
+                        <thead>    
                             <tr class="thead-dark">
-                                <th scope="col">ID</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Telefone</th>
                                 <th scope="col">Telefone Emergencia</th>
@@ -34,7 +62,6 @@
                         <tbody>
                             <c:forEach var="aluno" items="${alunos}">
                                 <tr>
-                                    <td scope="row">${aluno.idAluno}</td>
                                     <td>${aluno.nomePessoa}</td>
                                     <td>${aluno.telefonePessoa}</td>
                                     <td>${aluno.telefoneEmergencia}</td>
@@ -50,7 +77,6 @@
                         </tbody>
 
                     </table>
-                    <a class="btn btn-success" href="aluno/salvar.jsp">Cadastrar Novo Aluno</a>
         </div>
                 </c:when>
                 <c:otherwise>

@@ -53,7 +53,7 @@ public class SalvarGrupoMuscular extends HttpServlet {
                     mensagem = "Problemas ao cadastrar Grupo Muscular!";
                 }
                  request.setAttribute("mensagem", mensagem);
-            request.getRequestDispatcher("personal/grupomuscular/salvar.jsp").forward(request, response);
+            request.getRequestDispatcher("ListarGrupoMuscular").forward(request, response);
             } else {
                 grupomuscular.setIdGrupoMuscular(Integer.parseInt(request.getParameter("idGrupoMuscular")));
                 if(dao.alterar(grupomuscular)){

@@ -5,7 +5,6 @@
  */
 package br.com.projetoAcademia.controller;
 
-import br.com.projetoAcademia.dao.GenericDAO;
 import br.com.projetoAcademia.dao.GrupomuscularDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,14 +13,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ERICMASSAITIUEMURA
  */
-@WebServlet(name = "ListarGrupoMuscular", urlPatterns = {"/ListarGrupoMuscular"})
-public class ListarGrupoMuscular extends HttpServlet {
+@WebServlet(name = "ExcluirGrupoMuscular", urlPatterns = {"/ExcluirGrupoMuscular"})
+public class ExcluirGrupoMuscular extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,14 +32,22 @@ public class ListarGrupoMuscular extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpSession session = request.getSession(true);
-        Integer idAcademia = (Integer) session.getAttribute("academia"); 
-         try {
+        
+        
+        Integer idGrupoMuscular = Integer.parseInt(request.getParameter("idGrupoMuscular"));
+        String mensagem = null;
+        try{
             GrupomuscularDAOImpl dao = new GrupomuscularDAOImpl();
-            request.setAttribute("grupomusculares", dao.listarA(idAcademia));
-            request.getRequestDispatcher("personal/grupomuscular/salvar.jsp").forward(request, response);
-        } catch (Exception e) {
-            System.out.println("Problemas no servlet ao listar Grupo Musculares!! Erro: " + e.getMessage());
+            if(dao.excluir(idGrupoMuscular)){
+            mensagem = "Exercicio Removido do Treino com Sucesso";}
+            else{
+            mensagem = "Problemas ao Remover Exercicio";
+            }
+             request.setAttribute("mensagem", mensagem);
+                request.getRequestDispatcher("ListarGrupoMuscular").forward(request, response);
+                
+        }catch(Exception e){
+         System.out.println("Problemas no servlet ao listar Treinos!! Erro: " + e.getMessage());
         }
     }
 

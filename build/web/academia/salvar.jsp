@@ -62,7 +62,7 @@
                             <label for="senhaPessoa">Senha</label>
                         </div>
                         <div class="col-md-10">
-                            <input type="password" name="senhaPessoa" id="senhaPessoa" class="form-control col-md-12" value="${academia.senhaPessoa}">
+                            <input type="password" name="senhaPessoa" id="senhaPessoa" class="form-control col-md-12" value="">
                         </div>
                     </div>
 
