@@ -2,6 +2,26 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/academia/salvar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/listar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/view/cabecalho.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/grupomuscular/salvar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/aluno/listar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/ExcluirExercicioTreino.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/exercicioaparelho/salvar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/CarregarGrupoMuscular.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/ExcluirGrupoMuscular.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/aparelho/salvar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/Redirect.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/grupomuscular/listar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/salvar.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/ListarGrupoMuscular.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/academia/perfilacademia.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/ListarAparelho.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/web/personal/perfilpersonal.jsp</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/SalvarGrupoMuscular.java</file>
+            <file>file:/C:/Users/ERICMASSAITIUEMURA/Documents/NetBeansProjects/projetoAcademia/src/java/br/com/projetoAcademia/controller/LogarPessoa.java</file>
+        </group>
     </open-files>
 </project-private>
