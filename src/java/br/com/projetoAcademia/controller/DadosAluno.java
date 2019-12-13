@@ -7,6 +7,7 @@ package br.com.projetoAcademia.controller;
 
 import br.com.projetoAcademia.dao.AcompanhamentoDAOImpl;
 import br.com.projetoAcademia.dao.AlunoDAOImpl;
+import br.com.projetoAcademia.dao.BioimpedanciaDAOImpl;
 import br.com.projetoAcademia.dao.ExercicioTreinoDAOImpl;
 import br.com.projetoAcademia.dao.TreinoDAOImpl;
 import java.io.IOException;
@@ -42,7 +43,9 @@ public class DadosAluno extends HttpServlet {
             AlunoDAOImpl dao = new AlunoDAOImpl();  
             AcompanhamentoDAOImpl dao1 = new AcompanhamentoDAOImpl();
             ExercicioTreinoDAOImpl daoet = new ExercicioTreinoDAOImpl();
+            BioimpedanciaDAOImpl daobio = new BioimpedanciaDAOImpl();
             TreinoDAOImpl daot = new TreinoDAOImpl();
+            request.setAttribute("bioimpedancias",daobio.listarA(idAA));
             request.setAttribute("acompanhamentos",dao1.listarA(idAA));
             request.setAttribute("aluno", dao.carregar(idAluno));
             request.setAttribute("exerciciotreinos",daoet.listar());

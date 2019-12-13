@@ -81,7 +81,7 @@ public class BioimpedanciaDAOImpl implements GenericDAO{
         List<Object> bios = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from bioimpedancia b inner join personal p on p.id_personal = b.id_personal inner join pessoa pe on pe.id_pessoa = p.id_pessoa where b.id_aluno = ?";
+        String sql = "select * from bioimpedancia b inner join personal p on p.id_personal = b.id_personal inner join pessoa pe on pe.id_pessoa = p.id_pessoa where b.id_aluno = ? order by id_bioimpedancia ";
 
         try {
             stmt = conn.prepareStatement(sql);
