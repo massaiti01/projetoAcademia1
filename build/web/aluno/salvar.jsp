@@ -17,7 +17,11 @@
         <body>
             <c:choose>
         <c:when test="${!empty pessoa}">
-            
+            <c:if test="${!empty mensagem}">
+                    <div class="alert alert-success" role="alert">
+                        <p>${mensagem}</p>
+                    </div>
+                </c:if>
             <div class="col-md-12">
                 <div class="col-md-12">
                     <h1 class="text-center">Salvar Aluno</h1>

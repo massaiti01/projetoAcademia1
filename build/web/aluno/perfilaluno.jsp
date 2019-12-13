@@ -172,11 +172,11 @@
                         <script>
                                                         var valores = [];
                                                         var datas = [];
-                                                        var i = 0;
+                                                        var i = 5;
                             <c:forEach var="acompanhamento" items="${acompanhamentos}">
                                                         valores[i] = ${acompanhamento.cintura};
                                                         datas[i] = "${acompanhamento.data}";
-                                                        i = i + 1;
+                                                        i = i-1;
                             </c:forEach>
 
                                                         var ctx = document.getElementById('cintura').getContext('2d');
@@ -211,11 +211,11 @@
                         <script>
                                                         var valores = [];
                                                         var datas = [];
-                                                        var i = 0;
+                                                        var i = 5;
                             <c:forEach var="acompanhamento" items="${acompanhamentos}">
                                                         valores[i] = ${acompanhamento.quadril};
                                                         datas[i] = "${acompanhamento.data}";
-                                                        i = i + 1;
+                                                        i = i-1;
                             </c:forEach>
 
                                                         var ctx = document.getElementById('quadril').getContext('2d');
@@ -251,11 +251,11 @@
 <script>
                             var valores = [];
                             var datas = [];
-                            var i = 0;
+                            var i = 5;
                             <c:forEach var="acompanhamento" items="${acompanhamentos}">
                             valores[i] = ${acompanhamento.ombro};
                             datas[i] = "${acompanhamento.data}";
-                            i = i + 1;
+                           i = i-1;
                             </c:forEach>
                             var datas = [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]];
                             var ctx = document.getElementById('ombro').getContext('2d');
@@ -290,12 +290,12 @@
                                                         var valores = [];
                                                         var valores2 = [];
                                                         var datas = [];
-                                                        var i = 0;
+                                                        var i = 5;
                             <c:forEach var="acompanhamento" items="${acompanhamentos}">
                                                         valores[i] = ${acompanhamento.bracoD};
                                                         valores2[i] = ${acompanhamento.bracoE};
                                                         datas[i] = "${acompanhamento.data}";
-                                                        i = i + 1;
+                                                        i = i-1;
                             </c:forEach>
 
                                                         var ctx = document.getElementById('bracos').getContext('2d');
@@ -342,12 +342,12 @@
                                                         var valores = [];
                                                         var valores2 = [];
                                                         var datas = [];
-                                                        var i = 0;
+                                                        var i = 5;
                             <c:forEach var="acompanhamento" items="${acompanhamentos}">
                                                         valores[i] = ${acompanhamento.pernaD};
                                                         valores2[i] = ${acompanhamento.pernaE};
                                                         datas[i] = "${acompanhamento.data}";
-                                                        i = i + 1;
+                                                        i = i-1;
                             </c:forEach>
 
                                                         var ctx = document.getElementById('perna').getContext('2d');
@@ -394,12 +394,12 @@
                                                         var valores = [];
                                                         var valores2 = [];
                                                         var datas = [];
-                                                        var i = 0;
+                                                        var i = 5;
                             <c:forEach var="acompanhamento" items="${acompanhamentos}">
                                                         valores[i] = ${acompanhamento.panturrilhaD};
                                                         valores2[i] = ${acompanhamento.panturrilhaE};
                                                         datas[i] = "${acompanhamento.data}";
-                                                        i = i + 1;
+                                                        i = i-1;
                             </c:forEach>
 
                                                         var ctx = document.getElementById('panturrilha').getContext('2d');
@@ -446,12 +446,12 @@
                                                         var valores = [];
                                                         var valores2 = [];
                                                         var datas = [];
-                                                        var i = 0;
+                                                        var i = 5;
                             <c:forEach var="acompanhamento" items="${acompanhamentos}">
                                                         valores[i] = ${acompanhamento.anteBracoD};
                                                         valores2[i] = ${acompanhamento.anteBracoE};
                                                         datas[i] = "${acompanhamento.data}";
-                                                        i = i + 1;
+                                                        i = i-1;
                             </c:forEach>
 
                                                         var ctx = document.getElementById('antebraco').getContext('2d');
@@ -497,11 +497,11 @@
                          <script>
                             var valores = [];
                             var datas = [];
-                            var i = 0;
+                            var i = 5;
                             <c:forEach var="acompanhamento" items="${acompanhamentos}">
                             valores[i] = ${acompanhamento.gluteo};
                             datas[i] = "${acompanhamento.data}";
-                            i = i + 1;
+                            i = i-1;
                             </c:forEach>
                             var ctx = document.getElementById('gluteos').getContext('2d');
                             var myChart = new Chart(ctx, {
@@ -534,11 +534,11 @@
                          <script>
                             var valores = [];
                             var datas = [];
-                            var i = 0;
+                            var i = 5;
                             <c:forEach var="acompanhamento" items="${acompanhamentos}">
                             valores[i] = ${acompanhamento.peitoral};
                             datas[i] = "${acompanhamento.data}";
-                            i = i + 1;
+                            i = i-1;
                             </c:forEach>
 
                             var ctx = document.getElementById('peitoral').getContext('2d');

@@ -39,7 +39,8 @@ public class Redirect extends HttpServlet {
         
         try{
          HttpSession session = request.getSession(true);
-        Pessoa pessoa = (Pessoa) session.getAttribute("pessoa"); 
+        Pessoa pessoa = (Pessoa) session.getAttribute("pessoa");
+        if(session.getAttribute("pessoa")!=null){ 
         if(pessoa.getTipoPessoa().equals("ALU")){
              AlunoDAOImpl dao1 = new AlunoDAOImpl();
                              Integer idAluno = dao1.pegarId(pessoa.getIdPessoa());
@@ -58,6 +59,9 @@ public class Redirect extends HttpServlet {
                             session.setAttribute("personal",idPersonal);
                             session.setAttribute("academia",idAcademia);
                             request.getRequestDispatcher("DadosPersonal?idPersonal="+pessoa.getIdPessoa()+"&&idAcademia="+idAcademia).forward(request, response);
+        }else{
+        request.getRequestDispatcher("login/login.jsp").forward(request, response);
+        }
         }else{
         request.getRequestDispatcher("login/login.jsp").forward(request, response);
         }

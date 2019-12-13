@@ -12,7 +12,22 @@
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>JSP Page</title>
+            <title>Bioimpedancia</title>
+            <script>
+                function Mostrar7D() {
+                    var x = document.getElementById("7Dobras");
+
+                    x.style.display = "block";
+
+                }
+                function Sumir7D() {
+                    var x = document.getElementById("7Dobras");
+
+                    x.style.display = "none";
+
+                }
+
+            </script>
         </head>
         <body>
         <c:choose> 
@@ -115,67 +130,6 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-2">
-                                    <label for="tipo">Tipo</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="col-md-6"> 
-                                        <input type="radio" class="form-check-input" name="tipo" id="7dobras" value="7dobras" required/>
-                                        <label for="7dobras">7dobras</label>
-                                    </div>
-                                    <div class="col-md-6"> 
-                                    <input type="radio" class="form-check-input" name="tipo" id="3dobras" value="3dobras" required/>
-                                    <label for="3dobras">3dobras</label> 
-                                </div>
-                                </div>
-                                   
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-2">
-                                    <label for="sexo">Sexo</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="col-md-6">
-                                    <input type="radio" class="form-check-input" name="sexo" id="f" value="f" required/><label for="f">Feminino</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <input type="radio" class="form-check-input" name="sexo" id="m" value="m" required/><label for="m">Masculino</label>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-2">
-                                    <label for="triciptal">triciptal</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="number" class="form-control col-md-12" name="triciptal" id="triciptal" required/>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-2">
-                                    <label for="subescapular">subescapular</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="number" class="form-control col-md-12" name="subescapular" id="subescapular" required/>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-2">
-                                    <label for="auxiliarMedio">auxiliar medio</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="number" class="form-control col-md-12" name="auxiliarMedio" id="auxiliarMedio" required/>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-2">
-                                    <label for="suprailiaca">suprailiaca</label>
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="number" class="form-control col-md-12" name="suprailiaca" id="suprailiaca" required/>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-2">
                                     <label for="biestiloide">biestilóide</label>
                                 </div>
                                 <div class="col-md-10">
@@ -190,17 +144,81 @@
                                     <input type="number" class="form-control col-md-12" name="bicondiliano" id="bicondiliano" required/><br />
                                 </div>
                             </div>
-                        <input class="btn btn-success col-md-12" type="submit" value="Enviar">
-                    </div>
+                            <div class="form-group row">
+                                <div class="col-md-2">
+                                    <label for="tipo">Tipo</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="col-md-6"> 
+                                        <input type="radio" class="form-check-input" name="tipo" id="7dobras" onclick="Mostrar7D()" value="7dobras" required/>
+                                        <label for="7dobras">7 dobras</label>
+                                    </div>
+                                    <div class="col-md-6"> 
+                                        <input type="radio" class="form-check-input" name="tipo" id="3dobras" onclick="Sumir7D()" value="3dobras" required/>
+                                        <label for="3dobras">3 dobras</label> 
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="7Dobras" style="display:none;">
+                                <div class="form-group row">
+                                    <div class="col-md-2">
+                                        <label for="sexo">Sexo</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="col-md-6">
+                                            <input type="radio" class="form-check-input" name="sexo" id="f" value="f" /><label for="f">Feminino</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" class="form-check-input" name="sexo" id="m" value="m" /><label for="m">Masculino</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-2">
+                                        <label for="triciptal">triciptal</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="number" class="form-control col-md-12" name="triciptal" id="triciptal" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-2">
+                                        <label for="subescapular">subescapular</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="number" class="form-control col-md-12" name="subescapular" id="subescapular" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-2">
+                                        <label for="auxiliarMedio">auxiliar medio</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="number" class="form-control col-md-12" name="auxiliarMedio" id="auxiliarMedio" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-2">
+                                        <label for="suprailiaca">suprailiaca</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="number" class="form-control col-md-12" name="suprailiaca" id="suprailiaca" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <input class="btn btn-success col-md-12" type="submit" value="Enviar">
+                            </div>
 
 
 
-                </form>
-            </c:if>
-        </c:when>
-        <c:otherwise>
-            <jsp:forward page="../../login/login.jsp"></jsp:forward>
-        </c:otherwise>
-    </c:choose>
-</body>
+                        </form>
+                    </c:if>
+                </c:when>
+                <c:otherwise>
+                    <jsp:forward page="../../login/login.jsp"></jsp:forward>
+                </c:otherwise>
+            </c:choose>
+    </body>
 </html>

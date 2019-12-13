@@ -135,7 +135,7 @@ public class AcompanhamentoDAOImpl implements GenericDAO {
         List<Object> medidas = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from acompanhamento a inner join personal p on p.id_personal = a.id_personal inner join pessoa pe on pe.id_pessoa = p.id_pessoa where id_aluno = ? order by data_acompanhamento";
+        String sql = "select * from acompanhamento a inner join personal p on p.id_personal = a.id_personal inner join pessoa pe on pe.id_pessoa = p.id_pessoa where id_aluno = ? order by id_acompanhamento DESC LIMIT 6 ";
 
         try {
             stmt = conn.prepareStatement(sql);
