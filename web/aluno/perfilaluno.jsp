@@ -104,6 +104,7 @@
                             </div>
                         </div>
                     </c:forEach> 
+                    <a href="${pageContext.request.contextPath}/Imprimir?idAluno=${idAluno}" class="btn btn-primary">Imprimir Treino</a>
                 </div>
 
 

@@ -147,7 +147,7 @@ public class TreinoDAOImpl implements GenericDAO{
         Treino treino = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select t.id_personal,* from treino t inner join personal p on t.id_personal = p.id_personal inner join pessoa pe on p.id_pessoa = pe.id_pessoa where t.id_aluno = ?";
+        String sql = "select t.id_personal,* from treino t inner join personal p on t.id_personal = p.id_personal inner join pessoa pe on p.id_pessoa = pe.id_pessoa where t.id_treino = ?";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -164,7 +164,7 @@ public class TreinoDAOImpl implements GenericDAO{
                 treino.setPersonal(personal);
             }
         } catch (SQLException ex) {
-            System.out.println("Problemas ao listar animal! Erro: " + ex.getMessage());
+            System.out.println("Problemas ao listar Treino! Erro: " + ex.getMessage());
             ex.printStackTrace();
         } finally {
             try {

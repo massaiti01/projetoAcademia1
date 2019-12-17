@@ -63,7 +63,7 @@ public class LogarPessoa extends HttpServlet {
                         } else if (pessoa.getTipoPessoa().equalsIgnoreCase("alu")) {
                             AlunoDAOImpl dao1 = new AlunoDAOImpl();
                              Integer idAluno = dao1.pegarId(pessoa.getIdPessoa());
-                             session.setAttribute("aluno",idAluno);
+                             session.setAttribute("idAluno",idAluno);
                             request.getRequestDispatcher("DadosAluno?idAluno="+pessoa.getIdPessoa()+"&&idAA="+idAluno).forward(request, response);
                         }else if (pessoa.getTipoPessoa().equalsIgnoreCase("per")) {
                             PersonalDAOImpl dao1 = new PersonalDAOImpl();

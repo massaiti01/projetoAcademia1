@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-md-10">
                                 <select id="grupomuscular" name="grupomuscular"  class="form-control col-md-12" required>
-                                    <c:forEach var="grupomuscular" items="${grupotmusculares}">
+                                    <c:forEach var="grupomuscular" items="${grupomusculares}">
                                         <option value="${grupomuscular.grupoMuscular.idGrupoMuscular}">${grupomuscular.grupoMuscular.nomeGrupoMuscular}</option>
                                     </c:forEach>    
                                 </select>

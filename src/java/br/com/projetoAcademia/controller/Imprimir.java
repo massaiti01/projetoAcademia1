@@ -5,9 +5,8 @@
  */
 package br.com.projetoAcademia.controller;
 
-import br.com.projetoAcademia.dao.AparelhoDAOImpl;
 import br.com.projetoAcademia.dao.ExercicioDAOImpl;
-import br.com.projetoAcademia.dao.GrupoTreinadoDAOImpl;
+import br.com.projetoAcademia.dao.ExercicioTreinoDAOImpl;
 import br.com.projetoAcademia.dao.TreinoDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,10 +19,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author ERICMASSAITIUEMURA
+ * @author Eric
  */
-@WebServlet(name = "DadosExercicioTreino", urlPatterns = {"/DadosExercicioTreino"})
-public class DadosExercicioTreino extends HttpServlet {
+@WebServlet(name = "Imprimir", urlPatterns = {"/Imprimir"})
+public class Imprimir extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,27 +34,21 @@ public class DadosExercicioTreino extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException { 
         Integer idAluno = Integer.parseInt(request.getParameter("idAluno"));
-        Integer idTreino = Integer.parseInt(request.getParameter("idTreino"));
         
           HttpSession session = request.getSession(true);
         Integer idAcademia = (Integer) session.getAttribute("academia"); 
          try {
-            GrupoTreinadoDAOImpl dao = new GrupoTreinadoDAOImpl();
+            ExercicioTreinoDAOImpl daoet = new ExercicioTreinoDAOImpl();
             TreinoDAOImpl daot = new TreinoDAOImpl();
-            AparelhoDAOImpl daoa = new AparelhoDAOImpl();
-            ExercicioDAOImpl daoe = new ExercicioDAOImpl();
             
-            
-            request.setAttribute("exercicios",daoe.listarA(idAcademia));
-            request.setAttribute("aparelhos",daoa.listarA(idAcademia));
-            request.setAttribute("treino",daot.carregar(idTreino));
-            request.setAttribute("grupomusculares", dao.listarT(idTreino));
+            request.setAttribute("exerciciotreinos",daoet.listar());
+            request.setAttribute("treinos",daot.listarI(idAluno));
             request.setAttribute("idAluno",idAluno);
-            request.getRequestDispatcher("personal/exercicioaparelho/salvar.jsp").forward(request, response);
+            request.getRequestDispatcher("personal/treino/imprimir.jsp").forward(request, response);
         } catch (Exception e) {
-            System.out.println("Problemas no servlet ao Dados Exercicio Treino!! Erro: " + e.getMessage());
+            System.out.println("Problemas no servlet ao listar Grupo Musculares!! Erro: " + e.getMessage());
         }
     }
 

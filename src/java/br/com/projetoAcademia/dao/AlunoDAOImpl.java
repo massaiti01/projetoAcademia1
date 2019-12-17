@@ -184,7 +184,7 @@ public class AlunoDAOImpl implements GenericDAO{
         ResultSet rs = null;
         Integer idAluno = null;
 
-        String sql = "select id_aluno from aluno a inner join pessoa p on p.id_pessoa = a.id_pessoa where p.id_pessoa = ?";
+        String sql = "select id_aluno from aluno where id_pessoa = ?";
                 
         try {
             stmt = conn.prepareStatement(sql);

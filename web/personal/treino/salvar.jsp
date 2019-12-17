@@ -88,7 +88,9 @@
                             </table>
                         </div>
                     </div>
+                       
                 </c:forEach> 
+                         <a href="${pageContext.request.contextPath}/Imprimir?idAluno=${idAluno}" class="btn btn-primary">Imprimir Treino</a>
                 <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
 
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalExemplo">
