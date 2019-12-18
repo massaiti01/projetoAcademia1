@@ -73,7 +73,7 @@
                             <p>${mensagem}</p>
                         </div>
                     </c:if>
-                    <c:if test="${pessoa.tipoPessoa  != 'ALU'}">
+                    <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
                         <div class="col-md-12">
                             <h1 class="text-center">Cadastrar bioimpedancia</h1>
                             <form method="POST" action="${pageContext.request.contextPath}/SalvarBioimpedancia">

@@ -66,7 +66,7 @@
                         <p>${mensagem}</p>
                     </div>
                     </c:if>
-        <c:if test="${pessoa.tipoPessoa != 'ALU'}">
+        <c:if test="${pessoa.tipoPessoa eq 'PER'}">
             <div class="col-md-12">
                 <h1 class="col-md-12 text-center">Salvar Medidas</h1>
                 <form method="POST" action="${pageContext.request.contextPath}/SalvarMedidas">
