@@ -31,6 +31,11 @@
                     <c:if test="${!empty pessoa}">
                         <c:choose>
                             <c:when test="${pessoa.tipoPessoa != 'ALU'}">
+                                <c:if test="${pessoa.tipoPessoa eq 'ACA'}">
+                                    <li class="nav-item active">
+                                    <a class="nav-link active" href="${pageContext.request.contextPath}/ListarPersonal">Personal</a>
+                                </li>
+                                </c:if>
                                 <li class="nav-item active">
                                     <a class="nav-link active" href="${pageContext.request.contextPath}/ListarAluno">Alunos</a>
                                 </li>

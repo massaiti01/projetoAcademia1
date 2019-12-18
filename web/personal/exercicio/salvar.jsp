@@ -15,6 +15,7 @@
             <title>Exercicio</title>
         </head>
         <body>
+            <div class="col-md-12">
         <c:if test="${!empty mensagem}">
             <div class="alert alert-success" role="alert">
                 <p>${mensagem}</p>
@@ -27,7 +28,6 @@
                         <th>ID</th>
                         <th>Nome</th>
                         <th>FOTO</th>
-                        <th></th>
                         <th row="2">Opções</th>
                     </tr>
                     <c:forEach var="exercicio" items="${exercicios}">
@@ -35,8 +35,8 @@
                             <td>${exercicio.idExercicio}</td>
                             <td>${exercicio.nomeExercicio}</td>
                             <td><img src="MostrarFoto?idExercicio=${exercicio.idExercicio}" style="width:100px;height:100px;" alt="${exercicio.nomeExercicio}"> </td>
-                            <td><a class="btn btn-primary col-md-12"  href="${pageContext.request.contextPath}/CarregarExercicio?idExercicio=${exercicio.idExercicio}">Alterar</a></td>
-                            <td><a class="btn btn-danger col-md-12"  href="${pageContext.request.contextPath}/ExcluirExercicio?idExercicio=${exercicio.idExercicio}">Excluir</a></td>
+                            <td><a class="btn btn-primary col-md-5"  href="${pageContext.request.contextPath}/CarregarExercicio?idExercicio=${exercicio.idExercicio}">Alterar</a>
+                           <a class="btn btn-danger col-md-5"  href="${pageContext.request.contextPath}/ExcluirExercicio?idExercicio=${exercicio.idExercicio}">Excluir</a></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -95,5 +95,6 @@
                 <jsp:forward page="../../login/login.jsp"></jsp:forward>
             </c:otherwise>
         </c:choose>
+            </div>
     </body>
 </html>

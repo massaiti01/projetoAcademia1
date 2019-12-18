@@ -38,7 +38,7 @@
                         <th class="espacotabela">Nome Treino</th>
                         <th class="espacotabela">Data Treino</th>
                         <th class="espacotabela">Personal</th>
-                        <c:if test="${pessoa.tipoPessoa  eq 'PER'}"> <th row="3">Opções</th> </c:if>
+                        <c:if test="${pessoa.tipoPessoa  != 'ALU'}"> <th row="3">Opções</th> </c:if>
                         </tr>
                     </table>
                         </div>
@@ -49,7 +49,7 @@
                             <td class="espacotabela">${treino.nomeTreino}</td>
                             <td class="espacotabela">${treino.dataTreino}</td>
                             <td class="espacotabela">${treino.personal.nomePessoa}</td>
-                            <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
+                            <c:if test="${pessoa.tipoPessoa  != 'ALU'}">
                                 <td><a class="btn btn-danger" href="${pageContext.request.contextPath}/ExcluirTreino?idTreino=${treino.idTreino}&&idAluno=${idAluno}">Apagar Treino</a>
                                 <a class="btn btn-success" href="${pageContext.request.contextPath}/DadosExercicioTreino?idTreino=${treino.idTreino}&&idAluno=${idAluno}">Adicionar Exercicio</a>
                             </c:if>
@@ -79,7 +79,7 @@
                                                 ${exerciciot.repeticoesTreino} com
                                                 ${exerciciot.cargaTreino}KG
                                             </td>
-                                            <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
+                                            <c:if test="${pessoa.tipoPessoa  != 'ALU'}">
                                                 <td><a class="btn btn-danger" href="${pageContext.request.contextPath}/ExcluirExercicioTreino?idAluno=${idAluno}&&idExercicioTreino=${exerciciot.idExercicioTreino}">Excluir Exercicio Treino </a></td>
                                             </c:if>
                                         </tr>
@@ -91,7 +91,7 @@
                        
                 </c:forEach> 
                          <a href="${pageContext.request.contextPath}/Imprimir?idAluno=${idAluno}" class="btn btn-primary">Imprimir Treino</a>
-                <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
+                <c:if test="${pessoa.tipoPessoa  != 'ALU'}">
 
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalExemplo">
                         Novo Treino

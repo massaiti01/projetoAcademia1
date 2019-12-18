@@ -183,7 +183,27 @@ public class AcompanhamentoDAOImpl implements GenericDAO {
         
     @Override
     public Boolean excluir(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        String sql = "delete from acompanhamento WHERE id_acompanhamento = ?;";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            stmt.execute();
+            return true;
+        } catch (Exception ex) {
+            System.out.println("Problemas ao Excluir Acompanhamento!  Erro: " + ex.getMessage());
+            return false;
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+            }
+        }
     }
 
     @Override

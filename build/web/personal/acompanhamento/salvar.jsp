@@ -16,27 +16,28 @@
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         </head>
         <body>
+            <div class="col-md-12">
                <c:choose> 
         <c:when test="${!empty pessoa}">
-            <div id="chart">
-            </div>
+            <h1 class="text-center">Medidas</h1>
             <table class="table table-striped">
                 <tr class="thead-dark">
-                    <th>Medida Ombro</th>
-                    <th>Medida Peitoral</th>
-                    <th>Medida Braco D</th>
-                    <th>Medida Braco E</th>
-                    <th>Medida antebraco D</th>
-                    <th>Medida antebraco E</th>
-                    <th>Medida Cintura</th>
-                    <th>Medida Gluteo</th>
-                    <th>Medida Quadril</th>
-                    <th>Medida Perna D</th>
-                    <th>Medida Perna E</th>
-                    <th>Medida Panturrilha D</th>
-                    <th>Medida Panturrilha E</th>
+                    <th>Ombro</th>
+                    <th>Peitoral</th>
+                    <th>Braco D</th>
+                    <th>Braco E</th>
+                    <th>Antebraco D</th>
+                    <th>Antebraco E</th>
+                    <th>Cintura</th>
+                    <th>Gluteo</th>
+                    <th>Quadril</th>
+                    <th>Perna D</th>
+                    <th>Perna E</th>
+                    <th>Panturrilha D</th>
+                    <th>Panturrilha E</th>
                     <th>Data da Medição</th>
                     <th>Nome Personal</th>
+                    <th>OPÇÃO</th>
                 </tr>
 
             <c:forEach var="medida" items="${medidas}">
@@ -56,6 +57,7 @@
                     <td>${medida.panturrilhaE}</td>
                     <td>${medida.data}</td>
                     <td>${medida.personal.nomePessoa}</td>
+                     <td><a class="btn btn-danger" href="${pageContext.request.contextPath}/ExcluirMedida?idAcompanhamento=${medida.idAcompanhamento}&&idAluno=${medida.aluno.idAluno}">Excluir</a></td>
                 </tr>
             </c:forEach>
         </table>
@@ -64,7 +66,7 @@
                         <p>${mensagem}</p>
                     </div>
                     </c:if>
-        <c:if test="${pessoa.tipoPessoa  eq 'PER'}">
+        <c:if test="${pessoa.tipoPessoa != 'ALU'}">
             <div class="col-md-12">
                 <h1 class="col-md-12 text-center">Salvar Medidas</h1>
                 <form method="POST" action="${pageContext.request.contextPath}/SalvarMedidas">
@@ -200,5 +202,6 @@
     <jsp:forward page="../../login/login.jsp"></jsp:forward>
 </c:otherwise>
 </c:choose>
+            </div>
     </body>
 </html>
