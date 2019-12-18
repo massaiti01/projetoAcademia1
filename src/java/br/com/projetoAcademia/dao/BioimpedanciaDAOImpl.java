@@ -81,7 +81,15 @@ public class BioimpedanciaDAOImpl implements GenericDAO{
         List<Object> bios = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from bioimpedancia b inner join personal p on p.id_personal = b.id_personal inner join pessoa pe on pe.id_pessoa = p.id_pessoa where b.id_aluno = ? order by id_bioimpedancia ";
+        String sql = "select b.id_bioimpedancia, round(b.peso_muscular,4) as peso_convertido,b.id_aluno,b.id_personal,"
+                + "pe.nome_pessoa,round(b.imc,4) as imc_convertido,"
+                + "round(b.indice_conicidade,2) as indice_c_convertido,round(b.indice_ponderal,4) as indice_p_convertido,"
+                + "round(b.p_gordura,4) as p_gordura_convertido,round(b.massa_magra,4) as massa_magra_convertido,"
+                + "round(b.peso_osseo,4) as peso_osseo_convertido,round(b.peso_residual,4) as peso_residual_convertido,"
+                + "round(b.peso_gordura,4) as peso_gordura_convertido,b.tipo,b.data_bio"
+                + " from bioimpedancia b "
+                + " inner join personal p on p.id_personal = b.id_personal inner join pessoa pe on pe.id_pessoa = p.id_pessoa"
+                + " where b.id_aluno = ? order by id_bioimpedancia ";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -97,15 +105,15 @@ public class BioimpedanciaDAOImpl implements GenericDAO{
                 personal.setIdPersonal(rs.getInt("id_personal"));
                 personal.setNomePessoa(rs.getString("nome_pessoa"));
                 bio.setPersonal(personal);
-                bio.setImc(rs.getDouble("imc"));
-                bio.setIndiceConicidade(rs.getDouble("indice_conicidade"));
-                bio.setIndicePonderal(rs.getDouble("indice_ponderal"));
-                bio.setGorduraDobras(rs.getDouble("p_gordura"));
-                bio.setMassaMagraDobras(rs.getDouble("massa_magra"));
-                bio.setPesoOsseoDobras(rs.getDouble("peso_osseo"));
-                bio.setPesoResidualDobras(rs.getDouble("peso_residual"));
-                bio.setPesodeGorduraDobras(rs.getDouble("peso_gordura"));
-                bio.setPesoMuscularDobras(rs.getDouble("peso_muscular"));
+                bio.setImc(rs.getDouble("imc_convertido"));
+                bio.setIndiceConicidade(rs.getDouble("indice_c_convertido"));
+                bio.setIndicePonderal(rs.getDouble("indice_p_convertido"));
+                bio.setGorduraDobras(rs.getDouble("p_gordura_convertido"));
+                bio.setMassaMagraDobras(rs.getDouble("massa_magra_convertido"));
+                bio.setPesoOsseoDobras(rs.getDouble("peso_osseo_convertido"));
+                bio.setPesoResidualDobras(rs.getDouble("peso_residual_convertido"));
+                bio.setPesodeGorduraDobras(rs.getDouble("peso_gordura_convertido"));
+                bio.setPesoMuscularDobras(rs.getDouble("peso_convertido"));
                 bio.setTipo(rs.getString("tipo"));
                 bio.setData(rs.getDate("data_bio"));
                 bios .add(bio);

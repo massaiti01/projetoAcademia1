@@ -3,29 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/TreinoDAOImpl.java</file>
-            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/SalvarAcademia.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/DadosMedida.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/MostrarFoto.java</file>
-            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/GrupoTreinadoDAOImpl.java</file>
-            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/aluno/perfilaluno.jsp</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/GrupoMuscular.java</file>
-            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/GrupoTreinado.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/treino/salvar.jsp</file>
-            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/LogarPessoa.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/academia/salvar.jsp</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/AlunoDAOImpl.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/exercicioaparelho/salvar.jsp</file>
-            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/ExercicioTreino.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/Treino.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/util/SQL.txt</file>
-            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/Imprimir.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/dashboard/menualuno.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/Acompanhamento.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/treino/imprimir.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/AcompanhamentoDAOImpl.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/TreinoDAOImpl.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/SalvarAcademia.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/GrupoTreinadoDAOImpl.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/aluno/perfilaluno.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/ExcluirBioimpedancia.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/GrupoTreinado.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/LogarPessoa.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/ExercicioTreino.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/Imprimir.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/bioimpedancia/salvar.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/ExcluirMedida.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/DadosExercicioTreino.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/AcademiaDAOImpl.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/BioimpedanciaDAOImpl.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/DadosTreino.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/exercicio/salvar.jsp</file>
-            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/treino/imprimir.jsp</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/acompanhamento/salvar.jsp</file>
         </group>
     </open-files>

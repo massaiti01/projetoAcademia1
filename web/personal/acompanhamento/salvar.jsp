@@ -42,6 +42,7 @@
 
             <c:forEach var="medida" items="${medidas}">
                 <tr>
+                   
                     <td>${medida.ombro}</td>
                     <td>${medida.peitoral}</td>
                     <td>${medida.bracoD}</td>
