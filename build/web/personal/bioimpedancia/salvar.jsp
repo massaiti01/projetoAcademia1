@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2">
-                                        <label for="altura">Altura</label>
+                                        <label for="altura">Altura(cm)</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="number" class="form-control col-md-12" name="altura" id="altura" required/>
@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2">
-                                        <label for="peso">Peso</label>
+                                        <label for="peso">Peso(Kg)</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="number" class="form-control col-md-12" name="peso" id="peso" required/>
@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2">
-                                        <label for="abdominal">Abdominal</label>
+                                        <label for="abdominal">Abdominal(mm)</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="number" class="form-control col-md-12" name="abdominal" id="abdominal" required/>
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2">
-                                        <label for="coxa">Coxa</label>
+                                        <label for="coxa">Coxa(mm)</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="number" class="form-control col-md-12" name="coxa" id="coxa" required/>
@@ -123,7 +123,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2">
-                                        <label for="peitoral">Peitoral</label>
+                                        <label for="peitoral">Peitoral(mm)</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="number" class="form-control col-md-12" name="peitoral" id="peitoral" required/>
@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2">
-                                        <label for="biestiloide">biestilóide</label>
+                                        <label for="biestiloide">biestilóide(cm)</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="number" class="form-control col-md-12" name="biestiloide" id="biestiloide" required/>
@@ -139,7 +139,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2">
-                                        <label for="bicondiliano">bicondiliano</label>
+                                        <label for="bicondiliano">bicondiliano(cm)</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="number" class="form-control col-md-12" name="bicondiliano" id="bicondiliano" required/><br />
@@ -177,7 +177,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2">
-                                            <label for="triciptal">triciptal</label>
+                                            <label for="triciptal">triciptal(mm)</label>
                                         </div>
                                         <div class="col-md-10">
                                             <input type="number" class="form-control col-md-12" name="triciptal" id="triciptal" />
@@ -185,7 +185,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2">
-                                            <label for="subescapular">subescapular</label>
+                                            <label for="subescapular">subescapular(mm)</label>
                                         </div>
                                         <div class="col-md-10">
                                             <input type="number" class="form-control col-md-12" name="subescapular" id="subescapular" />
@@ -193,7 +193,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2">
-                                            <label for="auxiliarMedio">auxiliar medio</label>
+                                            <label for="auxiliarMedio">auxiliar medio(mm)</label>
                                         </div>
                                         <div class="col-md-10">
                                             <input type="number" class="form-control col-md-12" name="auxiliarMedio" id="auxiliarMedio" />
@@ -201,7 +201,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2">
-                                            <label for="suprailiaca">suprailiaca</label>
+                                            <label for="suprailiaca">suprailiaca(mm)</label>
                                         </div>
                                         <div class="col-md-10">
                                             <input type="number" class="form-control col-md-12" name="suprailiaca" id="suprailiaca" />
