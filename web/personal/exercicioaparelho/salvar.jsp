@@ -76,11 +76,12 @@
                                 <label for="exercicio">Exercicio</label>
                             </div>
                             <div class="col-md-10">
-                                <select id="exercicio" name="exercicio"  class="form-control col-md-12" required>
+                                <input list="exercicio" name="exercicio" class="form-conntrol col-md-12">
+                                <datalist id="exercicio" name="exercicio"   required>
                                     <c:forEach var="exercicio" items="${exercicios}">
-                                        <option value="${exercicio.idExercicio}">${exercicio.nomeExercicio}</option>
+                                        <option value="${exercicio.nomeExercicio}"></option>
                                     </c:forEach>    
-                                </select>
+                                </datalist>
                             </div>
                         </div>
                         <div class="row form-group">

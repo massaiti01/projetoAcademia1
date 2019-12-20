@@ -243,4 +243,31 @@ public class ExercicioDAOImpl implements GenericDAO{
         
     }
     
+     public Integer pegarId(String idObject) {
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Integer idExercicio = null;
+
+        String sql = "select id_exercicio from exercicio where nome_exercicio = ?";
+                
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                idExercicio = rs.getInt("id_exercicio");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao pegar id! Erro: " + ex.getMessage());
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+            }
+        }
+        return idExercicio;
+        
+    }
 }

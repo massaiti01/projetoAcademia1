@@ -5,6 +5,7 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.ExercicioDAOImpl;
 import br.com.projetoAcademia.dao.ExercicioTreinoDAOImpl;
 import br.com.projetoAcademia.model.Aparelho;
 import br.com.projetoAcademia.model.Exercicio;
@@ -49,8 +50,6 @@ public class SalvarExercicioTreino extends HttpServlet {
         et.setAparelho(aparelho);
         grupoMuscular.setIdGrupoMuscular(Integer.parseInt(request.getParameter("grupomuscular")));
         et.setGrupoMuscular(grupoMuscular);
-        exercicio.setIdExercicio(Integer.parseInt(request.getParameter("exercicio")));
-        et.setExercicio(exercicio);
         treino.setIdTreino(Integer.parseInt(request.getParameter("idTreino")));
         et.setTreino(treino);
         et.setDescricaoExercicioTreino(request.getParameter("descricaoExercicioTreino"));
@@ -59,6 +58,9 @@ public class SalvarExercicioTreino extends HttpServlet {
         et.setSeriesTreino(Integer.parseInt(request.getParameter("numeroDeSeries")));
 
           try (PrintWriter out = response.getWriter()) {
+              ExercicioDAOImpl dao1 = new ExercicioDAOImpl();
+               exercicio.setIdExercicio(dao1.pegarId(request.getParameter("exercicio")));
+        et.setExercicio(exercicio);
               ExercicioTreinoDAOImpl dao = new ExercicioTreinoDAOImpl();
                 if (dao.cadastrar(et)) {
                     mensagem = "Exercicio Adicionado ao Treino com sucesso!";
