@@ -72,7 +72,6 @@ public class SalvarBioimpedancia extends HttpServlet {
         
         
         soma7 = triciptal+peitoral+subescapular+auxiliarMedio+suprailiaca+abdominal+coxa;
-            System.out.println("soma7 "+soma7);
         if(sexo.equals("m")){
         pGordura=((4.95/((1.112-(0.00043499*soma7)+(0.00000055*(soma7*soma7))-(0.00028826*idade)))-4.5)*100);
         bio.setGorduraDobras(pGordura);
