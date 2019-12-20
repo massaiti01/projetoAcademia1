@@ -39,7 +39,6 @@ public class SalvarExercicioTreino extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        response.setContentType("text/html;charset=UTF-8");
         String mensagem = null;
         ExercicioTreino et = new ExercicioTreino();
         Aparelho aparelho = new Aparelho();

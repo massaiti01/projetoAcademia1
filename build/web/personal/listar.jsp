@@ -5,13 +5,13 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <jsp:include page="../dashboard/csss.jsp"></jsp:include>
 <jsp:include page="../dashboard/menualuno.jsp"></jsp:include>
     <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>Lista de Personais</title>
             <script type="text/javascript">
 
@@ -54,7 +54,7 @@
                             <th>Tipo</th>
                             <th>LOGIN</th>
                             <th>Cref</th>
-                            <th row="2">OpÃ§Ãµes</th>
+                            <th row="2">Opções</th>
                         </tr>
 
 

@@ -36,7 +36,6 @@ public class SalvarBioimpedancia extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         String mensagem = null,sexo = null;
         Integer idAluno = null,idade = null;
         Double altura=null , peso = null, abdominal = null, coxa = null,peitoral =  null,  triciptal = null, subescapular = null,

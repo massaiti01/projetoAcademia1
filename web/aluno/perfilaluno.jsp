@@ -5,13 +5,13 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <jsp:include page="../dashboard/menualuno.jsp"></jsp:include>
 <jsp:include page="../dashboard/csss.jsp"></jsp:include>
     <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>JSP Page</title>
         </head>
         <script>
@@ -61,7 +61,7 @@
                             <th class="espacotabela">Nome Treino</th>
                             <th class="espacotabela">Data Treino</th>
                             <th class="espacotabela">Personal</th>
-                            <th class="espacotabela">Op√ß√µes</th>
+                            <th class="espacotabela">OpÁıes</th>
                         </tr>
                     </table>
                     <c:forEach var="treino" items="${treinos}">
@@ -109,7 +109,7 @@
 
 
                 <div class="col-md-12" id="grafico" style="display:none;">
-                    <h3 class="text-center">Graficos de Evolu√ß√£o</h3>
+                    <h3 class="text-center">Graficos de EvoluÁ„o</h3>
                     <h4 class="text-center">Acompanhamento</h4>
                     <div class="row">
                         <div class="card mb-4 col-md-3">
@@ -126,13 +126,13 @@
                             </div>
                         </div>
                         <div class="card mb-4 col-md-3">
-                            <div class="card-header">Bra√ßos</div>
+                            <div class="card-header">BraÁos</div>
                             <div class="card-body">
                                 <canvas id="bracos" width="400" height="400"></canvas>
                             </div>
                         </div>
                         <div class="card mb-4 col-md-3">
-                            <div class="card-header">Antebra√ßos</div>
+                            <div class="card-header">AntebraÁos</div>
                             <div class="card-body">
                                 <canvas id="antebraco" width="400" height="400"></canvas>
                             </div>
@@ -170,7 +170,7 @@
 
                     </div> 
 
-                    <h4 class="text-center">Bioimpend√¢ncia</h4>
+                    <h4 class="text-center">Bioimpend‚ncia</h4>
                     <div class="row">
                         <div class="card mb-4 col-md-3">
                             <div class="card-header">% de Gorudura Corporal</div>
@@ -180,21 +180,21 @@
                         </div>
 
                         <div class="card mb-4 col-md-3">
-                            <div class="card-header">√çndice de Conicidade</div>
+                            <div class="card-header">Õndice de Conicidade</div>
                             <div class="card-body">
                                 <canvas id="indiceconicidade" width="400" height="400"></canvas>
                             </div>
                         </div>
                         
                         <div class="card mb-4 col-md-3">
-                            <div class="card-header">√çndice Ponderal</div>
+                            <div class="card-header">Õndice Ponderal</div>
                             <div class="card-body">
                                 <canvas id="indiceponderal" width="400" height="400"></canvas>
                             </div>
                         </div>
                         
                         <div class="card mb-4 col-md-3">
-                            <div class="card-header">√çndice de Massa Corporal</div>
+                            <div class="card-header">Õndice de Massa Corporal</div>
                             <div class="card-body">
                                 <canvas id="imc" width="400" height="400"></canvas>
                             </div>
@@ -323,7 +323,7 @@
                             data: {
                                 labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
                                 datasets: [{
-                                        label: '√çndice de Massa Corporal',
+                                        label: 'Õndice de Massa Corporal',
                                         data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
                                         backgroundColor: [
                                             'rgba(0 , 0, 0, 0.2)'
@@ -518,7 +518,7 @@
                             data: {
                                 labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
                                 datasets: [{
-                                        label: '√çndice Ponderal',
+                                        label: 'Õndice Ponderal',
                                         data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
                                         backgroundColor: [
                                             'rgba(0 , 0, 0, 0.2)'
@@ -557,7 +557,7 @@
                             data: {
                                 labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
                                 datasets: [{
-                                        label: '√çndice de Conicidade',
+                                        label: 'Õndice de Conicidade',
                                         data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
                                         backgroundColor: [
                                             'rgba(0 , 0, 0, 0.2)'
@@ -676,7 +676,7 @@
                             data: {
                                 labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
                                 datasets: [{
-                                        label: 'Bra√ßo Direito',
+                                        label: 'BraÁo Direito',
                                         data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
                                         backgroundColor: [
                                             'rgba(0 , 0, 255, 0.2)'
@@ -687,7 +687,7 @@
                                         ],
                                         borderWidth: 1
                                     }, {
-                                        label: 'Bra√ßo Esquerdo',
+                                        label: 'BraÁo Esquerdo',
                                         data: [valores2[0], valores2[1], valores2[2], valores2[3], valores2[4], valores2[5]],
                                         backgroundColor: [
                                             'rgba(255 , 0, 0, 0.2)',
@@ -832,7 +832,7 @@
                             data: {
                                 labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
                                 datasets: [{
-                                        label: 'Antebra√ßo Direito',
+                                        label: 'AntebraÁo Direito',
                                         data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
                                         backgroundColor: [
                                             'rgba(0 , 0, 255, 0.2)'
@@ -843,7 +843,7 @@
                                         ],
                                         borderWidth: 1
                                     }, {
-                                        label: 'Antebra√ßo Esquerdo',
+                                        label: 'AntebraÁo Esquerdo',
                                         data: [valores2[0], valores2[1], valores2[2], valores2[3], valores2[4], valores2[5]],
                                         backgroundColor: [
                                             'rgba(255 , 0, 0, 0.2)',

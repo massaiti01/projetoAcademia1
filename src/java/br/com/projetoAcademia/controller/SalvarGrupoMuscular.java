@@ -36,8 +36,7 @@ public class SalvarGrupoMuscular extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String mensagem = null;
+         String mensagem = null;
         GrupoMuscular grupomuscular = new GrupoMuscular();
         grupomuscular.setNomeGrupoMuscular(request.getParameter("nomeGrupoMuscular")); 
           Academia academia = new Academia();

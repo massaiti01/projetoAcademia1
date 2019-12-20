@@ -5,14 +5,14 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
 
-  <meta charset="utf-8">
+  <meta charset="ISO-8859-1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -36,8 +36,8 @@
         <form method="POST" action="${pageContext.request.contextPath}/LogarPessoa">
           <div class="form-group">
             <div class="form-label-group">
-              <input type="text" id="login" name="login" class="form-control" placeholder="Nome de Usu√°rio" required="required" autofocus="autofocus">
-              <label for="login">Nome de Usu√°rio</label>
+              <input type="text" id="login" name="login" class="form-control" placeholder="Nome de Usu·rio" required="required" autofocus="autofocus">
+              <label for="login">Nome de Usu·rio</label>
             </div>
           </div>
           <div class="form-group">

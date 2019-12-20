@@ -5,13 +5,13 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <jsp:include page="../../dashboard/csss.jsp"></jsp:include>
 <jsp:include page="../../dashboard/menualuno.jsp"></jsp:include>
     <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>Bioimpedancia</title>
             <script>
                 function Mostrar7D() {
@@ -40,14 +40,14 @@
                                 <th>% Gordura</th>
                                 <th>Peso Gordura</th>
                                 <th>Massa Magra</th>
-                                <th>Peso Ã“sseo</th>
+                                <th>Peso Ósseo</th>
                                 <th>Peso Muscular</th>
                                 <th>Peso Residual</th>
                                 <th>IMC</th>
                                 <th>Indice Ponderal</th>
                                 <th>Indice de Conicidade</th>
                                 <th>Personal</th>
-                                <th>OpÃ§Ãµes</th>
+                                <th>Opções</th>
                             </tr>
 
                             <c:forEach var="bioimpedancia" items="${bioimpedancias}">
@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2">
-                                        <label for="biestiloide">biestilÃ³ide</label>
+                                        <label for="biestiloide">biestilóide</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="number" class="form-control col-md-12" name="biestiloide" id="biestiloide" required/>

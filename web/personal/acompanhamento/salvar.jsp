@@ -5,13 +5,13 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <jsp:include page="../../dashboard/csss.jsp"></jsp:include>
 <jsp:include page="../../dashboard/menualuno.jsp"></jsp:include>
     <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>Cadastrar Medidas</title>
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         </head>
@@ -35,9 +35,9 @@
                     <th>Perna E</th>
                     <th>Panturrilha D</th>
                     <th>Panturrilha E</th>
-                    <th>Data da Medi√ß√£o</th>
+                    <th>Data da MediÁ„o</th>
                     <th>Nome Personal</th>
-                    <th>OP√á√ÉO</th>
+                    <th>OP«√O</th>
                 </tr>
 
             <c:forEach var="medida" items="${medidas}">
@@ -96,7 +96,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-md-4">
-                                <label class="col-sm-12 col-form-label" for="bracoDAluno">Bra√ßo Direito</label>
+                                <label class="col-sm-12 col-form-label" for="bracoDAluno">BraÁo Direito</label>
                             </div>
                             <div class="col-md-8">
                                 <input type="number" name="bracoDAluno" class="form-control col-md-12" id="bracoDAluno"/>
@@ -104,7 +104,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-md-4">
-                                <label class="col-sm-12 col-form-label" for="bracoEAluno">Bra√ßo Esquerdo</label>
+                                <label class="col-sm-12 col-form-label" for="bracoEAluno">BraÁo Esquerdo</label>
                             </div>
                             <div class="col-md-8">
                                 <input type="number" name="bracoEAluno" class="form-control col-md-12" id="bracoEAluno"/>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-md-4">
-                                <label class="col-sm-12 col-form-label" for="anteBracoDAluno">Antebra√ßo Direito</label>
+                                <label class="col-sm-12 col-form-label" for="anteBracoDAluno">AntebraÁo Direito</label>
                             </div>
                             <div class="col-md-8">
                                 <input type="number" name="anteBracoDAluno" class="form-control col-md-12" id="anteBracoDAluno"/>
@@ -121,7 +121,7 @@
 
                         <div class="form-group row">
                             <div  class="col-md-4">
-                                <label class="col-sm-12 col-form-label" for="anteBracoEAluno">Antebra√ßo Esquerdo</label>
+                                <label class="col-sm-12 col-form-label" for="anteBracoEAluno">AntebraÁo Esquerdo</label>
                             </div>
                             <div class="col-md-8">
                                 <input type="number" name="anteBracoEAluno" class="form-control col-md-12" id="anteBracoEAluno"/>

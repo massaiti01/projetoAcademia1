@@ -5,13 +5,13 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <jsp:include page="../../dashboard/csss.jsp"></jsp:include>
 <jsp:include page="../../dashboard/menualuno.jsp"></jsp:include>
     <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>JSP Page</title>
         </head>
         <body>
@@ -40,7 +40,7 @@
                         <div class="row form-group">
                             <div class="col-md-2">
 
-                                <label for="descricaoExercicioTreino">DescriÃ§Ã£o do Exercicio</label>
+                                <label for="descricaoExercicioTreino">Descrição do Exercicio</label>
                             </div>
                             <div class="col-md-10">
                                 <input type="text" name="descricaoExercicioTreino" class="form-control col-md-12" id="descricaoExercicioTreino" value="" placeholder="Descreva o Treino" required>
@@ -90,7 +90,7 @@
                                 <label for="numeroDeSeries">Numero de Series</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="number" class="form-control col-md-12" name="numeroDeSeries" id="numeroDeSeries" value="" placeholder="Digite o NÃºmero de Series" required>
+                                <input type="number" class="form-control col-md-12" name="numeroDeSeries" id="numeroDeSeries" value="" placeholder="Digite o Número de Series" required>
                             </div>
                         </div>
                         <div class="row form-group">
@@ -106,7 +106,7 @@
                                 <label for="repeticoesTreino">RepeticoesTreino</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="number" class="form-control col-md-12" name="repeticoesTreino" id="repeticoesTreino" placeholder="Digite o numero de RepetiÃ§Ãµes" value="" required>
+                                <input type="number" class="form-control col-md-12" name="repeticoesTreino" id="repeticoesTreino" placeholder="Digite o numero de Repetições" value="" required>
                             </div>
                         </div>
 

@@ -5,11 +5,11 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Cadastro de Treino</title>
     </head>
     <jsp:include page="../../dashboard/csss.jsp"></jsp:include>
@@ -38,7 +38,7 @@
                         <th class="espacotabela">Nome Treino</th>
                         <th class="espacotabela">Data Treino</th>
                         <th class="espacotabela">Personal</th>
-                        <c:if test="${pessoa.tipoPessoa  != 'ALU'}"> <th row="3">OpÃ§Ãµes</th> </c:if>
+                        <c:if test="${pessoa.tipoPessoa  != 'ALU'}"> <th row="3">Opções</th> </c:if>
                         </tr>
                     </table>
                         </div>
@@ -66,7 +66,7 @@
                                     <th>Exercicio</th>
                                     <th>Aparelho</th>
                                     <th row="3">repeticoes,series,carga</th>
-                                    <th>OpÃ§Ãµes</th>
+                                    <th>Opções</th>
                                 </tr>
                                 <c:forEach var="exerciciot" items="${exerciciotreinos}">
                                     <c:if test="${exerciciot.treino.idTreino == treino.idTreino}">
