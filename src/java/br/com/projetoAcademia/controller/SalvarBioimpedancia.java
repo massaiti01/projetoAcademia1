@@ -54,11 +54,8 @@ public class SalvarBioimpedancia extends HttpServlet {
         altura = altura/100;
         peso=Double.parseDouble(request.getParameter("peso"));
         abdominal=Double.parseDouble(request.getParameter("abdominal"));
-        abdominal=abdominal/100;
         coxa=Double.parseDouble(request.getParameter("coxa"));
-        coxa=coxa/100;
         peitoral=Double.parseDouble(request.getParameter("peitoral"));
-        peitoral=peitoral/100;
          biestiloide=Double.parseDouble(request.getParameter("biestiloide"));
         bicondiliano=Double.parseDouble(request.getParameter("bicondiliano"));
          a= biestiloide/100;
@@ -68,17 +65,14 @@ public class SalvarBioimpedancia extends HttpServlet {
         if(request.getParameter("tipo").equals("7dobras")){
         sexo=request.getParameter("sexo");
         triciptal=Double.parseDouble(request.getParameter("triciptal"));
-        triciptal = triciptal/100;
         subescapular=Double.parseDouble(request.getParameter("subescapular"));
-        subescapular = subescapular/100;
         auxiliarMedio=Double.parseDouble(request.getParameter("auxiliarMedio"));
-        auxiliarMedio = auxiliarMedio/100;
         suprailiaca=Double.parseDouble(request.getParameter("suprailiaca"));
-         suprailiaca = suprailiaca/100;
        
         
         
         soma7 = triciptal+peitoral+subescapular+auxiliarMedio+suprailiaca+abdominal+coxa;
+            System.out.println("soma7 "+soma7);
         if(sexo.equals("m")){
         pGordura=((4.95/((1.112-(0.00043499*soma7)+(0.00000055*(soma7*soma7))-(0.00028826*idade)))-4.5)*100);
         bio.setGorduraDobras(pGordura);
@@ -121,9 +115,7 @@ public class SalvarBioimpedancia extends HttpServlet {
         bio.setPesoResidualDobras(pesoResidual);
         
         }
-        Double teste = Math.pow(peso,0.333);
-        System.out.println("teste "+peso); 
-        System.out.println("teste "+teste); 
+        Double teste = Math.pow(peso,0.333333);
         Double finalx = Math.pow((peso/altura),-0.109);
         bio.setIndicePonderal((altura*100)/teste);
         bio.setImc(peso/(altura*altura));
