@@ -51,10 +51,14 @@ public class SalvarBioimpedancia extends HttpServlet {
         bio.setAluno(aluno);
         idade = Integer.parseInt(request.getParameter("idade"));
         altura =Double.parseDouble(request.getParameter("altura"));
+        altura = altura/100;
         peso=Double.parseDouble(request.getParameter("peso"));
         abdominal=Double.parseDouble(request.getParameter("abdominal"));
+        abdominal=abdominal/100;
         coxa=Double.parseDouble(request.getParameter("coxa"));
+        coxa=coxa/100;
         peitoral=Double.parseDouble(request.getParameter("peitoral"));
+        peitoral=peitoral/100;
          biestiloide=Double.parseDouble(request.getParameter("biestiloide"));
         bicondiliano=Double.parseDouble(request.getParameter("bicondiliano"));
          a= biestiloide/100;
@@ -64,9 +68,13 @@ public class SalvarBioimpedancia extends HttpServlet {
         if(request.getParameter("tipo").equals("7dobras")){
         sexo=request.getParameter("sexo");
         triciptal=Double.parseDouble(request.getParameter("triciptal"));
+        triciptal = triciptal/100;
         subescapular=Double.parseDouble(request.getParameter("subescapular"));
+        subescapular = subescapular/100;
         auxiliarMedio=Double.parseDouble(request.getParameter("auxiliarMedio"));
+        auxiliarMedio = auxiliarMedio/100;
         suprailiaca=Double.parseDouble(request.getParameter("suprailiaca"));
+         suprailiaca = suprailiaca/100;
        
         
         
