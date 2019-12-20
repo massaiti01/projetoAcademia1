@@ -121,7 +121,9 @@ public class SalvarBioimpedancia extends HttpServlet {
         bio.setPesoResidualDobras(pesoResidual);
         
         }
-        Double teste = Math.pow(peso,(1/3)); 
+        Double teste = Math.pow(peso,0.333);
+        System.out.println("teste "+peso); 
+        System.out.println("teste "+teste); 
         Double finalx = Math.pow((peso/altura),-0.109);
         bio.setIndicePonderal((altura*100)/teste);
         bio.setImc(peso/(altura*altura));
