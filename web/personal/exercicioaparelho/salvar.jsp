@@ -43,7 +43,7 @@
                                 <label for="descricaoExercicioTreino">Descrição do Exercicio</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" name="descricaoExercicioTreino" class="form-control col-md-12" id="descricaoExercicioTreino" value="" required>
+                                <input type="text" name="descricaoExercicioTreino" class="form-control col-md-12" id="descricaoExercicioTreino" value="" placeholder="Descreva o Treino" required>
                             </div>
                         </div>
                         <div class="row form-group">
@@ -76,7 +76,7 @@
                                 <label for="exercicio">Exercicio</label>
                             </div>
                             <div class="col-md-10">
-                                <input list="exercicio" name="exercicio" class="form-conntrol col-md-12">
+                                <input list="exercicio" name="exercicio" class="form-conntrol col-md-12" placeholder="Selecione um dos Itens da Lista">
                                 <datalist id="exercicio" name="exercicio"   required>
                                     <c:forEach var="exercicio" items="${exercicios}">
                                         <option value="${exercicio.nomeExercicio}"></option>
@@ -90,7 +90,7 @@
                                 <label for="numeroDeSeries">Numero de Series</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="number" class="form-control col-md-12" name="numeroDeSeries" id="numeroDeSeries" value="" required>
+                                <input type="number" class="form-control col-md-12" name="numeroDeSeries" id="numeroDeSeries" value="" placeholder="Digite o Número de Series" required>
                             </div>
                         </div>
                         <div class="row form-group">
@@ -98,7 +98,7 @@
                                 <label for="cargaTreino">cargaTreino</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="number" class="form-control col-md-12" name="cargaTreino" id="cargaTreino" value="" required>
+                                <input type="number" class="form-control col-md-12" name="cargaTreino" id="cargaTreino" value="" placeholder="Digite a Carga do Treino em KG" required>
                             </div>
                         </div>
                         <div class="row form-group">
@@ -106,7 +106,7 @@
                                 <label for="repeticoesTreino">RepeticoesTreino</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="number" class="form-control col-md-12" name="repeticoesTreino" id="repeticoesTreino" value="" required>
+                                <input type="number" class="form-control col-md-12" name="repeticoesTreino" id="repeticoesTreino" placeholder="Digite o numero de Repetições" value="" required>
                             </div>
                         </div>
 
