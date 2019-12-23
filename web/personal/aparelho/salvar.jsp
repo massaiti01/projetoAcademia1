@@ -25,7 +25,6 @@
                 <c:when test="${!empty pessoa}">
                     <table class="table table-striped">
                         <tr class="thead-dark">
-                            <th>ID</th>
                             <th>Nome</th>
                             <th class="text-center">Opções</th>
                         </tr>
@@ -33,7 +32,6 @@
 
                         <c:forEach var="aparelho" items="${aparelhos}">
                             <tr>
-                                <td>${aparelho.idAparelho}</td>
                                 <td>${aparelho.nomeAparelho}</td>
                                 <td><a class="btn btn-primary col-md-5" href="${pageContext.request.contextPath}/CarregarAparelho?idAparelho=${aparelho.idAparelho}">Alterar</a>
                                 <a class="btn btn-danger col-md-5" href="${pageContext.request.contextPath}/ExcluirAparelho?idAparelho=${aparelho.idAparelho}">Excluir</a></td>

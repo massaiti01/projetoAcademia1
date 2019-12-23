@@ -33,6 +33,7 @@
             </script>
         </head>
         <body>
+            <div class="col-md-12">
         <c:choose> 
             <c:when test="${pessoa.tipoPessoa eq 'ACA'}">
                 <div class="col-md-12">
@@ -75,5 +76,6 @@
                 <jsp:forward page="../../login/login.jsp"></jsp:forward>
             </c:otherwise>
         </c:choose>
+            </div>
     </body>
 </html>

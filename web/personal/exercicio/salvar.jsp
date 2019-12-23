@@ -25,14 +25,12 @@
             <c:when test="${!empty pessoa}">
                 <table class="table table-striped">
                     <tr class="thead-dark">
-                        <th>ID</th>
                         <th>Nome</th>
                         <th>FOTO</th>
                         <th row="2">Opções</th>
                     </tr>
                     <c:forEach var="exercicio" items="${exercicios}">
                         <tr>
-                            <td>${exercicio.idExercicio}</td>
                             <td>${exercicio.nomeExercicio}</td>
                             <td><img src="MostrarFoto?idExercicio=${exercicio.idExercicio}" style="width:100px;height:100px;" alt="${exercicio.nomeExercicio}"> </td>
                             <td><a class="btn btn-primary col-md-5"  href="${pageContext.request.contextPath}/CarregarExercicio?idExercicio=${exercicio.idExercicio}">Alterar</a>
