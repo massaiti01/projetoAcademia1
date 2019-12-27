@@ -116,7 +116,7 @@ public class BioimpedanciaDAOImpl implements GenericDAO{
                 bio.setPesoMuscularDobras(rs.getDouble("peso_convertido"));
                 bio.setTipo(rs.getString("tipo"));
                 bio.setData(rs.getDate("data_bio"));
-                bios .add(bio);
+                bios.add(bio);
             }
         } catch (SQLException ex) {
             System.out.println("Problemas ao listar bioimpedancia! Erro: " + ex.getMessage());

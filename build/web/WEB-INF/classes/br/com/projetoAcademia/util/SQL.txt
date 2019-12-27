@@ -140,7 +140,18 @@ constraint fk_exerciciotreino_aparelho foreign key(id_aparelho) references apare
 constraint fk_exerciciotreino_grupo_muscular foreign key(id_grupo_muscular) references grupomuscular(id_grupo_muscular),
 constraint fk_exerciciotreino_treino foreign key(id_treino) references treino(id_treino),
 constraint fk_exerciciotreino_exercicio foreign key(id_exercicio) references exercicio(id_exercicio)
-)
+);
+
+create table ticket(
+id_ticket serial not null,
+id_pessoa int not null,
+titulo_ticket varchar(40) not null,
+mensagem_ticket varchar(200) not null,
+status_ticket char(1) not null,
+data_ticket date not null,
+constraint pk_ticket primary key(id_ticket),
+constraint fk_ticket_pessoa foreign key(id_pessoa) references pessoa(id_pessoa)
+);
 
 
 
