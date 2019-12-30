@@ -6,6 +6,7 @@
 package br.com.projetoAcademia.dao;
 
 import br.com.projetoAcademia.model.Pessoa;
+import br.com.projetoAcademia.model.Mensagem;
 import br.com.projetoAcademia.model.Ticket;
 import br.com.projetoAcademia.util.ConnectionFactory;
 import java.sql.Connection;
@@ -31,11 +32,13 @@ public class TicketDAOImpl implements GenericDAO{
         }
     }
 
-    @Override
-    public Boolean cadastrar(Object object) {
+   
+    public Integer cadastrarA(Object object) {
         Ticket ticket = (Ticket) object;
         PreparedStatement stmt = null;
-        String sql = "insert into ticket(id_pessoa,titulo_ticket,mensagem_ticket,status_ticket,data_ticket) values(?,?,?,?,?);";
+        ResultSet rs = null;
+        Integer idTicket = null;
+        String sql = "insert into ticket(id_pessoa,titulo_ticket,status_ticket,data_ticket) values(?,?,?,?);returning id_ticket";
 
         try {
             java.util.Date dataUtil = new java.util.Date();
@@ -44,15 +47,17 @@ public class TicketDAOImpl implements GenericDAO{
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, ticket.getPessoa().getIdPessoa());
             stmt.setString(2,ticket.getTitulo());
-            stmt.setString(3,ticket.getMensagem());
-            stmt.setString(4, ticket.getStatus());
-            stmt.setDate(5, dataSql);
-            stmt.execute();
-            return true;
+            stmt.setString(3, ticket.getStatus());
+            stmt.setDate(4, dataSql);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                idTicket = rs.getInt("id_ticket");
+            }
+            
         } catch (Exception ex) {
             System.out.println("Problemas ao salvar Ticket! Erro: " + ex.getMessage());
             ex.printStackTrace();
-            return false;
+            
         } finally {
             try {
                 ConnectionFactory.closeConnection(conn, stmt);
@@ -61,6 +66,7 @@ public class TicketDAOImpl implements GenericDAO{
                 ex.printStackTrace();
             }
         }
+        return idTicket;
     }
     
     public List<Object> listarA(int idObject) {
@@ -77,7 +83,6 @@ public class TicketDAOImpl implements GenericDAO{
                 Ticket ticket = new Ticket();
                 ticket.setIdTicket(rs.getInt("id_ticket"));
                 ticket.setTitulo(rs.getString("titulo_ticket"));
-                ticket.setMensagem(rs.getString("mensagem_ticket"));
                 ticket.setStatus(rs.getString("status_ticket"));
                 ticket.setData(rs.getDate("data_ticket"));
                 tickets.add(ticket);
@@ -113,6 +118,11 @@ public class TicketDAOImpl implements GenericDAO{
 
     @Override
     public Boolean alterar(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Boolean cadastrar(Object object) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

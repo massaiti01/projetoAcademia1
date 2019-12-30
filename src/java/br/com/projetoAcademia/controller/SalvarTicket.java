@@ -5,8 +5,10 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.MensagemDAOImpl;
 import br.com.projetoAcademia.dao.TicketDAOImpl;
 import br.com.projetoAcademia.model.Pessoa;
+import br.com.projetoAcademia.model.Mensagem;
 import br.com.projetoAcademia.model.Ticket;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,20 +37,28 @@ public class SalvarTicket extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Mensagem mesagem = new Mensagem();
         Ticket ticket = new Ticket();
         Pessoa pessoa = new Pessoa();
         String mensagem = null;
+        Date Datae = new Date(System.currentTimeMillis());
         pessoa.setIdPessoa(Integer.parseInt(request.getParameter("idPessoa")));
-        ticket.setPessoa(pessoa);
-        ticket.setData(new Date(System.currentTimeMillis()));
-        ticket.setTitulo(request.getParameter("titulo"));
-        ticket.setMensagem(request.getParameter("mensagem"));
+        mesagem.setRemetente(pessoa);
+        mesagem.setData(Datae);
+        mesagem.setMensagem(request.getParameter("mensagem"));
         ticket.setStatus("A");
-
+        ticket.setData(Datae);
+        ticket.setPessoa(pessoa);
+        ticket.setTitulo(request.getParameter("titulo"));
+       
+       
         
         try (PrintWriter out = response.getWriter()) {
             TicketDAOImpl dao = new TicketDAOImpl();
-          if(dao.cadastrar(ticket)) {
+            MensagemDAOImpl dao1 = new MensagemDAOImpl();
+             ticket.setIdTicket(dao.cadastrarA(ticket));
+             mesagem.setTicket(ticket);
+          if(dao1.cadastrar(mesagem)) {
                     mensagem = "Ticket enviado com sucesso!";
                 } else {
                     mensagem = "Problemas ao cadastrar Personal!";

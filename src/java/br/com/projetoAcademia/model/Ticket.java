@@ -13,10 +13,9 @@ import java.util.Date;
  */
 public class Ticket {
     private Integer idTicket;
-    private Pessoa Pessoa;
-    private String Mensagem;
-    private String Titulo;
-    private String Status;
+    private String titulo;
+    private Pessoa pessoa;
+    private String status;
     private Date Data;
 
     public Integer getIdTicket() {
@@ -27,36 +26,28 @@ public class Ticket {
         this.idTicket = idTicket;
     }
 
-    public Pessoa getPessoa() {
-        return Pessoa;
-    }
-
-    public void setPessoa(Pessoa Pessoa) {
-        this.Pessoa = Pessoa;
-    }
-
-    public String getMensagem() {
-        return Mensagem;
-    }
-
-    public void setMensagem(String Mensagem) {
-        this.Mensagem = Mensagem;
-    }
-
     public String getTitulo() {
-        return Titulo;
+        return titulo;
     }
 
-    public void setTitulo(String Titulo) {
-        this.Titulo = Titulo;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
-    public void setStatus(String Status) {
-        this.Status = Status;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Date getData() {
@@ -66,7 +57,6 @@ public class Ticket {
     public void setData(Date Data) {
         this.Data = Data;
     }
-
     
     
 }
