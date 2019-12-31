@@ -5,6 +5,9 @@
  */
 package br.com.projetoAcademia.controller;
 
+import br.com.projetoAcademia.dao.MensagemDAOImpl;
+import br.com.projetoAcademia.dao.TicketDAOImpl;
+import br.com.projetoAcademia.model.Pessoa;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,19 +35,19 @@ public class ListarTicket extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ListarTicket</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ListarTicket at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        HttpSession session = request.getSession(true);
+        Pessoa pessoa = (Pessoa) session.getAttribute("pessoa"); 
+        Integer idPessoa = pessoa.getIdPessoa();
+         try {
+            TicketDAOImpl daot = new TicketDAOImpl();
+            MensagemDAOImpl daom = new MensagemDAOImpl();
+            request.setAttribute("tickets", daot.listarA(idPessoa));
+            request.setAttribute("mensagens", daom.listarA(idPessoa));
+            request.getRequestDispatcher("tickets/listar.jsp").forward(request, response);
+        } catch (Exception e) {
+            System.out.println("Problemas no servlet ao listar tickets!! Erro: " + e.getMessage());
         }
+    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

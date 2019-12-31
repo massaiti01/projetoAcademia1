@@ -38,7 +38,7 @@ public class TicketDAOImpl implements GenericDAO{
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Integer idTicket = null;
-        String sql = "insert into ticket(id_pessoa,titulo_ticket,status_ticket,data_ticket) values(?,?,?,?);returning id_ticket";
+        String sql = "insert into ticket(id_pessoa,titulo_ticket,status_ticket,data_ticket) values(?,?,?,?) returning id_ticket";
 
         try {
             java.util.Date dataUtil = new java.util.Date();

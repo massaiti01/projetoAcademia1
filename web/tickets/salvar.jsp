@@ -58,3 +58,4 @@
         </div>
     </body>
 </html>
+<jsp:include page="../dashboard/javascripts.jsp"></jsp:include>

@@ -56,7 +56,8 @@ public class SalvarTicket extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             TicketDAOImpl dao = new TicketDAOImpl();
             MensagemDAOImpl dao1 = new MensagemDAOImpl();
-             ticket.setIdTicket(dao.cadastrarA(ticket));
+            int idTicket = dao.cadastrarA(ticket);
+             ticket.setIdTicket(idTicket);
              mesagem.setTicket(ticket);
           if(dao1.cadastrar(mesagem)) {
                     mensagem = "Ticket enviado com sucesso!";
