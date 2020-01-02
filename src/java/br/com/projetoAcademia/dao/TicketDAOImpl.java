@@ -113,7 +113,34 @@ public class TicketDAOImpl implements GenericDAO{
 
     @Override
     public Object carregar(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Ticket ticket = null;
+
+        String sql = "select * from ticket where id_ticket = ?";
+                
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                ticket = new Ticket();
+                ticket.setIdTicket(rs.getInt("id_ticket"));
+                ticket.setTitulo(rs.getString("titulo_ticket"));
+                ticket.setStatus(rs.getString("status_ticket"));
+                ticket.setData(rs.getDate("data_ticket"));
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao carregar Ticket! Erro: " + ex.getMessage());
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os par‚metros de conex√£o! Erro: " + ex.getMessage());
+            }
+        }
+        return ticket;
     }
 
     @Override

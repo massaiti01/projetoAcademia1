@@ -15,7 +15,6 @@
             <title>Tickets</title>
         </head>
         <body>
-            <div class="col-md-12">
                <c:choose> 
             <c:when test="${!empty pessoa}">
                 <div class="alert alert-success" role="alert">
@@ -71,7 +70,6 @@
                 <jsp:forward page="../login/login.jsp"></jsp:forward>
             </c:otherwise>
         </c:choose>
-        </div>   
     </body>
 </html>
 <jsp:include page="../dashboard/javascripts.jsp"></jsp:include>

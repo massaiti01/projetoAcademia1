@@ -101,6 +101,42 @@ private Connection conn;
         }
         return mensagens ;
     }
+    public List<Object> listarC(int idObject) {
+        List<Object> mensagens = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "select * from mensagem m inner join pessoa p on m.id_pessoa = p.id_pessoa where m.id_ticket = ?";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Mensagem msg = new Mensagem();
+                Ticket ticket = new Ticket();
+                Pessoa pessoa = new Pessoa();
+                pessoa.setNomePessoa(rs.getString("nome_pessoa"));
+                msg.setRemetente(pessoa);
+                msg.setIdMensagem(rs.getInt("id_mensagem"));
+                ticket.setIdTicket(rs.getInt("id_ticket"));
+                msg.setTicket(ticket);
+                msg.setMensagem(rs.getString("mensagem"));
+                msg.setData(rs.getDate("data"));
+                mensagens.add(msg);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Problemas ao listar msg! Erro: " + ex.getMessage());
+            ex.printStackTrace();
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar parâmetros de conexão! Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+        return mensagens ;
+    }
     
     @Override
     public List<Object> listar() {
