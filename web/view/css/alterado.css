@@ -22,6 +22,10 @@ and open the template in the editor.
     padding: 0 px;
     width:20%;
 }
+.donodamsg{
+    text-align: right;
+    font-size:15px;
+}
 .espacosubtabela{
     margin: 0px;
     padding: 0 px;

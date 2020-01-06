@@ -49,7 +49,7 @@
                     <td>${ticket.titulo}</td>
                     <td>${ticket.status}</td>
                     <td>${ticket.data}</td>
-                    <td><a class="btn btn-primary" onclick="mostrarMensagens('${ticket.idTicket}')">Ver Ticket</a></td>
+                    <td><a class="btn btn-primary" href="CarregarTicket?idTicket=${ticket.idTicket}" >Ver Ticket</a></td>
                     <c:forEach  var="msg" items="${mensagens}">
                         <c:if test="${ticket.idTicket == msg.ticket.idTicket}"> 
                             <div id="${msg.ticket.idTicket}" style="display:none;">

@@ -10,12 +10,51 @@
 <jsp:include page="../dashboard/csss.jsp"></jsp:include>
 <jsp:include page="../dashboard/menualuno.jsp"></jsp:include>
     <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+            <title>JSP Page</title>
+        </head>
+        <body>
+        <c:choose> 
+            <c:when test="${!empty pessoa}">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            ${ticket.titulo}
+                        </div>
+                        <c:forEach  var="msg" items="${mensagens}">
+                            <div class="card-body">
+                                <p>${msg.mensagem}</p>
+
+                                <div class="card-footer donodamsg">
+                                    <small class="text-muted ">${msg.remetente.nomePessoa} Data: ${msg.data}</small>
+                                </div>
+                            </div>
+                        </c:forEach>
+
+                    </div>
+                    <div class="card">
+                        <form method="POST" action="${pageContext.request.contextPath}/SalvarTicket">
+
+                            <input type="hidden" name="idPessoa" value="${pessoa.idPessoa}">
+
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <textarea type="text" name="mensagem" id="mensagem" class="form-control col-md-12" value="" required>
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <input class="btn btn-success col-md-12" type="submit" value="Responder">
+                        </form>
+                    </div>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <jsp:forward page="../login/login.jsp"></jsp:forward>
+            </c:otherwise>
+        </c:choose>
+
     </body>
 </html>
 <jsp:include page="../dashboard/javascripts.jsp"></jsp:include>
