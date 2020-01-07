@@ -3,12 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/academia/perfilacademia.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/SalvarTicket.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/tickets/salvar.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/AparelhoDAOImpl.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/tickets/listar.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/Responder.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/MensagemDAOImpl.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/Administrador.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/AcademiaDAOImpl.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/view/css/alterado.css</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/CarregarTicket.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/Administrador/perfil.jsp</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/TicketDAOImpl.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/tickets/responder.jsp</file>
-            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/tickets/listar.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -34,9 +34,10 @@
 
                     </div>
                     <div class="card">
-                        <form method="POST" action="${pageContext.request.contextPath}/SalvarTicket">
+                        <form method="POST" action="${pageContext.request.contextPath}/Responder">
 
                             <input type="hidden" name="idPessoa" value="${pessoa.idPessoa}">
+                            <input type="hidden" name="idTicket" value="${ticket.idTicket}">
 
                             <div class="form-group row">
                                 <div class="col-md-12">
