@@ -6,6 +6,7 @@
 package br.com.projetoAcademia.controller;
 
 import br.com.projetoAcademia.dao.AcademiaDAOImpl;
+import br.com.projetoAcademia.dao.AdministradorDAOImpl;
 import br.com.projetoAcademia.dao.AlunoDAOImpl;
 import br.com.projetoAcademia.dao.PersonalDAOImpl;
 import br.com.projetoAcademia.dao.PessoaDAOImpl;
@@ -51,27 +52,36 @@ public class LogarPessoa extends HttpServlet {
                         HttpSession session = request.getSession(true);
                         session.setAttribute("pessoa", pessoa);
 
-                        mensagem = "Seja bem-vindo Sr.(a) " + pessoa.getNomePessoa()+ "!";
-                      
+                        mensagem = "Seja bem-vindo Sr.(a) " + pessoa.getNomePessoa() + "!";
+
                         session.setAttribute("saudacao", mensagem);
 
                         if (pessoa.getTipoPessoa().equalsIgnoreCase("aca")) {
-                             AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
+                            AcademiaDAOImpl dao1 = new AcademiaDAOImpl();
                             Integer idAcademia = dao1.pegarId(pessoa.getIdPessoa());
-                            session.setAttribute("academia",idAcademia);
-                            request.getRequestDispatcher("DadosAcademia?idAcademia="+pessoa.getIdPessoa()).forward(request, response);
+                            session.setAttribute("academia", idAcademia);
+                            request.getRequestDispatcher("DadosAcademia?idAcademia=" + pessoa.getIdPessoa()).forward(request, response);
+
                         } else if (pessoa.getTipoPessoa().equalsIgnoreCase("alu")) {
                             AlunoDAOImpl dao1 = new AlunoDAOImpl();
-                             Integer idAluno = dao1.pegarId(pessoa.getIdPessoa());
-                             session.setAttribute("idAluno",idAluno);
-                            request.getRequestDispatcher("DadosAluno?idAluno="+pessoa.getIdPessoa()+"&&idAA="+idAluno).forward(request, response);
-                        }else if (pessoa.getTipoPessoa().equalsIgnoreCase("per")) {
+                            Integer idAluno = dao1.pegarId(pessoa.getIdPessoa());
+                            session.setAttribute("idAluno", idAluno);
+                            request.getRequestDispatcher("DadosAluno?idAluno=" + pessoa.getIdPessoa() + "&&idAA=" + idAluno).forward(request, response);
+
+                        } else if (pessoa.getTipoPessoa().equalsIgnoreCase("per")) {
                             PersonalDAOImpl dao1 = new PersonalDAOImpl();
                             Integer idPersonal = dao1.pegarId(pessoa.getIdPessoa());
                             Integer idAcademia = dao1.pegarIdA(pessoa.getIdPessoa());
-                            session.setAttribute("personal",idPersonal);
-                            session.setAttribute("academia",idAcademia);
-                            request.getRequestDispatcher("DadosPersonal?idPersonal="+pessoa.getIdPessoa()+"&&idAcademia="+idAcademia).forward(request, response);
+                            session.setAttribute("personal", idPersonal);
+                            session.setAttribute("academia", idAcademia);
+                            request.getRequestDispatcher("DadosPersonal?idPersonal=" + pessoa.getIdPessoa() + "&&idAcademia=" + idAcademia).forward(request, response);
+
+                        } else if (pessoa.getTipoPessoa().equalsIgnoreCase("adm")) {
+                            AdministradorDAOImpl dao1 = new AdministradorDAOImpl();
+                            Integer idAdministrador = dao1.pegarId(pessoa.getIdPessoa());
+                            session.setAttribute("idAdministrador", idAdministrador);
+                            request.getRequestDispatcher("DadosAdministrador?idAdministrador=" + idAdministrador).forward(request, response);
+
                         } else {
                             response.sendRedirect("login/login.jsp");
                         }

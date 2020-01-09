@@ -163,3 +163,11 @@ constraint fk_mensagem_pessoa foreign key(id_pessoa) references pessoa(id_pessoa
 constraint fk_ticket_mensagem foreign key(id_ticket) references ticket(id_ticket)
 );
 
+create table administrador(
+id_administrador serial not null,
+id_pessoa int not null,
+telefone_administrador varchar(11) not null,
+email_administrador varchar(100) not null,
+constraint pk_administrador primary key (id_administrador),
+constraint fk_administrador_pessoa foreign key (id_pessoa) references pessoa(id_pessoa)
+);
