@@ -192,4 +192,28 @@ public class AcademiaDAOImpl implements GenericDAO{
         }
     }
     
+     
+    public Boolean ativar(int idObject) {
+       
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        String sql = "update academia set status_academia = 'A' WHERE id_pessoa = ?;";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            stmt.execute();
+            return true;
+        } catch (Exception ex) {
+            System.out.println("Problemas ao Ativar Academia!  Erro: " + ex.getMessage());
+            return false;
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt, rs);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+            }
+        }
+    }
 }
