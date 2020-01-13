@@ -60,7 +60,6 @@ public class PersonalDAOImpl implements GenericDAO{
 
     @Override
     public List<Object> listar() {
-        
           List<Object> personais = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -86,7 +85,7 @@ public class PersonalDAOImpl implements GenericDAO{
                 
             }
         } catch (SQLException ex) {
-            System.out.println("Problemas ao listar animal! Erro: " + ex.getMessage());
+            System.out.println("Problemas ao listar personal! Erro: " + ex.getMessage());
             ex.printStackTrace();
         } finally {
             try {

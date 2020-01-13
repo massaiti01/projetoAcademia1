@@ -17,6 +17,7 @@
         <body>
         <c:choose> 
             <c:when test="${pessoa.tipoPessoa eq 'ACA'}">
+                <c:if test="${academia.statusAcademia eq 'a'}">
                 <div class="alert alert-success" role="alert">
                     Bem Vindo ${pessoa.nomePessoa}
                 </div>
@@ -50,6 +51,12 @@
                     </div>
 
                 </div>
+                </c:if>
+                <c:if test="${academia.statusAcademia eq 'I'}">
+                    <div class="alert alert-success" role="alert">
+                    Bem Vindo ${pessoa.nomePessoa}, Cadastro não ativado, contacte um administrador
+                </div>
+                </c:if>
             </c:when>
             <c:otherwise>
                 <jsp:forward page="../login/login.jsp"></jsp:forward>
