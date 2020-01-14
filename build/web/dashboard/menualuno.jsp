@@ -36,6 +36,7 @@
                                     <a class="nav-link active" href="${pageContext.request.contextPath}/ListarPersonal">Personal</a>
                                 </li>
                                 </c:if>
+                                <c:if test="${pessoa.tipoPessoa != 'ADM'}">
                                 <li class="nav-item active">
                                     <a class="nav-link active" href="${pageContext.request.contextPath}/ListarAluno">Alunos</a>
                                 </li>
@@ -45,7 +46,7 @@
                                 <li class="nav-item active">
                                     <a class="nav-link" href="${pageContext.request.contextPath}/ListarAparelho">Aparelhos</a>
                                 </li>
-
+                                </c:if>
                                  <li class="nav-item active">
                                     <a class="nav-link" href="${pageContext.request.contextPath}/ListarTicket" class="nav-link">Ajuda</a>
                                 </li>

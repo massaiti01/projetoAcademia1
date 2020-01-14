@@ -13,15 +13,19 @@
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/listar.jsp</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/tickets/salvar.jsp</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/administrador/perfil.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/PessoaDAOImpl.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/AtivarAcademia.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/ListarTicket.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/tickets/listar.jsp</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/util/SQL.txt</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/Responder.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/ListarAcademias.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/Administrador.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/Academia.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/Acompanhamento.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/TicketDAOImpl.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/AcompanhamentoDAOImpl.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/TreinoDAOImpl.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/Redirect.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/LogarPessoa.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/AparelhoDAOImpl.java</file>
@@ -33,6 +37,7 @@
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/AcademiaDAOImpl.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/view/css/alterado.css</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/CarregarTicket.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/ListarTickets.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/SalvarAdm.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/AdministradorDAOImpl.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/tickets/responder.jsp</file>

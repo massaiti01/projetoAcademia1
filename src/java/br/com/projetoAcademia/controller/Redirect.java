@@ -6,6 +6,7 @@
 package br.com.projetoAcademia.controller;
 
 import br.com.projetoAcademia.dao.AcademiaDAOImpl;
+import br.com.projetoAcademia.dao.AdministradorDAOImpl;
 import br.com.projetoAcademia.dao.AlunoDAOImpl;
 import br.com.projetoAcademia.dao.PersonalDAOImpl;
 import br.com.projetoAcademia.model.Pessoa;
@@ -59,6 +60,12 @@ public class Redirect extends HttpServlet {
                             session.setAttribute("personal",idPersonal);
                             session.setAttribute("academia",idAcademia);
                             request.getRequestDispatcher("DadosPersonal?idPersonal="+pessoa.getIdPessoa()+"&&idAcademia="+idAcademia).forward(request, response);
+        }else if (pessoa.getTipoPessoa().equalsIgnoreCase("adm")) {
+                            AdministradorDAOImpl dao1 = new AdministradorDAOImpl();
+                            Integer idAdministrador = dao1.pegarId(pessoa.getIdPessoa());
+                            session.setAttribute("idAdministrador", idAdministrador);
+                            request.getRequestDispatcher("DadosAdministrador?idAdministrador=" + idAdministrador).forward(request, response);
+
         }else{
         request.getRequestDispatcher("login/login.jsp").forward(request, response);
         }

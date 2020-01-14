@@ -33,7 +33,8 @@
                         </c:forEach>
 
                     </div>
-                    <div class="card">
+                        <br/>
+                    <div class="card" style="${ticket.status == 'A' ? 'display:block':'display:none'}">
                         <form method="POST" action="${pageContext.request.contextPath}/Responder">
 
                             <input type="hidden" name="idPessoa" value="${pessoa.idPessoa}">
@@ -48,7 +49,11 @@
 
                             <input class="btn btn-success col-md-12" type="submit" value="Responder">
                         </form>
-                    </div>
+                            <br/>
+                            <c:if test="${pessoa.tipoPessoa != 'ADM'}">
+                            <a href="FinalizarTicket?idTicket=${ticket.idTicket}" class="btn btn-danger col-md-12">Finalizar Ticket</a>
+                    </c:if>
+                            </div>
                 </div>
             </c:when>
             <c:otherwise>

@@ -65,7 +65,7 @@
                                     <td>${academia.cnpjAcademia}</td>
                                     <td>${academia.loginPessoa}</td>
                                        <td>${academia.statusAcademia == 'I' ? 'Inativo':'Ativo'} </td>
-                                    <td><a class="btn btn-primary col-sm-12" href="${pageContext.request.contextPath}/AtivarAcademia?idAcademia=${academia.idPessoa}">${academia.statusAcademia == 'I' ? 'Ativar':'Desativar'}</a>
+                                    <td><a class="btn btn-primary col-sm-12" href="${pageContext.request.contextPath}/AtivarAcademia?idAcademia=${academia.idPessoa}" >${academia.statusAcademia == 'I' ? 'Ativar':'Ativado'}</a>
                                        </td>
                                 </tr>
                             </c:forEach>
