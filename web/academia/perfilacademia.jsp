@@ -17,7 +17,7 @@
         <body>
         <c:choose> 
             <c:when test="${pessoa.tipoPessoa eq 'ACA'}">
-                <c:if test="${academia.statusAcademia eq 'a'}">
+                <c:if test="${academia.statusAcademia eq 'A'}">
                 <div class="alert alert-success" role="alert">
                     Bem Vindo ${pessoa.nomePessoa}
                 </div>

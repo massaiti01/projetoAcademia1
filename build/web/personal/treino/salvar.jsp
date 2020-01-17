@@ -51,7 +51,7 @@
                                     <td class="espacotabela">${treino.dataTreino}</td>
                                     <td class="espacotabela">${treino.personal.nomePessoa}</td>
                                     <c:if test="${pessoa.tipoPessoa  != 'ALU'}">
-                                        <td><a class="btn btn-danger" href="${pageContext.request.contextPath}/ExcluirTreino?idTreino=${treino.idTreino}&&idAluno=${idAluno}">Apagar Treino</a>
+                                        <td><a class="btn btn-danger" href="#" onclick="excluir('${pageContext.request.contextPath}/ExcluirTreino?idTreino=${treino.idTreino}&&idAluno=${idAluno}')">Apagar Treino</a>
                                             <a class="btn btn-success" href="${pageContext.request.contextPath}/DadosExercicioTreino?idTreino=${treino.idTreino}&&idAluno=${idAluno}">Adicionar Exercicio</a>
                                         </c:if>
                                         <button class="btn btn-primary" onclick="MostrareEsconder('divsumir${treino.idTreino}')">Ver Exercicios Do treino</button></td>
@@ -81,7 +81,7 @@
                                                     ${exerciciot.cargaTreino}KG
                                                 </td>
                                                 <c:if test="${pessoa.tipoPessoa  != 'ALU'}">
-                                                    <td><a class="btn btn-danger" href="${pageContext.request.contextPath}/ExcluirExercicioTreino?idAluno=${idAluno}&&idExercicioTreino=${exerciciot.idExercicioTreino}">Excluir Exercicio Treino </a></td>
+                                                    <td><a class="btn btn-danger" href="#" onclick="excluir('${pageContext.request.contextPath}/ExcluirExercicioTreino?idAluno=${idAluno}&&idExercicioTreino=${exerciciot.idExercicioTreino}')">Excluir Exercicio Treino </a></td>
                                                 </c:if>
                                             </tr>
                                         </c:if>

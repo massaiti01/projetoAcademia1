@@ -34,7 +34,7 @@
                             <tr>
                                 <td>${grupomuscular.nomeGrupoMuscular}</td>
                                   <td>  <a class="btn btn-primary col-md-5" href="${pageContext.request.contextPath}/CarregarGrupoMuscular?idGrupoMuscular=${grupomuscular.idGrupoMuscular}">Alterar</a>
-                                  <a class="btn btn-danger col-md-5" href="${pageContext.request.contextPath}/ExcluirGrupoMuscular?idGrupoMuscular=${grupomuscular.idGrupoMuscular}">Excluir</a></td>
+                                  <a class="btn btn-danger col-md-5" href="#" onclick="excluir('${pageContext.request.contextPath}/ExcluirGrupoMuscular?idGrupoMuscular=${grupomuscular.idGrupoMuscular}')">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </table>

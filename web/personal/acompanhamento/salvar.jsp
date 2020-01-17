@@ -14,18 +14,7 @@
             <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>Cadastrar Medidas</title>
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <script>
-                
-                    function excluir(param){
-            var result = confirm("Deseja Mesmo Excluir a medida?"); 
-            if (result == true) { 
-                 location.href=param;
-            } else { 
-               
-            } 
-}
-                
-            </script>
+   
         </head>
         <body>
             <div class="col-md-12">
@@ -218,3 +207,4 @@
             </div>
     </body>
 </html>
+<jsp:include page="../../dashboard/javascripts.jsp"></jsp:include>

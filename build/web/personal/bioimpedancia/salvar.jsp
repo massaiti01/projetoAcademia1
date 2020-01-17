@@ -63,7 +63,7 @@
                                     <td>${bioimpedancia.indicePonderal}</td>
                                     <td>${bioimpedancia.indiceConicidade}</td>
                                     <td>${bioimpedancia.personal.nomePessoa}</td>
-                                    <td><a class="btn btn-danger" href="${pageContext.request.contextPath}/ExcluirBioimpedancia?idBioimpedancia=${bioimpedancia.idBioimpedancia}&&idAluno=${bioimpedancia.aluno.idAluno}">Excluir</a></td>
+                                    <td><a class="btn btn-danger" href="#" onclick="excluir('${pageContext.request.contextPath}/ExcluirBioimpedancia?idBioimpedancia=${bioimpedancia.idBioimpedancia}&&idAluno=${bioimpedancia.aluno.idAluno}')">Excluir</a></td>
                                 </tr>
                             </c:forEach>
                         </table>

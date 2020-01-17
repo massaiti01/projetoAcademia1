@@ -17,7 +17,18 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
   <!-- Core plugin JavaScript-->
   <script src="${pageContext.request.contextPath}/css/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+  <script>
+                
+                    function excluir(param){
+            var result = confirm("Deseja Mesmo Excluir?"); 
+            if (result == true) { 
+                 location.href=param;
+            } else { 
+               
+            } 
+}
+                
+            </script>
     </head>
     <body>
     </body>
