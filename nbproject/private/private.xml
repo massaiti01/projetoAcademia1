@@ -8,6 +8,7 @@
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/SalvarAluno.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/Pessoa.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/administrador/tickets.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/treino/salvar.jsp</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/administrador/listar.jsp</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/AlunoDAOImpl.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/listar.jsp</file>
@@ -18,9 +19,12 @@
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/ListarTicket.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/tickets/listar.jsp</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/util/SQL.txt</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/dashboard/menualuno.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/salvar.jsp</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/Responder.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/ListarAcademias.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/Administrador.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/Ticket.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/Academia.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/model/Acompanhamento.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/TicketDAOImpl.java</file>
@@ -28,6 +32,7 @@
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/TreinoDAOImpl.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/Redirect.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/LogarPessoa.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/FinalizarTicket.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/AparelhoDAOImpl.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/controller/CarregarAluno.java</file>
             <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/administrador/salvar.jsp</file>
