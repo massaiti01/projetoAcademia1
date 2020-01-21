@@ -157,7 +157,7 @@ id_mensagem serial not null,
 id_pessoa int not null,
 mensagem varchar(200) not null,
 id_ticket int not null,
-data_ticket date not null,
+data date not null,
 constraint id_mensagem primary key(id_mensagem),
 constraint fk_mensagem_pessoa foreign key(id_pessoa) references pessoa(id_pessoa),
 constraint fk_ticket_mensagem foreign key(id_ticket) references ticket(id_ticket)
