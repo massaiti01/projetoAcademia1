@@ -50,7 +50,7 @@
                             <input class="btn btn-success col-md-12" type="submit" value="Responder">
                         </form>
                             <br/>
-                            <c:if test="${pessoa.tipoPessoa != 'ADM'}">
+                            <c:if test="${pessoa.tipoPessoa eq 'ADM'}">
                             <a href="FinalizarTicket?idTicket=${ticket.idTicket}" class="btn btn-danger col-md-12">Finalizar Ticket</a>
                     </c:if>
                             </div>
