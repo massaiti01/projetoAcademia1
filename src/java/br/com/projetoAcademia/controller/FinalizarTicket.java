@@ -40,7 +40,7 @@ public class FinalizarTicket extends HttpServlet {
             }else{
             String mensagem = "Erro Ao finalizarTicket";
             }
-            request.getRequestDispatcher("ListarTicket").forward(request, response);
+            request.getRequestDispatcher("ListarTickets").forward(request, response);
         } catch (Exception e) {
             System.out.println("Problemas no servlet ao Carregar Aluno!! Erro: " + e.getMessage());
         }
