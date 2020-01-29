@@ -46,10 +46,10 @@
                                 <li class="nav-item active">
                                     <a class="nav-link" href="${pageContext.request.contextPath}/ListarAparelho">Aparelhos</a>
                                 </li>
-                                </c:if>
                                  <li class="nav-item active">
                                     <a class="nav-link" href="${pageContext.request.contextPath}/ListarTicket" class="nav-link">Ajuda</a>
                                 </li>
+                                </c:if>
                                 <li class="nav-item active">
                                     <a class="btn btn-danger" href="${pageContext.request.contextPath}/LogarPessoa?acao=sair" class="nav-link">SAIR</a>
                                 </li>

@@ -73,7 +73,7 @@ public class TicketDAOImpl implements GenericDAO{
         List<Object> tickets = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from ticket where id_pessoa = ?";
+        String sql = "select * from ticket where id_pessoa = ? order by id_ticket desc";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -107,7 +107,7 @@ public class TicketDAOImpl implements GenericDAO{
         List<Object> tickets = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from ticket";
+        String sql = "select * from ticket order by id_ticket desc";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -140,7 +140,7 @@ public class TicketDAOImpl implements GenericDAO{
         List<Object> tickets = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from ticket where status_ticket  = 'F' ";
+        String sql = "select * from ticket where status_ticket  = 'F' order by id_ticket desc";
 
         try {
             stmt = conn.prepareStatement(sql);
