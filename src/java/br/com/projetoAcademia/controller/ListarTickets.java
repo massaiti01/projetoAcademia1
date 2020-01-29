@@ -36,6 +36,7 @@ public class ListarTickets extends HttpServlet {
           try {
             TicketDAOImpl daot = new TicketDAOImpl();
             MensagemDAOImpl daom = new MensagemDAOImpl();
+            request.setAttribute("ticketsr",daot.listarR());
             request.setAttribute("tickets", daot.listar());
             request.setAttribute("mensagens", daom.listar());
             request.getRequestDispatcher("tickets/listar.jsp").forward(request, response);

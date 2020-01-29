@@ -13,6 +13,24 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>Tickets</title>
+              <script type="text/javascript">
+
+                window.onload = function () {
+
+                    //para nomes
+                    var filtro = document.getElementById('filtro-nome');
+                    var tabela = document.getElementById('lista');
+                    filtro.onkeyup = function () {
+                        var nomeFiltro = filtro.value;
+                        for (var i = 1; i < tabela.rows.length; i++) {
+                            var conteudoCelula = tabela.rows[i].cells[0].innerText;
+                            var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
+                            tabela.rows[i].style.display = corresponde ? '' : 'none';
+                        }
+                    }
+                }
+
+            </script>
         </head>
         <body>
                <c:choose> 
@@ -32,8 +50,45 @@
                         </div>
                     </div>
                 </nav>
+                <div class="col-sm-12 table-responsive">
+                                <h1 class="text-center">Tickets Já Respondidos</h1>
+                    <table class="table table-striped" id="lista">
+                        <thead >   
+                             
+                            <tr class="thead-dark">
+                                <th scope="col">Titulo</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Opções</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="ticket" items="${ticketsr}">
+                            <tr>
+                    <td>${ticket.titulo}</td>
+                    <td>${ticket.status}</td>
+                    <td>${ticket.data}</td>
+                    <td><a class="btn btn-primary" href="CarregarTicket?idTicket=${ticket.idTicket}" >Ver Ticket</a></td>
+                    <c:forEach  var="msg" items="${mensagens}">
+                        <c:if test="${ticket.idTicket == msg.ticket.idTicket}"> 
+                            <div id="${msg.ticket.idTicket}" style="display:none;">
+                        <p>${msg.mensagem}</p>
+                        <p>${msg.remetente.nomePessoa} ${msg.data}</p>
+                            </div>
+                        </c:if>
+                    </c:forEach>
+                    </tr>
+                </c:forEach>
+                        </tbody>
+                    </table>
+
+
+                </div>
+                
+                
 
                 <div class="col-sm-12 table-responsive">
+                    <h1 class="text-center"> Seus Tickets</h1>
                     <table class="table table-striped" id="lista">
                         <thead >    
                             <tr class="thead-dark">
