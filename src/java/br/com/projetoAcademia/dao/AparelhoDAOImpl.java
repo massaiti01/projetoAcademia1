@@ -96,7 +96,7 @@ public class AparelhoDAOImpl implements GenericDAO{
         List<Object> aparelhos = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from aparelho where id_academia = ?";
+        String sql = "select * from aparelho where id_academia = ? or id_academia = 1 ";
         try {
             stmt = conn.prepareStatement(sql);
              stmt.setInt(1, idObject);

@@ -55,6 +55,14 @@
 
                         <div class="form-group row">
                             <div class="col-md-2">  
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="email" name="email" class="form-control col-md-12" id="email" value="${adm.emailAdm}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-2">  
                                 <label for="emailAdm">Email Administrador</label>
                             </div>
                             <div class="col-md-10">

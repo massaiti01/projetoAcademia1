@@ -12,7 +12,7 @@ public class ConnectionFactory {
         try{
             Class.forName("org.postgresql.Driver");
             return
-            DriverManager.getConnection("jdbc:postgresql://localhost:5432/bdAcademia", "postgres", "123456");
+            DriverManager.getConnection("jdbc:postgresql://localhost/dataproj_bdAcademia", "dataprojects", "QBioft$R9#Q?");
         }catch(Exception e){
             throw new Exception(e.getMessage());       
         }

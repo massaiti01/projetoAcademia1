@@ -16,7 +16,16 @@ public class Pessoa {
     private String loginPessoa;
     private String senhaPessoa;
     private String tipoPessoa;
+    private String emailPessoa;
 
+    public String getEmailPessoa() {
+        return emailPessoa;
+    }
+
+    public void setEmailPessoa(String emailPessoa) {
+        this.emailPessoa = emailPessoa;
+    }
+    
     public String getTipoPessoa() {
         return tipoPessoa;
     }

@@ -919,7 +919,7 @@
                             data: {
                                 labels: [datas[0], datas[1], datas[2], datas[3], datas[4], datas[5]],
                                 datasets: [{
-                                        label: 'Petoral',
+                                        label: 'Peitoral',
                                         data: [valores[0], valores[1], valores[2], valores[3], valores[4], valores[5]],
                                         backgroundColor: [
                                             'rgba(0 , 0, 0, 0.2)',

@@ -94,7 +94,7 @@ public class ExercicioDAOImpl implements GenericDAO{
           List<Object> exercicios = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from exercicio where id_academia = ?";
+        String sql = "select * from exercicio where id_academia = ? or id_academia = 1 ";
 
         try {
               

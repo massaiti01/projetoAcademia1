@@ -93,7 +93,7 @@ public class GrupomuscularDAOImpl implements GenericDAO{
         List<Object> grupomusculares = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "select * from grupomuscular where id_academia = ?";
+        String sql = "select * from grupomuscular where id_academia = ? or id_academia = 1 ";
 
         try {
             stmt = conn.prepareStatement(sql);

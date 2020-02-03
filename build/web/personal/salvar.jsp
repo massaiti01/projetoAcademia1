@@ -59,11 +59,20 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-2">
+                                    <label for="emailPessoa">Email:</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="email" name="emailPessoa" id="emailPessoa" class="form-control col-md-12" value="${personal.emailPessoa}" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-2">
                                     <label for="loginPessoa">Login:</label>
                                 </div>
                                 <div class="col-md-10">
                                     <input type="text" name="loginPessoa" id="loginPessoa" class="form-control col-md-12" value="${personal.loginPessoa}" required>
-                                </div></div>
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <div class="col-md-2">
                                     <label for="senhaPessoa">Senha</label>
