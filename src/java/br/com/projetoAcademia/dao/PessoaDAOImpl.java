@@ -35,7 +35,7 @@ public class PessoaDAOImpl implements GenericDAO{
         Integer idPessoa = null;
         ResultSet rs = null;
         PreparedStatement stmt = null;
-        String sql = "insert into pessoa(nome_pessoa,telefone_pessoa,login_pessoa,senha_pessoa,tipo_pessoa) values(?,?,?,md5(?),?) returning id_pessoa;";
+        String sql = "insert into pessoa(nome_pessoa,telefone_pessoa,login_pessoa,senha_pessoa,email_pessoa,tipo_pessoa) values(?,?,?,md5(?),?,?) returning id_pessoa;";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -43,7 +43,8 @@ public class PessoaDAOImpl implements GenericDAO{
             stmt.setString(2, pessoa.getTelefonePessoa());
             stmt.setString(3, pessoa.getLoginPessoa());
             stmt.setString(4, pessoa.getSenhaPessoa());
-            stmt.setString(5, pessoa.getTipoPessoa());
+            stmt.setString(5, pessoa.getEmailPessoa());
+            stmt.setString(6, pessoa.getTipoPessoa());
             rs = stmt.executeQuery();
             if (rs.next()) {
                 idPessoa = rs.getInt("id_pessoa");
@@ -66,7 +67,7 @@ public class PessoaDAOImpl implements GenericDAO{
     
     public Integer alterarU(Pessoa pessoa) {
         PreparedStatement stmt = null;
-        String sql = "update pessoa set nome_pessoa=?, telefone_pessoa=?, login_pessoa=?, senha_pessoa=md5(?), tipo_pessoa=? where id_pessoa =?";
+        String sql = "update pessoa set nome_pessoa=?, telefone_pessoa=?, login_pessoa=?, senha_pessoa=md5(?),email_pessoa=?, tipo_pessoa=? where id_pessoa =?";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -74,8 +75,9 @@ public class PessoaDAOImpl implements GenericDAO{
             stmt.setString(2, pessoa.getTelefonePessoa());
             stmt.setString(3, pessoa.getLoginPessoa());
             stmt.setString(4, pessoa.getSenhaPessoa());
-            stmt.setString(5, pessoa.getTipoPessoa());
-            stmt.setInt(6, pessoa.getIdPessoa());
+            stmt.setString(5, pessoa.getEmailPessoa());
+            stmt.setString(6, pessoa.getTipoPessoa());
+            stmt.setInt(7, pessoa.getIdPessoa());
             stmt.execute();
            
         } catch (Exception ex) {
@@ -139,6 +141,7 @@ public class PessoaDAOImpl implements GenericDAO{
                 pessoa.setLoginPessoa(rs.getString("login_pessoa"));
                 pessoa.setNomePessoa(rs.getString("nome_pessoa"));
                 pessoa.setTipoPessoa(rs.getString("tipo_pessoa"));
+                pessoa.setEmailPessoa(rs.getString("email_pessoa"));
                 pessoa.setTelefonePessoa(rs.getString("telefone_pessoa"));
                 
             }
