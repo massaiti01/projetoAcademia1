@@ -39,6 +39,7 @@ public class SalvarAdm extends HttpServlet {
         adm.setTelefonePessoa(request.getParameter("telefonePessoa"));
         adm.setTelefoneAdministrador(request.getParameter("telefoneAdm"));
         adm.setEmailAdministrador(request.getParameter("emailAdm"));
+        adm.setEmailPessoa(request.getParameter("email"));
         adm.setLoginPessoa(request.getParameter("loginPessoa"));
         adm.setSenhaPessoa(request.getParameter("senhaPessoa"));
         adm.setTipoPessoa("ADM");
@@ -50,16 +51,16 @@ public class SalvarAdm extends HttpServlet {
                 if (dao.cadastrar(adm)) {
                     mensagem = "Administrador cadastrado com sucesso!";
                 } else {
-                    mensagem = "Problemas ao cadastrar Aluno!";
+                    mensagem = "Problemas ao cadastrar Administrador!";
                 }
                  request.setAttribute("mensagem", mensagem);
             request.getRequestDispatcher("administrador/salvar.jsp").forward(request, response);
             } else {
                 adm.setIdPessoa(Integer.parseInt(request.getParameter("idPessoa")));
                 if(dao.alterar(adm)){
-                    mensagem="Aluno alterado com sucesso!";
+                    mensagem="Administrador alterado com sucesso!";
                 }else{
-                    mensagem="Problemas ao alterar Aluno!";
+                    mensagem="Problemas ao alterar Administrador!";
                 }
              request.setAttribute("mensagem", mensagem);
             request.getRequestDispatcher("Redirect").forward(request, response);

@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/personal/salvar.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/administrador/salvar.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/aluno/perfilaluno.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/PersonalDAOImpl.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/academia/salvar.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/dao/PessoaDAOImpl.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/aluno/listar.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/web/aluno/salvar.jsp</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/projetoAcademia1/src/java/br/com/projetoAcademia/util/SQL.txt</file>
+        </group>
     </open-files>
 </project-private>

@@ -46,6 +46,7 @@ public class SalvarAluno extends HttpServlet {
         aluno.setTelefonePessoa(request.getParameter("telefonePessoa"));
         aluno.setTelefoneEmergencia(request.getParameter("telefoneEmergencia"));
         aluno.setLoginPessoa(request.getParameter("loginPessoa"));
+        aluno.setEmailPessoa(request.getParameter("emailPessoa"));
         aluno.setSenhaPessoa(request.getParameter("senhaPessoa"));
         aluno.setTipoPessoa("ALU");
 

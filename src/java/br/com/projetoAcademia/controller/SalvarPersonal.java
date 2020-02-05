@@ -46,6 +46,7 @@ public class SalvarPersonal extends HttpServlet {
         personal.setTelefonePessoa(request.getParameter("telefonePessoa"));
         personal.setCrefPersonal(request.getParameter("crefPersonal"));
         personal.setLoginPessoa(request.getParameter("loginPessoa"));
+        personal.setEmailPessoa(request.getParameter("emailPessoa"));
         personal.setSenhaPessoa(request.getParameter("senhaPessoa"));
         personal.setTipoPessoa("PER");
 

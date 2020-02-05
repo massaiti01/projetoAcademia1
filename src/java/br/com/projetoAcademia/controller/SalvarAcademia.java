@@ -6,6 +6,7 @@
 package br.com.projetoAcademia.controller;
 
 import br.com.projetoAcademia.dao.AcademiaDAOImpl;
+import br.com.projetoAcademia.dao.EmailDAOImpl;
 import br.com.projetoAcademia.dao.GenericDAO;
 import br.com.projetoAcademia.model.Academia;
 import java.io.IOException;
@@ -39,6 +40,7 @@ public class SalvarAcademia extends HttpServlet {
         academia.setNomePessoa(request.getParameter("nomePessoa"));
         academia.setTelefonePessoa(request.getParameter("telefonePessoa"));
         academia.setLoginPessoa(request.getParameter("loginPessoa"));
+        academia.setEmailPessoa(request.getParameter("emailPessoa"));
         academia.setSenhaPessoa(request.getParameter("senhaPessoa"));
         academia.setTipoPessoa("ACA");
         academia.setStatusAcademia("I");
@@ -46,8 +48,14 @@ public class SalvarAcademia extends HttpServlet {
         
         try (PrintWriter out = response.getWriter()) {
             GenericDAO dao = new AcademiaDAOImpl();
+            EmailDAOImpl daoe = new EmailDAOImpl();
             if (request.getParameter("idPessoa").equals("")) {
                 if (dao.cadastrar(academia)) {
+                    if(daoe.EnviarEmail(academia)){
+                        System.out.println("Email Enviado com Sucesso");
+                    }else{
+                        System.out.println("Falha ao Enviar o Email");
+                    }
                     mensagem = "Academia cadastrada com sucesso!!Por favor ative seu cadastro!";
                 } else {
                     mensagem = "Problemas ao cadastrar Academia!";
