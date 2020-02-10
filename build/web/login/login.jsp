@@ -34,6 +34,7 @@
       <div class="card-header">Acessar Sistema</div>
       <div class="card-body">
         <form method="POST" action="${pageContext.request.contextPath}/LogarPessoa">
+            ${mensagem}
           <div class="form-group">
             <div class="form-label-group">
               <input type="text" id="login" name="login" class="form-control" placeholder="Nome de Usuário" required="required" autofocus="autofocus">
@@ -59,7 +60,7 @@
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="${pageContext.request.contextPath}/academia/salvar.jsp">Cadastre-se</a>
-          <a class="d-block small" href="forgot-password.html">Esqueceu sua Senha?</a>
+          <a class="d-block small" href="${pageContext.request.contextPath}/login/redefinirsenha.jsp">Esqueceu sua Senha?</a>
         </div>
       </div>
     </div>

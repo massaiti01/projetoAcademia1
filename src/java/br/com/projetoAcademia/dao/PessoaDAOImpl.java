@@ -97,6 +97,34 @@ public class PessoaDAOImpl implements GenericDAO{
 
 
     }
+    
+    public Boolean redefinirSenha(Pessoa pessoa) {
+        PreparedStatement stmt = null;
+        String sql = "update pessoa set senha_pessoa=md5(?) where email_pessoa =?";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, pessoa.getSenhaPessoa());
+            stmt.setString(2, pessoa.getEmailPessoa());
+            stmt.execute();
+           
+        } catch (Exception ex) {
+            System.out.println("Problemas ao Alterar Pessoa ! Erro: " + ex.getMessage());
+            ex.printStackTrace();
+            return false;
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(conn, stmt);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+            
+        }
+        return true;
+
+
+    }
 
     @Override
     public List<Object> listar() {

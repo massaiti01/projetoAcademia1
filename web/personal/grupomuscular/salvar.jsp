@@ -63,7 +63,7 @@
                                             <label for="nomeGrupoMuscular">Nome:</label>
                                             </div>
                                                 <div class="col-md-10">
-                                            <input type="text" name="nomeGrupoMuscular" id="nomeGrupoMuscular" class="form-control col-md-12" value="${grupomuscular.nomeGrupoMuscular}">
+                                            <input type="text" name="nomeGrupoMuscular" id="nomeGrupoMuscular" class="form-control col-md-12" value="${grupomuscular.nomeGrupoMuscular}" required>
                                              </div>
                                             </div>
                                            <div class="form-group">

@@ -84,7 +84,7 @@
                                 <label class="col-sm-12 col-form-label" for="ombroAluno">Ombro</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="number" name="ombroAluno" class="form-control col-md-12" id="ombroAluno"/>
+                                <input type="number" name="ombroAluno" class="form-control col-md-12" id="ombroAluno" required/>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -92,7 +92,7 @@
                                 <label class="col-sm-12 col-form-label" for="peitoralAluno">Peitoral</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="number" name="peitoralAluno" class="form-control col-md-12" id="peitoralAluno"/>
+                                <input type="number" name="peitoralAluno" class="form-control col-md-12" id="peitoralAluno" required/>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -100,7 +100,7 @@
                                 <label class="col-sm-12 col-form-label" for="bracoDAluno">Braço Direito</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="number" name="bracoDAluno" class="form-control col-md-12" id="bracoDAluno"/>
+                                <input type="number" name="bracoDAluno" class="form-control col-md-12" id="bracoDAluno" required/>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -108,7 +108,7 @@
                                 <label class="col-sm-12 col-form-label" for="bracoEAluno">Braço Esquerdo</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="number" name="bracoEAluno" class="form-control col-md-12" id="bracoEAluno"/>
+                                <input type="number" name="bracoEAluno" class="form-control col-md-12" id="bracoEAluno" required/>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -116,7 +116,7 @@
                                 <label class="col-sm-12 col-form-label" for="anteBracoDAluno">Antebraço Direito</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="number" name="anteBracoDAluno" class="form-control col-md-12" id="anteBracoDAluno"/>
+                                <input type="number" name="anteBracoDAluno" class="form-control col-md-12" id="anteBracoDAluno" required/>
                             </div>
                         </div>
 
@@ -125,7 +125,7 @@
                                 <label class="col-sm-12 col-form-label" for="anteBracoEAluno">Antebraço Esquerdo</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="number" name="anteBracoEAluno" class="form-control col-md-12" id="anteBracoEAluno"/>
+                                <input type="number" name="anteBracoEAluno" class="form-control col-md-12" id="anteBracoEAluno" required/>
                             </div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
                                 <label for="cinturaAluno">Cintura</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="number" name="cinturaAluno" class="form-control col-md-12" id="cinturaAluno"/>
+                                <input type="number" name="cinturaAluno" class="form-control col-md-12" id="cinturaAluno" required/>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -146,7 +146,7 @@
                                 <label for="gluteoAluno">Gluteos</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="number" name="gluteoAluno" class="form-control col-md-12" id="gluteoAluno"/>
+                                <input type="number" name="gluteoAluno" class="form-control col-md-12" id="gluteoAluno" required/>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -154,7 +154,7 @@
                                 <label for="quadrilAluno">Quadril</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="number" name="quadrilAluno" class="form-control col-md-12" id="quadrilAluno"/>
+                                <input type="number" name="quadrilAluno" class="form-control col-md-12" id="quadrilAluno" required/>
                             </div>
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                         <label for="pernaDAluno">Perna Direita</label>
                         </div>
                             <div class="col-md-8">
-                        <input type="number" name="pernaDAluno" class="form-control col-md-12" id="pernaDAluno"/>
+                        <input type="number" name="pernaDAluno" class="form-control col-md-12" id="pernaDAluno" required/>
                          </div>
                         </div>
                         <div class="form-group row">
@@ -173,7 +173,7 @@
                         <label for="pernaEAluno">Perna Esquerda</label>
                         </div>
                             <div class="col-md-8">
-                        <input type="number" name="pernaEAluno" class="form-control col-md-12" id="pernaEAluno"/>
+                        <input type="number" name="pernaEAluno" class="form-control col-md-12" id="pernaEAluno" required/>
                         </div>
                         </div>
                         <div class="form-group row">
@@ -181,7 +181,7 @@
                         <label for="panturrilhaDAluno">Panturrilha Direita</label>
                         </div>
                             <div class="col-md-8">
-                        <input type="number" name="panturrilhaDAluno" class="form-control col-md-12" id="panturrilhaDAluno"/>
+                        <input type="number" name="panturrilhaDAluno" class="form-control col-md-12" id="panturrilhaDAluno" required/>
                         </div>
                         </div>
                         <div class="form-group row">
@@ -189,7 +189,7 @@
                         <label for="panturrilhaEAluno">Panturrilha Esquerda</label>
                         </div>
                             <div class="col-md-8">
-                        <input type="number" name="panturrilhaEAluno" class="form-control col-md-12" id="panturrilhaEAluno"/>
+                        <input type="number" name="panturrilhaEAluno" class="form-control col-md-12" id="panturrilhaEAluno" required/>
                     </div>
                     </div>
                     </div>

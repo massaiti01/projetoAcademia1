@@ -3,7 +3,7 @@ id_pessoa serial not null,
 nome_pessoa varchar(50) not null,
 tipo_pessoa char(3) not null,
 telefone_pessoa varchar(11) not null,
-email_pessoa varchar(100) not null,
+email_pessoa varchar(100) not null Unique,
 login_pessoa varchar(30) not null Unique,
 senha_pessoa varchar(50) not null,
 constraint pk_pessoa primary key (id_pessoa) 

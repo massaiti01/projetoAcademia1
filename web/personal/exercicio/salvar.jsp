@@ -71,12 +71,12 @@
                                                 <label for="nomeExercicio">Nome Exercicio:</label>
                                             </div>
                                             <div class="col-md-10">
-                                                <input type="text" name="nomeExercicio" class="col-md-12 form-control" id="nomeExercicio" value="${exercicio.nomeExercicio}">
+                                                <input type="text" name="nomeExercicio" class="col-md-12 form-control" id="nomeExercicio" value="${exercicio.nomeExercicio}" required>
                                             </div>
                                         </div>
                                         <div class="row form-group">
                                             <div class="col-md-12">
-                                                <input type="file" id="fotoExercicio" name="fotoExercicio">
+                                                <input type="file" id="fotoExercicio" name="fotoExercicio" required>
                                             </div>
                                         </div>
                                         <div class="form-group">

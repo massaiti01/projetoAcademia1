@@ -65,7 +65,7 @@
                                                     <label for="nomeAparelho">Nome:</label>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="nomeAparelho" class="form-control col-md-12" id="nomeAparelho" value="${aparelho.nomeAparelho}">
+                                                    <input type="text" name="nomeAparelho" class="form-control col-md-12" id="nomeAparelho" value="${aparelho.nomeAparelho}" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">

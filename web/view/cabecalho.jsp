@@ -30,9 +30,7 @@
             <div class="menu">
                 <ul id="fontelink">
                     <li><a href="${pageContext.request.contextPath}/index.jsp" class="active">INICIO</a></li>
-                    <li><a href="services.html">SERVIÇOS</a></li>
-                    <li><a href="portfolio.html">SOBRE</a></li>
-                    <li><a href="about.html">CONTATO</a></li>
+                    <li><a href="${pageContext.request.contextPath}/privacidade.jsp">POLÍTICA DE PRIVACIDADE</a></li>
                     <li><a href="${pageContext.request.contextPath}/Redirect">ACESSAR SISTEMA</a></li>
                 </ul>
             </div>
