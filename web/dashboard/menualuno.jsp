@@ -50,14 +50,21 @@
                                     <a class="nav-link" href="${pageContext.request.contextPath}/ListarTicket" class="nav-link">Ajuda</a>
                                 </li>
                                 </c:if>
+                                 <li class="nav-item active">
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/dashboard/alterarsenha.jsp" class="nav-link">Alterar Senha</a>
+                                </li>
                                 <li class="nav-item active">
                                     <a class="btn btn-danger" href="${pageContext.request.contextPath}/LogarPessoa?acao=sair" class="nav-link">SAIR</a>
                                 </li>
+                               
 
                             </c:when>
 
                             <c:otherwise>
 
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/dashboard/alterarsenha.jsp" class="nav-link">Alterar Senha</a>
+                                </li>
                                 <li class="nav-item active">
                                     <a class="nav-link" href="${pageContext.request.contextPath}/ListarTicket" class="nav-link">AJUDA</a>
                                 </li>

@@ -40,14 +40,9 @@ public class LogarPessoa extends HttpServlet {
             throws ServletException, IOException {
         String mensagem = null;
         if (request.getParameter("acao").equals("logar")) {
-
-            String login = request.getParameter("login");
-            String senha = request.getParameter("senha");
-
-            if (!login.equals("") && !senha.equals("")) {
                 try {
                     PessoaDAOImpl dao = new PessoaDAOImpl();
-                    Pessoa pessoa = dao.logarPessoa(login, senha);
+                    Pessoa pessoa = dao.logarPessoa(request.getParameter("login"),request.getParameter("senha"));
                     if (pessoa != null) {
                         HttpSession session = request.getSession(true);
                         session.setAttribute("pessoa", pessoa);
@@ -86,7 +81,7 @@ public class LogarPessoa extends HttpServlet {
                             response.sendRedirect("login/login.jsp");
                         }
                     } else {
-                        mensagem = "Usuário e/ou Senha inválidos!";
+                        mensagem = "Usuario e/ou Senha Inv�lidos!";
                         request.setAttribute("mensagem", mensagem);
                         request.getRequestDispatcher("login/login.jsp").forward(request, response);
                     }
@@ -94,12 +89,12 @@ public class LogarPessoa extends HttpServlet {
                     System.out.println("Problemas ao logar! Erro: " + ex.getMessage());
                     ex.printStackTrace();
                 }
-            } else {
+            
 
                 mensagem = "Usuário/Senha inválidos!";
                 request.setAttribute("mensagem", mensagem);
                 request.getRequestDispatcher("pessoa/salvar.jsp").forward(request, response);
-            }
+            
         } else if (request.getParameter("acao").equals("sair")) {
             HttpSession session = request.getSession(true);
             session.invalidate();
